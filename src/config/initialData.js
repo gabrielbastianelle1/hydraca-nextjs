@@ -3,8 +3,9 @@ const User = require('../models/model.User')
 function insertInitialData() {
     User.find({})
         .then((response) => {
-            if (response.length == 0) {
-                //so vai funcionar se for rodado pela primeira vez
+            let totalUsersInserted = response.length
+
+            if (totalUsersInserted == 0) {
                 let admin = new User({
                     role: 'admin',
                     name: 'admin',
@@ -13,7 +14,7 @@ function insertInitialData() {
                     password: 'admin'
                 })
 
-                admin.encrypt_password()
+                admin.encryptPassword()
                 admin.save()
             }
         })

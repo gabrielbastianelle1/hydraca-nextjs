@@ -65,11 +65,11 @@ const User = new mongoose.Schema(
     }
 )
 
-User.methods.encrypt_password = async function () {
+User.methods.encryptPassword = async function () {
     this.password = await bcrypt.hashSync(this.password, bcrypt.genSaltSync(10))
 }
 
-User.methods.compare_password = async function (req, user) {
+User.methods.comparePassword = async function (req, user) {
     return await bcrypt.compareSync(req.password, user.password)
 }
 

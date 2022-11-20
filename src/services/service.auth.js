@@ -1,15 +1,15 @@
 const User = require('../models/model.User')
 const jwt = require('jsonwebtoken')
-const { auth_error_handler } = require('../errors/error.auth')
+const { authErrorHandler } = require('../errors/errors')
 
 let authService = {
     signup: function (req) {
         return new Promise(async (resolve, reject) => {
             new_user = new User(req) //novo usuario
-            await new_user.encrypt_password() //encriptar a password
+            await new_user.encryptPassword() //encriptar a password
             new_user.save((err, result) => {
                 if (err) {
-                    return reject(auth_error_handler(err))
+                    return reject(authErrorHandler(err))
                 }
                 return resolve(result)
             })
@@ -25,14 +25,13 @@ let authService = {
                     return reject('email do not registed')
                 }
 
-                if (!(await new User().compare_password(req, result[0]))) {
+                let user = result[0]
+
+                if (!(await new User().comparePassword(req, user))) {
                     reject('wrong password')
                 }
 
-                let token = jwt.sign(
-                    { user: result[0] },
-                    process.env.SECRET_KEY
-                )
+                let token = jwt.sign({ user: user }, process.env.SECRET_KEY)
                 return resolve(token)
             })
         })

@@ -1,8 +1,4 @@
-/**
- * ERROS
- */
-
-function auth_error_handler(error) {
+function authErrorHandler(error) {
     if (error.code == 11000) {
         return 'email already used'
     } else {
@@ -12,7 +8,7 @@ function auth_error_handler(error) {
     }
 }
 
-function admin_error_handler(error) {
+function adminErrorHandler(error) {
     if (error.code == 11000) {
         return 'name already used'
     } else {
@@ -23,6 +19,6 @@ function admin_error_handler(error) {
 }
 
 module.exports = {
-    auth_error_handler,
-    admin_error_handler
+    authErrorHandler,
+    adminErrorHandler
 }
