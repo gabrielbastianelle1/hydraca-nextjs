@@ -26,13 +26,9 @@
         }
     },
   "lint-staged": {
-      "./pages/**/*": [
+      "**/*.(js,jsx)": [
           "npm run format",
           "git add"
-      ],
-      "./components/**/*": [
-        "npm run format",
-        "git add"
-    ]
+      ]
   }
 }
