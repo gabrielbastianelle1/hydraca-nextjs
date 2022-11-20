@@ -5,9 +5,9 @@ const { authErrorHandler } = require('../errors/errors')
 let authService = {
     signup: function (req) {
         return new Promise(async (resolve, reject) => {
-            new_user = new User(req) //novo usuario
-            await new_user.encryptPassword() //encriptar a password
-            new_user.save((err, result) => {
+            let newUser = new User(req) //novo usuario
+            await newUser.encryptPassword() //encriptar a password
+            newUser.save((err, result) => {
                 if (err) {
                     return reject(authErrorHandler(err))
                 }

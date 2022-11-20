@@ -43,12 +43,10 @@ const User = new mongoose.Schema(
         idDiabetes: {
             type: mongoose.Types.ObjectId,
             ref: 'Diabetes'
-            //required: true
         },
         idTherapy: {
             type: mongoose.Types.ObjectId,
             ref: 'Therapy'
-            //required: true
         },
         sensitivity: {
             type: Number
@@ -73,4 +71,4 @@ User.methods.comparePassword = async function (req, user) {
     return await bcrypt.compareSync(req.password, user.password)
 }
 
-module.exports = mongoose.model('User', User)
+module.exports = mongoose.models.User || mongoose.model('User', User)

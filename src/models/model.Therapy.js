@@ -24,4 +24,4 @@ const Therapy = new mongoose.Schema(
     }
 )
 
-module.exports = mongoose.model('Therapy', Therapy)
+module.exports = mongoose.models.Therapy || mongoose.model('Therapy', Therapy)

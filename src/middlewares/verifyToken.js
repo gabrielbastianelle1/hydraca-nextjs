@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 
-let verifyToken = {
-    verifyToken: (req, res, next) => {
+function verifyToken(next) {
+    return (req, res) => {
         let token = req.headers['x-access-token']
 
         if (!token) {
@@ -14,7 +14,7 @@ let verifyToken = {
             }
             req.user = user
         })
-        next()
+        return next(req, res)
     }
 }
 

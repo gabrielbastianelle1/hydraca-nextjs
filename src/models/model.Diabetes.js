@@ -17,4 +17,5 @@ const Diabetes = new mongoose.Schema(
     }
 )
 
-module.exports = mongoose.model('Diabetes', Diabetes)
+module.exports =
+    mongoose.models.Diabetes || mongoose.model('Diabetes', Diabetes)

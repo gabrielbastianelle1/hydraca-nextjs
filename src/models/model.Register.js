@@ -49,4 +49,5 @@ const Register = new mongoose.Schema(
     }
 )
 
-module.exports = mongoose.model('Register', Register)
+module.exports =
+    mongoose.models.Register || mongoose.model('Register', Register)
