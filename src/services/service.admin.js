@@ -3,7 +3,6 @@ const Therapy = require('../models/model.Therapy')
 const Diabete = require('../models/model.Diabetes')
 const Food = require('../models/model.Food')
 const { adminErrorHandler } = require('../errors/errors')
-const { param } = require('express/lib/router')
 
 let adminService = {
     getAllUsers: function () {
