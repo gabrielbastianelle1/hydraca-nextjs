@@ -1,34 +1,34 @@
 {
-  "name": "hydraca-next",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "prepare": "husky install",
-    "format": "prettier --write ."
-  },
-  "dependencies": {
-    "lint-staged": "^13.0.3",
-    "next": "13.0.4",
-    "prettier": "^2.7.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "devDependencies": {
-    "husky": "^8.0.0"
-  },
+    "name": "hydraca-next",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "prepare": "husky install",
+        "format": "prettier --write ."
+    },
+    "dependencies": {
+        "lint-staged": "^13.0.3",
+        "next": "13.0.4",
+        "prettier": "^2.7.1",
+        "react": "18.2.0",
+        "react-dom": "18.2.0"
+    },
+    "devDependencies": {
+        "husky": "^8.0.0"
+    },
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged"
         }
     },
-  "lint-staged": {
-      "**/*.(js,jsx)": [
-          "npm run format",
-          "git add"
-      ]
-  }
+    "lint-staged": {
+        "**/*": [
+            "npm run format",
+            "git add"
+        ]
+    }
 }
