@@ -1,9 +1,6 @@
 const User = require('../models/model.User')
 const Therapy = require('../models/model.Therapy')
-const Diabete = require('../models/model.Diabetes')
 const Food = require('../models/model.Food')
-
-const { adminErrorHandler } = require('../errors/error.auth')
 
 let userService = {
     getAllFoodUser: function () {
