@@ -26,11 +26,11 @@
         }
     },
   "lint-staged": {
-      "pages/**/*": [
+      "./pages/**/*": [
           "npm run format",
           "git add"
       ],
-      "components/**/*": [
+      "./components/**/*": [
         "npm run format",
         "git add"
     ]
