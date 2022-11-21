@@ -14,17 +14,6 @@ let userService = {
         })
     },
 
-    getAllInfo: function (req) {
-        return new Promise(async (resolve, reject) => {
-            User.find({ user: req.user }, (err, result) => {
-                if (err) {
-                    return reject(err)
-                }
-                return resolve(result)
-            })
-        })
-    },
-
     getAllTherapy: function () {
         return new Promise(async (resolve, reject) => {
             Therapy.find({}, (err, result) => {
@@ -36,18 +25,7 @@ let userService = {
         })
     },
 
-    getAllTherapy: function () {
-        return new Promise(async (resolve, reject) => {
-            Therapy.find({}, (err, result) => {
-                if (err) {
-                    return reject(err)
-                }
-                return resolve(result)
-            })
-        })
-    },
-
-    updatePerfil: function (params, body, req) {
+    updateProfile: function (params, body, req) {
         return new Promise(async (resolve, reject) => {
             try {
                 await User.findOneAndUpdate(

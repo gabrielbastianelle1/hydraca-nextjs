@@ -14,22 +14,6 @@ let userController = {
         }
     },
 
-    getAllInfo: async function (req, res) {
-        try {
-            return res.status(200).json(await userService.getAllInfo(req.user))
-        } catch (error) {
-            return res.status(400).json(error)
-        }
-    },
-
-    getAllTherapy: async function (req, res) {
-        try {
-            return res.status(200).json(await userService.getAllTherapy())
-        } catch (error) {
-            return res.status(400).json(error)
-        }
-    },
-
     insertRegister: async function (req, res) {
         console.log(req.user.user)
 
@@ -43,7 +27,7 @@ let userController = {
         })
     },
 
-    updatePerfil: async function (req, res) {
+    updateProfile: async function (req, res) {
         try {
             return res
                 .status(200)
