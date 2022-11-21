@@ -11,11 +11,13 @@ let adminController = {
 
     getAllUsersRemove: async function (req, res) {
         try {
+            console.log('viviab')
             return res.status(200).json(await adminService.getAllUsersRemove())
         } catch (error) {
             return res.status(400).json(error)
         }
     },
+    //ishnfhçksdfnksjfn
 
     getUsersEmail: async function (req, res) {
         try {
