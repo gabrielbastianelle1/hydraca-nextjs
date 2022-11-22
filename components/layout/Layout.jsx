@@ -8,7 +8,7 @@ export default function Layout({ children, title }) {
                 <title>{title}</title>
             </Head>
 
-            <div className="min-h-screen overflow-hidden">
+            <div className="lg:base-background min-h-screen overflow-hidden">
                 <Header />
 
                 {children}

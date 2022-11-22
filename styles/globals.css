@@ -2,41 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-    :root{
+@layer base {
+    :root {
         --color-button: #031954;
     }
 }
 
-@layer components{
-
-    .base-background::before{
+@layer components {
+    .base-background::before {
         content: '';
         width: 500px;
         height: 500px;
         position: absolute;
         z-index: -1;
-        left: 100px;
-        top: 300px;
+        left: 50px;
+        bottom: 50px;
 
         border-radius: 50%;
         background: linear-gradient(142.77deg, #c8e6c9 15.84%, #b3e5fc 85.86%);
         opacity: 0.2;
     }
 
-    .base-background::after{
+    .base-background::after {
         content: '';
         width: 500px;
         height: 500px;
         position: absolute;
-        right: 100px;
-        top: 0px;
+        right: 50px;
+        top: 50px;
         z-index: -1;
 
         border-radius: 50%;
         background: linear-gradient(142.77deg, #c8e6c9 15.84%, #b3e5fc 85.86%);
         opacity: 0.2;
     }
-
-
 }
