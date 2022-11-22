@@ -10,10 +10,10 @@ export default function Nav() {
                     <NavItem hrefLink="teste" text="Home" />
                     <NavItem hrefLink="teste" text="About" />
                     <NavItem hrefLink="teste" text="Contact" />
-                    <NavItem hrefLink="teste" text="Login" />
+                    <NavItem hrefLink="teste" text="Signin" />
                 </div>
                 <buttom className="font-extrabold text-white bg-colorButton px-5 py-2 rounded cursor-pointer">
-                    item 5
+                    Signup
                 </buttom>
             </nav>
         </>

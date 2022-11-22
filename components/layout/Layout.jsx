@@ -8,9 +8,8 @@ export default function Layout({ children, title }) {
                 <title>{title}</title>
             </Head>
 
-            <div className="lg:base-background min-h-screen overflow-hidden">
+            <div className="flex flex-col lg:base-background min-h-screen overflow-hidden w-full">
                 <Header />
-
                 {children}
             </div>
         </>
