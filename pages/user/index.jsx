@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
-import homeUser from '../../../components/home/homeUser'
+import HomeUser from '../../components/homeUser/HomeUser'
 
 export default function Index() {
     return (
         <main title="Hydraca">
-            <homeUser />
+            <HomeUser />
         </main>
     )
 }
