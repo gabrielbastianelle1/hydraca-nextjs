@@ -37,14 +37,13 @@
         opacity: 0.2;
     }
 
-    .char{
+    .char {
         transform: translateY(200px);
         transition: all 0.5s;
     }
 
-    .p-gsap{
+    .p-gsap {
         transition: all 0.5s;
         opacity: 0;
     }
-
 }
