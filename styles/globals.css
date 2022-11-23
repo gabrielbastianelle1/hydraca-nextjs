@@ -46,4 +46,8 @@
         transition: all 0.5s;
         opacity: 0;
     }
+
+    .input{
+        @apply border p-3 rounded-xl  mt-3 mb-3;
+    }
 }

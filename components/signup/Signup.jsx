@@ -1,8 +1,9 @@
+import Form from './Form'
+
 export default function Signup() {
     return (
-        <main>
-            <label htmlFor="name">Name:</label>
-            <input type="text" name="" id="name" />
+        <main className="h-full grid items-center">
+            <Form />
         </main>
     )
 }
