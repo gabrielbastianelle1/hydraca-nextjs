@@ -4,6 +4,7 @@ import SplitType from 'split-type'
 
 export default function Welcome() {
     const h1 = useRef(null)
+    const h2 = useRef(null)
 
     useEffect(() => {
         new SplitType(h1.current)
@@ -36,7 +37,7 @@ export default function Welcome() {
                 >
                     Monitore a sua diabete diariamente e tenha mais qualidade de
                     vida.
-                    <br /> Efetue registos regularmento dos hidratos de carbono.
+                    <br/> Efetue registos regularmento dos hidratos de carbono.
                 </h2>
             </div>
         </main>
