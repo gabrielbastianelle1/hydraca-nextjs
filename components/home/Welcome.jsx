@@ -22,20 +22,22 @@ export default function Welcome() {
 
     return (
         <main>
-            <h1
-                ref={h1}
-                className="uppercase text-4xl md:text-5xl lg:text-7xl text-colorButton overflow-hidden mb-5 text-center"
-            >
-                welcome to hydraca.
-            </h1>
-            <div className="space-y-2">
-                <p className="text-center p-gsap lg:text-2xl">
-                    Monitor your diabetes daily and have more quality of life
-                </p>
-                <p className="text-center p-gsap lg:text-2xl">
-                    Carry out rebooking records of carbohydrates
-                </p>
-                <p className="text-center p-gsap lg:text-2xl">Sign up now!</p>
+            <div class="absolute inset-x-0 top-20 h-16">
+                <h1
+                    ref={h1}
+                    className="uppercase  text-center font-bold text-5xl lg:text-5xl text-colorButton"
+                >
+                    BEM VINDO À HYDRACA
+                </h1>
+                <br />
+                <h2
+                    ref={h2}
+                    className="uppercase text-center   text-lg  text-black"
+                >
+                    Monitore a sua diabete diariamente e tenha mais qualidade de
+                    vida.
+                    <br /> Efetue registos regularmento dos hidratos de carbono.
+                </h2>
             </div>
         </main>
     )
