@@ -9,13 +9,12 @@ npm install
 ```
 
 Then, run the application:
+
 ```bash
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser and have fun with Hydraca.
-
-
 
 ## Learn More
 
