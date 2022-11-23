@@ -36,4 +36,15 @@
         background: linear-gradient(142.77deg, #c8e6c9 15.84%, #b3e5fc 85.86%);
         opacity: 0.2;
     }
+
+    .char{
+        transform: translateY(200px);
+        transition: all 0.5s;
+    }
+
+    .p-gsap{
+        transition: all 0.5s;
+        opacity: 0;
+    }
+
 }
