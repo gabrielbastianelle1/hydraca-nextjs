@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 let authService = {
-     signin: function (email, password) {
+    signin: function (email, password) {
         return new Promise(async (result, reject) => {
             try {
                 let response = await axios.post(
@@ -22,11 +22,14 @@ let authService = {
     getCurrentUser: async function () {
         return new Promise(async (result, reject) => {
             try {
-                let response = await axios.get('http://localhost:3000/api/user', {
-                    headers: {
-                        'x-access-token': localStorage.getItem('token')
+                let response = await axios.get(
+                    'http://localhost:3000/api/user',
+                    {
+                        headers: {
+                            'x-access-token': localStorage.getItem('token')
+                        }
                     }
-                })
+                )
                 return result(response)
             } catch (error) {
                 return reject(error)

@@ -54,7 +54,7 @@
         background-color: white;
         right: 10%;
     }
-    .input{
+    .input {
         @apply border p-3 rounded-xl  mt-3 mb-3;
     }
 }

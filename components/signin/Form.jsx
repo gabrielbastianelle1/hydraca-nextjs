@@ -4,7 +4,7 @@ import useRouter from 'next/router'
 
 export default function Form() {
     const navigate = useRouter
-    /*--COLOCCAR O HIDE E SHOw DENTRO DO UINPUT, NÃO CONSEGUI :')*/
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [message, setMessage] = useState({
@@ -23,7 +23,6 @@ export default function Form() {
 
     async function handleSubmit(e) {
         e.preventDefault()
-
         await authService.signin(email, password)
         navigate.push('/user')
     }
@@ -56,7 +55,6 @@ export default function Form() {
                     className="input "
                     required
                 />
-
                 <div>
                     <label
                         onClick={() => setShowPassword(!showPassword)}

@@ -37,7 +37,7 @@ export default function Welcome() {
                 >
                     Monitore a sua diabete diariamente e tenha mais qualidade de
                     vida.
-                    <br/> Efetue registos regularmento dos hidratos de carbono.
+                    <br /> Efetue registos regularmento dos hidratos de carbono.
                 </h2>
             </div>
         </main>

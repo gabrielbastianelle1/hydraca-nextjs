@@ -1,7 +1,7 @@
-import Form from "./Form";
+import Form from './Form'
 
 export default function Login() {
-    return(
+    return (
         <main className="h-full grid items-center">
             <Form />
         </main>
