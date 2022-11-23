@@ -17,7 +17,6 @@ let adminController = {
             return res.status(400).json(error)
         }
     },
-    //ishnfhçksdfnksjfn
 
     getUsersEmail: async function (req, res) {
         try {

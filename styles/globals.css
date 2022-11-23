@@ -37,12 +37,12 @@
         opacity: 0.2;
     }
 
-    .char{
+    .char {
         transform: translateY(200px);
         transition: all 0.5s;
     }
 
-    .p-gsap{
+    .p-gsap {
         transition: all 0.5s;
         opacity: 0;
     }
@@ -53,5 +53,7 @@
         padding-bottom: 25%;
         background-color: white;
         right: 10%;
+    .input{
+        @apply border p-3 rounded-xl  mt-3 mb-3;
     }
 }

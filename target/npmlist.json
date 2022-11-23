@@ -1,0 +1,20 @@
+{
+    "version": "0.1.0",
+    "name": "hydraca-next",
+    "dependencies": {
+        "@heroicons/react": { "version": "1.0.6" },
+        "@svgr/webpack": { "version": "6.5.1" },
+        "bcryptjs": { "version": "2.4.3" },
+        "dotenv": { "version": "16.0.3" },
+        "gsap": { "version": "3.11.3" },
+        "jsonwebtoken": { "version": "8.5.1" },
+        "lint-staged": { "version": "13.0.3" },
+        "mongoose": { "version": "6.7.2" },
+        "next": { "version": "13.0.4" },
+        "prettier": { "version": "2.7.1" },
+        "react-dom": { "version": "18.2.0" },
+        "react": { "version": "18.2.0" },
+        "split-type": { "version": "0.3.3" },
+        "validator": { "version": "13.7.0" }
+    }
+}
