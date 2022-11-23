@@ -6,6 +6,7 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
+        "pre-commit": "lint-staged",
         "lint": "next lint",
         "prepare": "husky install",
         "format": "prettier --write ."
