@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import Layout from '../components/layout/Layout'
 import Home from '../components/home/Home'
 
-export default function Index() {
+function Index() {
     useEffect(() => {
         fetch('http://localhost:3000/api')
     })
@@ -13,3 +13,4 @@ export default function Index() {
         </Layout>
     )
 }
+export default Index

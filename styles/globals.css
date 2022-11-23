@@ -15,8 +15,8 @@
         height: 500px;
         position: absolute;
         z-index: -1;
-        left: 50px;
-        bottom: 50px;
+        left: 40px;
+        bottom: 2px;
 
         border-radius: 50%;
         background: linear-gradient(142.77deg, #c8e6c9 15.84%, #b3e5fc 85.86%);
@@ -35,5 +35,13 @@
         border-radius: 50%;
         background: linear-gradient(142.77deg, #c8e6c9 15.84%, #b3e5fc 85.86%);
         opacity: 0.2;
+    }
+
+    .square {
+        width: 60%;
+        padding-top: 2%;
+        padding-bottom: 25%;
+        background-color: white;
+        right: 10%;
     }
 }
