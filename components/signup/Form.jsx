@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import authService from '../../services/service.auth'
-import FormContent from './Form.styled'
+import Button from '../Button'
+import FormContent from '../Form.styled'
 
 export default function Form() {
     const [name, setName] = useState('')
@@ -111,12 +112,7 @@ export default function Form() {
                     value={confirm}
                     className="input"
                 />
-                <button
-                    onClick={handleSubmit}
-                    className="mt-5 p-3 bg-colorButton rounded-xl text-white"
-                >
-                    Send
-                </button>
+                <Button onClick={handleSubmit}>Criar Conta</Button>
             </FormContent>
         </div>
     )

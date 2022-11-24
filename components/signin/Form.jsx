@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import authService from '../../pages/services/authUser'
 import useRouter from 'next/router'
+import Button from '../Button'
 
 export default function Form() {
     const navigate = useRouter
@@ -65,12 +66,7 @@ export default function Form() {
                     </label>
                 </div>
 
-                <button
-                    onClick={handleSubmit}
-                    className="mt-5 p-3 bg-colorButton rounded-xl text-white "
-                >
-                    Iniciar sessão
-                </button>
+                <Button>Iniciar Sessão</Button>
             </form>
         </div>
     )
