@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import authService from '../../services/service.auth'
+import FormContent from './Form.styled'
 
 export default function Form() {
     const [name, setName] = useState('')
@@ -32,9 +34,42 @@ export default function Form() {
         setConfirm(e.target.value)
     }
 
+    async function handleSubmit(e) {
+        e.preventDefault()
+
+        if (password !== confirm) {
+            setMessage({
+                active: true,
+                error: true,
+                message: 'Wrong confirm password'
+            })
+            return
+        }
+
+        try {
+            await authService.signup(name, password, email, birthday)
+            setMessage({
+                active: true,
+                error: false,
+                message: 'Success signup'
+            })
+        } catch (error) {
+            setMessage({
+                active: true,
+                error: true,
+                message: error.response.data
+            })
+        }
+    }
+
     return (
         <div>
-            <form className="flex flex-col px-10 w-full md:w-2/3 md:px-0 lg:max-w-xl mx-auto">
+            <FormContent
+                active={message.active}
+                error={message.error}
+                message={message.message}
+                className="flex flex-col px-10 w-full md:w-2/3 md:px-0 lg:max-w-xl mx-auto"
+            >
                 <label htmlFor="name">Name</label>
                 <input
                     id="name"
@@ -76,10 +111,13 @@ export default function Form() {
                     value={confirm}
                     className="input"
                 />
-                <button className="mt-5 p-3 bg-colorButton rounded-xl text-white">
+                <button
+                    onClick={handleSubmit}
+                    className="mt-5 p-3 bg-colorButton rounded-xl text-white"
+                >
                     Send
                 </button>
-            </form>
+            </FormContent>
         </div>
     )
 }
