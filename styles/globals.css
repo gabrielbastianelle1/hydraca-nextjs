@@ -47,6 +47,10 @@
         opacity: 0;
     }
 
+    .suave{
+        transition: all 1s;
+    }
+
     .square {
         width: 60%;
         padding-top: 2%;

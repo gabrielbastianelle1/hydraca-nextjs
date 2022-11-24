@@ -4,7 +4,6 @@ import SplitType from 'split-type'
 
 export default function Welcome() {
     const h1 = useRef(null)
-    const h2 = useRef(null)
 
     useEffect(() => {
         new SplitType(h1.current)
@@ -22,23 +21,21 @@ export default function Welcome() {
     })
 
     return (
-        <main>
-            <div class="absolute inset-x-0 top-20 h-16">
-                <h1
-                    ref={h1}
-                    className="uppercase  text-center font-bold text-5xl lg:text-5xl text-colorButton"
-                >
-                    BEM VINDO À HYDRACA
-                </h1>
-                <br />
-                <h2
-                    ref={h2}
-                    className="uppercase text-center   text-lg  text-black"
-                >
+        <main className="flex flex-col px-10 items-center justify-start">
+            <h1
+                ref={h1}
+                className="uppercase  text-center font-bold text-4xl md:text-5xl lg:text-7xl text-colorButton overflow-hidden mb-5"
+            >
+                BEM VINDO A HYDRACA
+            </h1>
+            <div className=" lg:space-y-2">
+                <p className="uppercase text-center p-gsap font-bold lg:text-2xl">
                     Monitore a sua diabete diariamente e tenha mais qualidade de
                     vida.
-                    <br /> Efetue registos regularmento dos hidratos de carbono.
-                </h2>
+                </p>
+                <p className="uppercase text-center p-gsap font-bold lg:text-2xl">
+                    Efetue registos regularmento dos hidratos de carbono.
+                </p>
             </div>
         </main>
     )

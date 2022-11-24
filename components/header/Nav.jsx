@@ -2,15 +2,11 @@ import { MenuIcon } from '@heroicons/react/solid'
 import NavItem from './NavItem'
 import Link from 'next/link'
 
-/**
- * Nav principal
- * @returns {JSX.Element}
- * @constructor
- */
 export default function Nav() {
     return (
         <>
-            <MenuIcon className="h-12 ml-auto stroke-slate-600 cursor-pointer lg:hidden " />
+            <MenuIcon className="h-12 ml-auto mr-10 stroke-slate-600 cursor-pointer lg:hidden " />
+
             <nav className="hidden lg:flex items-center w-full">
                 <div className="flex-grow flex justify-center space-x-20 text-colorButton">
                     <NavItem hrefLink="/" text="Início" />
@@ -24,7 +20,6 @@ export default function Nav() {
                     </span>
                 </Link>
             </nav>
-            <MenuIcon className="h-12 ml-auto stroke-slate-600 cursor-pointer lg:hidden" />
         </>
     )
 }
