@@ -23,6 +23,7 @@ export default function Form() {
                     info={diabetes}
                     setInfo={setDiabetes}
                     data={diabetesGlobal}
+                    field="type"
                 />
 
                 <label htmlFor="sensitivity">Sensibilidade</label>

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { ArrowDown } from './svgs/index'
 
-export default function Dropbox({ label, info, setInfo, data }) {
+export default function Dropbox({ label, info, setInfo, field, data }) {
     const [dropdown, setDropdown] = useState(false)
 
     const openDropdown = (event) => {
@@ -36,11 +36,11 @@ export default function Dropbox({ label, info, setInfo, data }) {
                             <li key={index}>
                                 <a
                                     onClick={(event) =>
-                                        handleClick(event, value)
+                                        handleClick(event, value[field])
                                     }
                                     className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                                 >
-                                    {value}
+                                    {value[field]}
                                 </a>
                             </li>
                         )
