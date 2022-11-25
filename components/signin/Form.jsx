@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import authService from '../../services/service.auth'
 import useRouter from 'next/router'
 import Button from '../Button'
+import { userAgent } from 'next/server'
 
 export default function Form() {
     const navigate = useRouter
@@ -24,8 +25,27 @@ export default function Form() {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        await authService.signin(email, password)
-        navigate.push('/user')
+
+        try {
+            await authService.signin(email, password)
+        } catch (error) {
+            console.log(error)
+        }
+
+        try {
+            let response = await authService.getCurrentUser()
+            console.log(response.data.user.role)
+
+            if (response.data.user.role === 'user') {
+                navigate.push('/user')
+                return
+            }
+            navigate.push('/admin')
+        } catch (error) {
+            console.log(error)
+        }
+
+        // navigate.push('/user')
     }
 
     return (
