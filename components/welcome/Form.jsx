@@ -1,9 +1,11 @@
 import { useState, useContext } from 'react'
+import { GlobalContext } from '../../context/GlobalContext'
 import Button from '../Button'
+import Dropbox from '../Dropbox'
 import FormContent from '../Form.styled'
-import Diabetes from './Diabetes'
 
 export default function Form() {
+    const { diabetesGlobal } = useContext(GlobalContext)
     const [diabetes, setDiabetes] = useState('Selecione')
 
     return (
@@ -16,7 +18,12 @@ export default function Form() {
                 <p className="mb-5 text-xl">
                     Preencha os seguintes campos, para sabermos mais sobre você!
                 </p>
-                <Diabetes diabetes={diabetes} setDiabetes={setDiabetes} />
+                <Dropbox
+                    label="Diabetes"
+                    info={diabetes}
+                    setInfo={setDiabetes}
+                    data={diabetesGlobal}
+                />
 
                 <label htmlFor="sensitivity">Sensibilidade</label>
                 <input
