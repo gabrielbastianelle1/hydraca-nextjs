@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import authService from '../../pages/services/authUser'
+import authService from '../../services/service.auth'
 import useRouter from 'next/router'
 import Button from '../Button'
 
