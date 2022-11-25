@@ -1,4 +1,5 @@
 const adminService = require('../services/service.admin')
+const diabetesService = require('../services/service.diabetes')
 
 let adminController = {
     getAllUsers: async function (req, res) {
@@ -56,7 +57,7 @@ let adminController = {
 
     getAllDiabetes: async function (req, res) {
         try {
-            return res.status(200).json(await adminService.getAllDiabetes())
+            return res.status(200).json(await diabetesService.getAllDiabetes())
         } catch (error) {
             return res.status(400).json(error)
         }
@@ -90,11 +91,11 @@ let adminController = {
         }
     },
 
-    insertDiabete: async function (req, res) {
+    insertDiabetes: async function (req, res) {
         try {
             return res
                 .status(200)
-                .json(await adminService.insertDiabete(req.body))
+                .json(await diabetesService.insertDiabetes(req.body))
         } catch (error) {
             return res.status(400).json(error)
         }

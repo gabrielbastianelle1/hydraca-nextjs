@@ -3,10 +3,46 @@ import { GlobalContext } from '../../context/GlobalContext'
 import Button from '../Button'
 import Dropbox from '../Dropbox'
 import FormContent from '../Form.styled'
+import { updateProfile } from '../../services/service.user'
 
 export default function Form() {
-    const { diabetesGlobal } = useContext(GlobalContext)
-    const [diabetes, setDiabetes] = useState('Selecione')
+    const { diabetesGlobal, user } = useContext(GlobalContext)
+    const [infoDropbox, setInfoDropbox] = useState('Selecione')
+    const [sensitivity, setSensitivity] = useState(null)
+    const [height, setHeight] = useState(null)
+    const [weight, setWeight] = useState(null)
+
+    /* console.log(diabetesGlobal)
+    console.log(user) */
+
+    const onChangeSensitivity = (event) => {
+        setSensitivity(event.target.value)
+    }
+
+    const onChangeHeight = (event) => {
+        setHeight(event.target.value)
+    }
+
+    const onChangeWeight = (event) => {
+        setWeight(event.target.value)
+    }
+
+    const handleSubmit = async (event) => {
+        try {
+            await updateProfile()
+            setMessage({
+                active: true,
+                error: false,
+                message: 'Success signup'
+            })
+        } catch (error) {
+            setMessage({
+                active: true,
+                error: true,
+                message: error.response.data
+            })
+        }
+    }
 
     return (
         <div>
@@ -20,8 +56,8 @@ export default function Form() {
                 </p>
                 <Dropbox
                     label="Diabetes"
-                    info={diabetes}
-                    setInfo={setDiabetes}
+                    info={infoDropbox}
+                    setInfo={setInfoDropbox}
                     data={diabetesGlobal}
                     field="type"
                 />
@@ -33,6 +69,7 @@ export default function Form() {
                     id="sensitivity"
                     className="input"
                     placeholder="exemplo: 20"
+                    onChange={onChangeSensitivity}
                 />
                 <label htmlFor="height">Altura</label>
                 <input
@@ -41,6 +78,7 @@ export default function Form() {
                     id="height"
                     className="input"
                     placeholder="em cemtimetros"
+                    onChange={onChangeHeight}
                 />
                 <label htmlFor="weight">Peso</label>
                 <input
@@ -49,6 +87,7 @@ export default function Form() {
                     id="weight"
                     className="input"
                     placeholder="em kilos"
+                    onChange={onChangeWeight}
                 />
                 <Button>Continuar</Button>
             </FormContent>

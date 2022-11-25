@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
-import authService from '../../services/service.auth'
+import { set } from 'mongoose'
+import React, { useState, useContext } from 'react'
+import { GlobalContext } from '../../context/GlobalContext'
+import { signup } from '../../services/service.auth'
 import Button from '../Button'
 import FormContent from '../Form.styled'
 
 export default function Form() {
+    const { user, setUser } = useContext(GlobalContext)
     const [name, setName] = useState('')
-    const [birthday, seBirthday] = useState('')
+    const [birthday, setBirthday] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirm, setConfirm] = useState('')
@@ -20,7 +23,7 @@ export default function Form() {
     }
 
     const onChangeBirthday = (e) => {
-        seBirthday(e.target.value)
+        setBirthday(e.target.value)
     }
 
     const onChangeEmail = (e) => {
@@ -37,6 +40,9 @@ export default function Form() {
 
     async function handleSubmit(e) {
         e.preventDefault()
+        console.log(user)
+        setUser('aosikdmfoksam')
+        console.log(user)
 
         if (password !== confirm) {
             setMessage({
@@ -48,7 +54,11 @@ export default function Form() {
         }
 
         try {
-            await authService.signup(name, password, email, birthday)
+            let response = await signup(name, password, email, birthday)
+            const user = response.data
+
+            console.log(user)
+
             setMessage({
                 active: true,
                 error: false,
