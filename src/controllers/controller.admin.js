@@ -54,9 +54,9 @@ let adminController = {
         }
     },
 
-    getAllDiabete: async function (req, res) {
+    getAllDiabetes: async function (req, res) {
         try {
-            return res.status(200).json(await adminService.getAllDiabete())
+            return res.status(200).json(await adminService.getAllDiabetes())
         } catch (error) {
             return res.status(400).json(error)
         }

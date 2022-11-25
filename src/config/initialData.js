@@ -1,4 +1,5 @@
 const User = require('../models/model.User')
+const Diabetes = require('../models/model.Diabetes')
 
 function insertInitialData() {
     User.find({})
@@ -16,6 +17,17 @@ function insertInitialData() {
 
                 admin.encryptPassword()
                 admin.save()
+            }
+        })
+        .catch((error) => console.log(error))
+
+    Diabetes.find({})
+        .then((response) => {
+            if (response.length == 0) {
+                let diabetes = new Diabetes({
+                    type: 'Diabete tipo 1'
+                })
+                diabetes.save()
             }
         })
         .catch((error) => console.log(error))

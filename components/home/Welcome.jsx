@@ -26,7 +26,7 @@ export default function Welcome() {
                 ref={h1}
                 className="uppercase  text-center font-bold text-4xl md:text-5xl lg:text-7xl text-colorButton overflow-hidden mb-5"
             >
-                BEM VINDO A HYDRACA
+                bem vindo a hydraca
             </h1>
             <div className=" lg:space-y-2">
                 <p className="uppercase text-center p-gsap font-bold lg:text-2xl">

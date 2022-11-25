@@ -30,11 +30,7 @@ export default function Form() {
 
     return (
         <div>
-            <form
-                action="/send-data-here"
-                className="flex flex-col px-10 w-full md:w-2/3 md:px-0 lg:max-w-xl mx-auto"
-                method="POST"
-            >
+            <form action="/send-data-here" className="form" method="POST">
                 <label htmlFor="email">Email</label>
                 <input
                     id="email"
@@ -66,7 +62,7 @@ export default function Form() {
                     </label>
                 </div>
 
-                <Button>Iniciar Sessão</Button>
+                <Button onClick={handleSubmit}>Iniciar Sessão</Button>
             </form>
         </div>
     )

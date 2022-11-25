@@ -71,7 +71,7 @@ let adminService = {
         })
     },
 
-    getAllDiabete: function () {
+    getAllDiabetes: function () {
         return new Promise((resolve, reject) => {
             Diabete.find({}, (err, result) => {
                 if (err) {

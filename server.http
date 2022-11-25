@@ -35,3 +35,7 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzNmU
     "amountGlucose" : 200,
     "correctionFactor" : 10
 }
+
+
+###
+GET http://localhost:3000/api/admin/getalldiabetes

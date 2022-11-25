@@ -69,7 +69,7 @@ export default function Form() {
                 active={message.active}
                 error={message.error}
                 message={message.message}
-                className="flex flex-col px-10 w-full md:w-2/3 md:px-0 lg:max-w-xl mx-auto"
+                className="form"
             >
                 <label htmlFor="name">Name</label>
                 <input
