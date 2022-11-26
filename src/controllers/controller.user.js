@@ -28,16 +28,16 @@ let userController = {
     },
 
     updateProfile: async function (req, res) {
-        const { userEmail, valuesToUpdate } = req.body
+        let userEmail = req.user.user.email
+        let valuesToUpdate = req.body
+
         try {
-            return res
-                .status(200)
-                .json(
-                    await userService.updateProfile({
-                        userEmail,
-                        valuesToUpdate
-                    })
-                )
+            return res.status(200).json(
+                await userService.updateProfile({
+                    userEmail,
+                    valuesToUpdate
+                })
+            )
         } catch (error) {
             return res.status(400).json(error)
         }

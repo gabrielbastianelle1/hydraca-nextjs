@@ -1,16 +1,23 @@
 import { useState } from 'react'
 import { ArrowDown } from './svgs/index'
 
-export default function Dropbox({ label, info, setInfo, field, data }) {
+export default function Dropbox({
+    label,
+    titleDropbox,
+    setTitleDropbox,
+    field,
+    data,
+    setIdReturnedFromDropBox
+}) {
     const [dropdown, setDropdown] = useState(false)
 
     const openDropdown = (event) => {
         setDropdown(!dropdown)
     }
 
-    const handleClick = (event, value) => {
-        console.log(value)
-        setInfo(value)
+    const handleClick = (event, optionChosen, idChosen) => {
+        setTitleDropbox(optionChosen)
+        setIdReturnedFromDropBox(idChosen)
         setDropdown(false)
     }
 
@@ -22,7 +29,7 @@ export default function Dropbox({ label, info, setInfo, field, data }) {
                 className=" ml-5 border hover:bg-gray-100 focus:ring-2 focus:ring-slate-200 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
                 type="button"
             >
-                {info}
+                {titleDropbox}
                 <ArrowDown className="h-5 pl-2" />
             </button>
             <div
@@ -36,7 +43,11 @@ export default function Dropbox({ label, info, setInfo, field, data }) {
                             <li key={index}>
                                 <a
                                     onClick={(event) =>
-                                        handleClick(event, value[field])
+                                        handleClick(
+                                            event,
+                                            value[field],
+                                            value['_id']
+                                        )
                                     }
                                     className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                                 >

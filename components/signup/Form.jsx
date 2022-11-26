@@ -1,12 +1,9 @@
-import { set } from 'mongoose'
 import React, { useState, useContext } from 'react'
-import { GlobalContext } from '../../context/GlobalContext'
 import { signup } from '../../services/service.auth'
 import Button from '../Button'
 import FormContent from '../Form.styled'
 
 export default function Form() {
-    const { user, setUser } = useContext(GlobalContext)
     const [name, setName] = useState('')
     const [birthday, setBirthday] = useState('')
     const [email, setEmail] = useState('')
@@ -40,9 +37,6 @@ export default function Form() {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        console.log(user)
-        setUser('aosikdmfoksam')
-        console.log(user)
 
         if (password !== confirm) {
             setMessage({

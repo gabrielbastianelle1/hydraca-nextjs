@@ -5,7 +5,6 @@ export const GlobalContext = createContext()
 
 export default function GlobalProvider({ children }) {
     const [diabetesGlobal, setDiabetesGlobal] = useState([])
-    const [user, setUser] = useState(null)
 
     useEffect(() => {
         diabetesService
@@ -17,9 +16,7 @@ export default function GlobalProvider({ children }) {
     }, [])
 
     return (
-        <GlobalContext.Provider
-            value={{ diabetesGlobal, setDiabetesGlobal, user, setUser }}
-        >
+        <GlobalContext.Provider value={{ diabetesGlobal, setDiabetesGlobal }}>
             {children}
         </GlobalContext.Provider>
     )

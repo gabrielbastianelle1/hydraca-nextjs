@@ -6,14 +6,14 @@ import FormContent from '../Form.styled'
 import { updateProfile } from '../../services/service.user'
 
 export default function Form() {
-    const { diabetesGlobal, user } = useContext(GlobalContext)
-    const [infoDropbox, setInfoDropbox] = useState('Selecione')
+    const { diabetesGlobal } = useContext(GlobalContext)
+
+    const [titleDropbox, setTitleDropbox] = useState('Selecione')
+    const [idReturnedFromDropBox, setIdReturnedFromDropBox] = useState(null)
+
     const [sensitivity, setSensitivity] = useState(null)
     const [height, setHeight] = useState(null)
     const [weight, setWeight] = useState(null)
-
-    /* console.log(diabetesGlobal)
-    console.log(user) */
 
     const onChangeSensitivity = (event) => {
         setSensitivity(event.target.value)
@@ -28,19 +28,17 @@ export default function Form() {
     }
 
     const handleSubmit = async (event) => {
+        console.log(idReturnedFromDropBox)
+
         try {
-            await updateProfile()
-            setMessage({
-                active: true,
-                error: false,
-                message: 'Success signup'
+            await updateProfile({
+                idDiabetes: idReturnedFromDropBox,
+                height: height,
+                weight: weight,
+                sensitivity: sensitivity
             })
         } catch (error) {
-            setMessage({
-                active: true,
-                error: true,
-                message: error.response.data
-            })
+            console.log(error.response.data)
         }
     }
 
@@ -56,10 +54,11 @@ export default function Form() {
                 </p>
                 <Dropbox
                     label="Diabetes"
-                    info={infoDropbox}
-                    setInfo={setInfoDropbox}
+                    titleDropbox={titleDropbox}
+                    setTitleDropbox={setTitleDropbox}
                     data={diabetesGlobal}
                     field="type"
+                    setIdReturnedFromDropBox={setIdReturnedFromDropBox}
                 />
 
                 <label htmlFor="sensitivity">Sensibilidade</label>
@@ -89,7 +88,7 @@ export default function Form() {
                     placeholder="em kilos"
                     onChange={onChangeWeight}
                 />
-                <Button>Continuar</Button>
+                <Button onClick={handleSubmit}>Continuar</Button>
             </FormContent>
         </div>
     )
