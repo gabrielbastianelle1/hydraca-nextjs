@@ -18,7 +18,8 @@ export const getStaticProps: GetStaticProps = async () => {
             info: {
                 title: 'HYDRACA API DOCUMENTATION',
                 version: '1.0.0',
-                description: 'GITHUB REPOSITORY: [HYDRACA repository](https://github.com/gabrielbastianelle1/hydraca-nextjs)'
+                description:
+                    'GITHUB REPOSITORY: [HYDRACA repository](https://github.com/gabrielbastianelle1/hydraca-nextjs)'
             },
             tags: [
                 {
@@ -34,9 +35,9 @@ export const getStaticProps: GetStaticProps = async () => {
                     description: 'everything about admin'
                 }
             ],
-            components:{
-                schemas:{
-                    User:{
+            components: {
+                schemas: {
+                    User: {
                         type: 'object',
                         properties: {
                             id: {
@@ -45,10 +46,7 @@ export const getStaticProps: GetStaticProps = async () => {
                             role: {
                                 type: 'string',
                                 description: 'if the user is admin or not',
-                                enum: [
-                                    'admin',
-                                    'user'
-                                ]
+                                enum: ['admin', 'user']
                             },
                             name: {
                                 type: 'string'
@@ -81,27 +79,19 @@ export const getStaticProps: GetStaticProps = async () => {
                             glucoserange: {
                                 type: 'array',
                                 items: {
-                                    type: 'integer',
+                                    type: 'integer'
                                 },
-                                description: 'array with to positions only, the fist is the minimum glucose, and second maximum'
+                                description:
+                                    'array with to positions only, the fist is the minimum glucose, and second maximum'
                             }
                         }
                     },
-                    Register: {
-
-                    },
-                    Diabetes: {
-
-                    },
-                    Therapy: {
-
-                    },
-                    Food: {
-
-                    }
+                    Register: {},
+                    Diabetes: {},
+                    Therapy: {},
+                    Food: {}
                 }
             }
-
         }
     })
     return {

@@ -6,7 +6,7 @@ const swaggerHandler = withSwagger({
         info: {
             title: 'NextJS Swagger',
             version: '0.1.0'
-        },
+        }
     },
     apiFolder: 'pages/api'
 })
