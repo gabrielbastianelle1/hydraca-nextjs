@@ -6,7 +6,7 @@ export default function Dropbox({
     titleDropbox,
     setTitleDropbox,
     field,
-    data,
+    dataToShowInDropbox,
     setIdReturnedFromDropBox
 }) {
     const [dropdown, setDropdown] = useState(false)
@@ -38,7 +38,7 @@ export default function Dropbox({
                 } absolute left-20 z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700`}
             >
                 <ul className="py-1 text-sm text-gray-700 dark:text-gray-200">
-                    {data.map((value, index) => {
+                    {dataToShowInDropbox.map((value, index) => {
                         return (
                             <li key={index}>
                                 <a

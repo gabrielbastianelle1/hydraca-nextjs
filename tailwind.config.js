@@ -7,7 +7,8 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                colorButton: 'var(--color-button)'
+                colorButton: 'var(--color-button)',
+                userBackground: 'var(--color-background)'
             }
         }
     },

@@ -56,7 +56,7 @@ export default function Form() {
                     label="Diabetes"
                     titleDropbox={titleDropbox}
                     setTitleDropbox={setTitleDropbox}
-                    data={diabetesGlobal}
+                    dataToShowInDropbox={diabetesGlobal}
                     field="type"
                     setIdReturnedFromDropBox={setIdReturnedFromDropBox}
                 />

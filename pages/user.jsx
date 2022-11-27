@@ -1,11 +1,10 @@
-import { useEffect } from 'react'
+import LayoutUser from '../components/layoutUser/LayoutUser'
 import HomeUser from '../components/homeUser/HomeUser'
-import SideBar from '../components/headerUser/SideBar'
 
 export default function Index() {
     return (
-        <main title="Hydraca">
-            <SideBar />
-        </main>
+        <LayoutUser title="home">
+            <HomeUser />
+        </LayoutUser>
     )
 }
