@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
-import authService from '../../services/service.auth'
+import { signin } from '../../services/service.auth'
 import useRouter from 'next/router'
 import Button from '../Button'
 import { userAgent } from 'next/server'
-
 export default function Form() {
     const navigate = useRouter
-
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [message, setMessage] = useState({
@@ -17,7 +15,6 @@ export default function Form() {
     const onChangeEmail = (e) => {
         setEmail(e.target.value)
     }
-
     const onChangePassword = (e) => {
         setPassword(e.target.value)
     }
@@ -25,17 +22,17 @@ export default function Form() {
 
     async function handleSubmit(e) {
         e.preventDefault()
+        await signin(email, password)
+        navigate.push('/user')
 
-        try {
+        /*    try {
             await authService.signin(email, password)
         } catch (error) {
             console.log(error)
         }
-
         try {
             let response = await authService.getCurrentUser()
             console.log(response.data.user.role)
-
             if (response.data.user.role === 'user') {
                 navigate.push('/user')
                 return
@@ -44,10 +41,9 @@ export default function Form() {
         } catch (error) {
             console.log(error)
         }
-
         // navigate.push('/user')
+        */
     }
-
     return (
         <div>
             <form action="/send-data-here" className="form" method="POST">
@@ -63,7 +59,6 @@ export default function Form() {
                     pattern="@"
                 />
                 <label htmlFor="password">Palavra-Passe</label>
-
                 <input
                     type={showPassword ? 'text' : 'password'}
                     placeholder="password"
@@ -81,7 +76,6 @@ export default function Form() {
                         {showPassword ? 'hide' : 'show'}
                     </label>
                 </div>
-
                 <Button onClick={handleSubmit}>Iniciar Sessão</Button>
             </form>
         </div>

@@ -86,10 +86,76 @@ export const getStaticProps: GetStaticProps = async () => {
                             }
                         }
                     },
-                    Register: {},
-                    Diabetes: {},
-                    Therapy: {},
-                    Food: {}
+                    Register: {
+                        type: 'object',
+                        properties: {
+                        name: {
+                            type: 'string'
+                        },
+                        email: {
+                            type: 'string'
+                        },
+                        password: {
+                            type: 'string'
+                        },
+                        birthday: {
+                            type: 'string',
+                            format: 'data-time'
+                        }
+                     }
+                    },
+                    Diabetes: {
+                        type: 'object',
+                        properties: {
+                        type: {
+                            type: String,
+                            required: [true, 'type required']
+                        },
+                        state: {
+                            type: Boolean,
+                            default: true
+                        }
+                        }
+                    },
+                    Therapy: {
+                        type: 'object',
+                        properties: {
+                            name: {
+                                type: String,
+                                required: [true, 'name required'],
+                                unique: [true, 'name already used']
+                            },
+                            description: {
+                                type: String,
+                                required: [true, 'description required']
+                            },
+
+                            state: {
+                                type: Boolean,
+                                default: true
+                            }
+                        }
+                    },
+                    Food: {
+                        type: 'object',
+                        properties: {
+                            name: {
+                                type: String,
+                                required: [true, 'name required'],
+                                unique: [true, 'name already used']
+                            },
+                            Hc: {
+                                type: Number,
+                                required: [true, 'Hc required']
+                            },
+
+                            state: {
+                                type: Boolean,
+                                default: true
+                            }
+                        }
+
+                    }
                 }
             }
         }

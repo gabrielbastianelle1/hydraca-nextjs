@@ -1,3 +1,7 @@
 export { default as Girl } from './Girl.svg'
 export { default as ArrowDown } from './ArrowDown.svg'
 export { default as Home } from './Home.svg'
+export { default as Profile } from './Profile.svg'
+export { default as Registos } from './Registos.svg'
+export { default as Registar } from './Register.svg'
+export { default as Help } from './Help.svg'
