@@ -7,6 +7,7 @@ function insertInitialData() {
             let totalUsersInserted = response.length
 
             if (totalUsersInserted == 0) {
+                console.log('oaisdoikasmko')
                 let admin = new User({
                     role: 'admin',
                     name: 'admin',

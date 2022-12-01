@@ -1,6 +1,6 @@
 const User = require('../models/model.User')
 const Therapy = require('../models/model.Therapy')
-const Diabete = require('../models/model.Diabetes')
+const Diabetes = require('../models/model.Diabetes')
 const Food = require('../models/model.Food')
 const { adminErrorHandler } = require('../errors/errors')
 
@@ -71,20 +71,9 @@ let adminService = {
         })
     },
 
-    getAllDiabetes: function () {
-        return new Promise((resolve, reject) => {
-            Diabete.find({}, (err, result) => {
-                if (err) {
-                    return reject(err)
-                }
-                return resolve(result)
-            })
-        })
-    },
-
-    getDiabeteId: function (req, res, params) {
+    getDiabetesId: function (req, res, params) {
         return new Promise(async (resolve, reject) => {
-            let response = await Diabete.findById({ _id: req }).exec()
+            let response = await Diabetes.findById({ _id: req }).exec()
             if (response == null) {
                 return reject('insucess')
             }
@@ -109,18 +98,6 @@ let adminService = {
         return new Promise(async (resolve, reject) => {
             new_food = new Food(req)
             new_food.save((err, result) => {
-                if (err) {
-                    return reject(adminErrorHandler(err))
-                }
-                return resolve(result)
-            })
-        })
-    },
-
-    insertDiabete: function (req) {
-        return new Promise(async (resolve, reject) => {
-            new_diabete = new Diabete(req)
-            new_diabete.save((err, result) => {
                 if (err) {
                     return reject(adminErrorHandler(err))
                 }
@@ -172,7 +149,7 @@ let adminService = {
         })
     },
 
-    deleteDiabete: function (req) {
+    deleteDiabetes: function (req) {
         return new Promise(async (resolve, reject) => {
             let response = await Food.findOneAndUpdate(
                 { type: req },
@@ -186,9 +163,9 @@ let adminService = {
         })
     },
 
-    deleteDiabete: function (req) {
+    deleteDiabetes: function (req) {
         return new Promise(async (resolve, reject) => {
-            let response = await Diabete.findOneAndUpdate(
+            let response = await Diabetes.findOneAndUpdate(
                 { type: req },
                 { state: false }
             ).exec()
@@ -225,10 +202,10 @@ let adminService = {
         })
     },
 
-    updateDiabete: function (body, params) {
+    updateDiabetes: function (body, params) {
         return new Promise(async (resolve, reject) => {
             try {
-                await Diabete.findOneAndUpdate(
+                await Diabetes.findOneAndUpdate(
                     { type: params.type },
                     body
                 ).exec()

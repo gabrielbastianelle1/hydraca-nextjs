@@ -5,6 +5,7 @@
 @layer base {
     :root {
         --color-button: #031954;
+        --color-background: #f0f7ff;
     }
 }
 

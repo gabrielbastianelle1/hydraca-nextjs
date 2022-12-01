@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 let diabetesService = {
-    getAllDiabete: function () {
+    getAllDiabetes: function () {
         return new Promise(async (result, reject) => {
             try {
                 let response = await axios.get(

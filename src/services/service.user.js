@@ -25,15 +25,20 @@ let userService = {
         })
     },
 
-    updateProfile: function (params, body, req) {
+    updateProfile: function ({ userEmail, valuesToUpdate }) {
+        console.log(userEmail)
+
         return new Promise(async (resolve, reject) => {
             try {
-                await User.findOneAndUpdate(
-                    { email: params.email },
-                    body
-                ).exec()
-                console.log(params.email)
-                return resolve('success')
+                let response = await User.findOneAndUpdate(
+                    { email: userEmail },
+                    valuesToUpdate,
+                    { new: true }
+                )
+
+                if (!response) reject('nothing updated')
+                console.log(response)
+                return resolve(response)
             } catch (erro) {
                 return reject(erro)
             }

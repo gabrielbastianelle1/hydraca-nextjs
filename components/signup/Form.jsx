@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
-import authService from '../../services/service.auth'
+import { useRouter } from 'next/router'
+import React, { useState, useContext } from 'react'
+import { signup } from '../../services/service.auth'
 import Button from '../Button'
 import FormContent from '../Form.styled'
 
 export default function Form() {
+    const router = useRouter()
     const [name, setName] = useState('')
-    const [birthday, seBirthday] = useState('')
+    const [birthday, setBirthday] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirm, setConfirm] = useState('')
@@ -20,7 +22,7 @@ export default function Form() {
     }
 
     const onChangeBirthday = (e) => {
-        seBirthday(e.target.value)
+        setBirthday(e.target.value)
     }
 
     const onChangeEmail = (e) => {
@@ -48,7 +50,9 @@ export default function Form() {
         }
 
         try {
-            await authService.signup(name, password, email, birthday)
+            await signup(name, password, email, birthday)
+
+            router.push('/welcome')
             setMessage({
                 active: true,
                 error: false,

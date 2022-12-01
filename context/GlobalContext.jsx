@@ -4,22 +4,19 @@ import diabetesService from '../services/service.diabete'
 export const GlobalContext = createContext()
 
 export default function GlobalProvider({ children }) {
-    const [diabetesGlobal, setDiabetesGlobal] = useState([
-        'diabetes tipo 1',
-        'diabetes tipo 2'
-    ])
+    const [diabetesGlobal, setDiabetesGlobal] = useState([])
 
-    /* useEffect(() => {
-        diabetesService.getAllDiabete()
-        .then((response)=>{
-            console.log('lalalal')
-            setDiabetes(response.data)
-        })
-        .catch(error=>console.log(error))
-    }) */
+    useEffect(() => {
+        diabetesService
+            .getAllDiabetes()
+            .then((response) => {
+                setDiabetesGlobal(response.data)
+            })
+            .catch((error) => console.log(error))
+    }, [])
 
     return (
-        <GlobalContext.Provider value={{ diabetesGlobal }}>
+        <GlobalContext.Provider value={{ diabetesGlobal, setDiabetesGlobal }}>
             {children}
         </GlobalContext.Provider>
     )
