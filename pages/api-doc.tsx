@@ -89,32 +89,32 @@ export const getStaticProps: GetStaticProps = async () => {
                     Register: {
                         type: 'object',
                         properties: {
-                        name: {
-                            type: 'string'
-                        },
-                        email: {
-                            type: 'string'
-                        },
-                        password: {
-                            type: 'string'
-                        },
-                        birthday: {
-                            type: 'string',
-                            format: 'data-time'
+                            name: {
+                                type: 'string'
+                            },
+                            email: {
+                                type: 'string'
+                            },
+                            password: {
+                                type: 'string'
+                            },
+                            birthday: {
+                                type: 'string',
+                                format: 'data-time'
+                            }
                         }
-                     }
                     },
                     Diabetes: {
                         type: 'object',
                         properties: {
-                        type: {
-                            type: String,
-                            required: [true, 'type required']
-                        },
-                        state: {
-                            type: Boolean,
-                            default: true
-                        }
+                            type: {
+                                type: String,
+                                required: [true, 'type required']
+                            },
+                            state: {
+                                type: Boolean,
+                                default: true
+                            }
                         }
                     },
                     Therapy: {
@@ -154,7 +154,6 @@ export const getStaticProps: GetStaticProps = async () => {
                                 default: true
                             }
                         }
-
                     }
                 }
             }

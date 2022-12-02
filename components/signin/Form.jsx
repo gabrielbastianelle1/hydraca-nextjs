@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { signin } from '../../services/service.auth'
+import { signin, getCurrentUser } from '../../services/service.auth'
 import useRouter from 'next/router'
 import Button from '../Button'
 import { userAgent } from 'next/server'
@@ -22,16 +22,16 @@ export default function Form() {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        await signin(email, password)
-        navigate.push('/user')
+        // await signin(email, password)
+        //navigate.push('/user')
 
-        /*    try {
-            await authService.signin(email, password)
+        try {
+            await signin(email, password)
         } catch (error) {
             console.log(error)
         }
         try {
-            let response = await authService.getCurrentUser()
+            let response = await getCurrentUser()
             console.log(response.data.user.role)
             if (response.data.user.role === 'user') {
                 navigate.push('/user')
@@ -42,7 +42,6 @@ export default function Form() {
             console.log(error)
         }
         // navigate.push('/user')
-        */
     }
     return (
         <div>
