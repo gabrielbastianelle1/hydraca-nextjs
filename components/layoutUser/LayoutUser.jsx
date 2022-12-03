@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import Sidebar from '../sidebar/Sidebar'
+import HeaderUser from '../headerUser/HeaderUser'
+import SideBar from '../sidebar/SideBar'
 
 export default function LayoutUser({ children, title }) {
     return (
@@ -8,9 +9,12 @@ export default function LayoutUser({ children, title }) {
                 <title>{title}</title>
             </Head>
 
-            <div className="bg-userBackground h-screen overflow-hidden w-screen">
-                <Sidebar />
-                {children}
+            <div className="flex h-screen overflow-hidden w-screen">
+                <SideBar />
+                <div className=" flex-grow flex flex-col">
+                    <HeaderUser />
+                    {children}
+                </div>
             </div>
         </>
     )

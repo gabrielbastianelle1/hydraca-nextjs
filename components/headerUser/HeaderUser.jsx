@@ -1,3 +1,3 @@
 export default function HeaderUser() {
-    return <div>header user</div>
+    return <div>header</div>
 }

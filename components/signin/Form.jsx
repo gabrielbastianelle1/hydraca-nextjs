@@ -4,46 +4,40 @@ import useRouter from 'next/router'
 import Button from '../Button'
 import { userAgent } from 'next/server'
 import FormContent from '../Form.styled'
+
 export default function Form() {
     const navigate = useRouter
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [showPassword, setShowPassword] = useState(false)
     const [message, setMessage] = useState({
         active: false,
         error: false,
         message: ''
     })
+
     const onChangeEmail = (e) => {
         setEmail(e.target.value)
     }
     const onChangePassword = (e) => {
         setPassword(e.target.value)
     }
-    const [showPassword, setShowPassword] = useState(false)
 
     async function handleSubmit(e) {
         e.preventDefault()
-        // await signin(email, password)
-        //navigate.push('/user')
-        /***
-         * ainda n ta a funcionar os avisos
-         */
+
         if (password.length === 0) {
             setMessage({
                 active: true,
                 error: true,
                 message: 'Wrong confirm password'
             })
-            console.log('oi')
+            return
         }
+
         try {
             await signin(email, password)
-        } catch (error) {
-            console.log(error)
-        }
-        try {
             let response = await getCurrentUser()
-            console.log(response.data.user.role)
 
             if (response.data.user.role === 'user') {
                 navigate.push('/user')
@@ -55,9 +49,10 @@ export default function Form() {
                 error: true,
                 message: error.response.data
             })
+            return
         }
-        // navigate.push('/user')
     }
+
     return (
         <div>
             <FormContent

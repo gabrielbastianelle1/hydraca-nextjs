@@ -75,6 +75,10 @@
         border-radius: 10%;
         background-color: #031954;
     }
+
+    .item-sidebar{
+        @apply h-10 fill-none stroke-gray-700 ;
+    }
 }
 
 
