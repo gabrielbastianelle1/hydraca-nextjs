@@ -3,6 +3,7 @@ import { signin, getCurrentUser } from '../../services/service.auth'
 import useRouter from 'next/router'
 import Button from '../Button'
 import { userAgent } from 'next/server'
+import FormContent from '../Form.styled'
 export default function Form() {
     const navigate = useRouter
     const [email, setEmail] = useState('')
@@ -24,7 +25,17 @@ export default function Form() {
         e.preventDefault()
         // await signin(email, password)
         //navigate.push('/user')
-
+        /***
+         * ainda n ta a funcionar os avisos
+         */
+        if (password.length === 0) {
+            setMessage({
+                active: true,
+                error: true,
+                message: 'Wrong confirm password'
+            })
+            console.log('oi')
+        }
         try {
             await signin(email, password)
         } catch (error) {
@@ -33,19 +44,30 @@ export default function Form() {
         try {
             let response = await getCurrentUser()
             console.log(response.data.user.role)
+
             if (response.data.user.role === 'user') {
                 navigate.push('/user')
                 return
-            }
-            navigate.push('/admin')
+            } else navigate.push('/admin')
         } catch (error) {
-            console.log(error)
+            setMessage({
+                active: true,
+                error: true,
+                message: error.response.data
+            })
         }
         // navigate.push('/user')
     }
     return (
         <div>
-            <form action="/send-data-here" className="form" method="POST">
+            <FormContent
+                action="/send-data-here"
+                active={message.active}
+                error={message.error}
+                message={message.message}
+                className="form"
+                method="POST"
+            >
                 <label htmlFor="email">Email</label>
                 <input
                     id="email"
@@ -76,7 +98,7 @@ export default function Form() {
                     </label>
                 </div>
                 <Button onClick={handleSubmit}>Iniciar Sessão</Button>
-            </form>
+            </FormContent>
         </div>
     )
 }

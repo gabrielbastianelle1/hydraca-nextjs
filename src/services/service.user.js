@@ -1,6 +1,7 @@
 const User = require('../models/model.User')
 const Therapy = require('../models/model.Therapy')
 const Food = require('../models/model.Food')
+const Diabetes = require('../models/model.Diabetes')
 
 let userService = {
     getAllFoodUser: function () {
@@ -17,6 +18,17 @@ let userService = {
     getAllTherapy: function () {
         return new Promise(async (resolve, reject) => {
             Therapy.find({}, (err, result) => {
+                if (err) {
+                    return reject(err)
+                }
+                return resolve(result)
+            })
+        })
+    },
+
+    getAllDiabetes: function () {
+        return new Promise(async (resolve, reject) => {
+            Diabetes.find({}, (err, result) => {
                 if (err) {
                     return reject(err)
                 }

@@ -13,6 +13,13 @@ let userController = {
             return res.status(400).json(error)
         }
     },
+    getAllDiabetes: async function (req, res) {
+        try {
+            return res.status(200).json(await userService.getAllDiabetes())
+        } catch (error) {
+            return res.status(400).json(error)
+        }
+    },
 
     insertRegister: async function (req, res) {
         console.log(req.user.user)

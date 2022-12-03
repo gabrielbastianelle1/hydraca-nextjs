@@ -7,7 +7,7 @@ import { Home, Profile, Registar, Registos, Help } from '../svgs/index'
 export default function Side() {
     return (
         <>
-            <MenuIcon className="h-12 ml-auto mr-10 stroke-slate-600 cursor-pointer lg:hidden " />
+            <MenuIcon className="h-12 ml-auto mr-10 stroke-slate-600 cursor-pointer   lg:hidden " />
             <div className="flex">
                 <side className="flex flex-col h-screen p-3 bg-white shadow-xl shadow-blue-700 w-60">
                     <div className="space-y-3">
@@ -26,7 +26,7 @@ export default function Side() {
                         </div>
                         <div className="flex-1 flex items-center p-2 space-x-3 rounded-md ">
                             <Profile />
-                            <SideItem hrefLink="/user" text="Perfil" />
+                            <SideItem hrefLink="/userProfile" text="Perfil" />
                         </div>
                         <div className="flex-1 flex items-center p-2 space-x-3 rounded-md ">
                             <Registar />

@@ -60,10 +60,21 @@
         width: 60%;
         padding-top: 2%;
         padding-bottom: 25%;
-        background-color: white;
+        background-color: #ffffff;
         right: 10%;
     }
     .input {
         @apply border p-3 rounded-xl  mt-3 mb-3;
     }
+
+    .squareP{
+        padding-bottom: 10%;
+        margin-left: 40%;
+        margin-top: 15%;
+        width: 20%;
+        border-radius: 10%;
+        background-color: #031954;
+    }
 }
+
+
