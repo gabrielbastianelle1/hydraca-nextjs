@@ -19,3 +19,5 @@ export function updateProfile(valuesToUpdate) {
         }
     })
 }
+
+//DRY!

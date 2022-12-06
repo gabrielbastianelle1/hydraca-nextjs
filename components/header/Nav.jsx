@@ -16,7 +16,7 @@ export default function Nav() {
                 </div>
                 <Link href="/signup">
                     <span className="font-extrabold text-white bg-colorButton px-5 py-2 rounded cursor-pointer">
-                        Signup
+                        Registar
                     </span>
                 </Link>
             </nav>

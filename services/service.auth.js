@@ -39,6 +39,7 @@ export function signin(email, password) {
     })
 }
 
+/*
 export function getCurrentUser() {
     return new Promise(async (resolve, reject) => {
         try {
@@ -52,4 +53,17 @@ export function getCurrentUser() {
             return reject(error)
         }
     })
+*/
+export async function getCurrentUser() {
+    const response = await axios.get(
+        'http://localhost:3000/api/user',
+
+        {
+            headers: {
+                'x-access-token': localStorage.getItem('token')
+            }
+        }
+    )
+
+    return response
 }

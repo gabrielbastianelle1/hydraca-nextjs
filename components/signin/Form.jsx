@@ -30,7 +30,7 @@ export default function Form() {
             setMessage({
                 active: true,
                 error: true,
-                message: 'Wrong confirm password'
+                message: 'Palavra-passe incorreta'
             })
             return
         }
