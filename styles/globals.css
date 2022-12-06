@@ -67,7 +67,7 @@
         @apply border p-3 rounded-xl  mt-3 mb-3;
     }
 
-    .squareP{
+    .squareP {
         padding-bottom: 10%;
         margin-left: 40%;
         margin-top: 15%;
@@ -76,9 +76,7 @@
         background-color: #031954;
     }
 
-    .item-sidebar{
-        @apply h-10 fill-none stroke-gray-700 ;
+    .item-sidebar {
+        @apply h-10 fill-none stroke-gray-700;
     }
 }
-
-

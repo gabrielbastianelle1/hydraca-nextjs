@@ -11,7 +11,8 @@ let authService = {
                 if (err) {
                     return reject(authErrorHandler(err))
                 }
-                return resolve(result)
+                let token = jwt.sign({ user: result }, process.env.SECRET_KEY)
+                return resolve(token)
             })
         })
     },
