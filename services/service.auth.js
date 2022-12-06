@@ -13,7 +13,8 @@ export function signup(name, password, email, birthday) {
                     role: 'user'
                 }
             )
-            return resolve(response)
+            localStorage.setItem('token', response.data)
+            return resolve(response.data)
         } catch (error) {
             console.log(error)
             return reject(error)
