@@ -4,10 +4,11 @@ import FormContent from '../Form.styled'
 import { updateProfile } from '../../services/service.user'
 import { User, PopUp } from '../svgs/index'
 import { getCurrentUser } from '../../services/service.auth'
+import { format } from 'date-fns'
 
 export default function Form() {
     const [user, setUser] = useState({})
-
+    format(new Date(), 'yyyy/mm/dd')
     useEffect(() => {
         getCurrentUser()
             .then((response) => setUser(response.data.user))
@@ -15,8 +16,11 @@ export default function Form() {
     }, [])
 
     const [name, setName] = useState(user.name)
-    const [height, setHeight] = useState(null)
-    const [weight, setWeight] = useState(null)
+    const [height, setHeight] = useState(user.height)
+    const [weight, setWeight] = useState(user.weight)
+    const [sensitivity, setSensitivity] = useState(user.sensitivity)
+    const [birthday, setBirthday] = useState(user.birthday)
+    const [email, setEmail] = useState(user.email)
 
     const onChangeName = (event) => {
         setName(event.target.value)
@@ -30,10 +34,25 @@ export default function Form() {
         setWeight(event.target.value)
     }
 
+    const onChangeSensitivity = (event) => {
+        setSensitivity(event.target.value)
+    }
+    const onChangeEmail = (event) => {
+        setEma(event.target.value)
+    }
+
+    const onChangeBirthday = (event) => {
+        setBirthday(event.target.value)
+    }
+
     const handleSubmit = async (event) => {
         try {
             await updateProfile({
-                name: name
+                name: name,
+                weight: weight,
+                height: height,
+                sensitivity: sensitivity,
+                birthday: birthday
             })
         } catch (error) {
             console.log(error.response.data)
@@ -54,61 +73,67 @@ export default function Form() {
                         name="name"
                         id="name"
                         className="input placeholder-black
-              py-1 bg-transparent border-0 border-b-2 border-indigo-900"
+                          py-1 bg-transparent border-0 border-b-2 border-indigo-900"
                         onChange={onChangeName}
                         placeholder={user.name}
                         value={name}
                         type="text"
                     />
-                    {/*<label htmlFor="email">Email</label>
-            <input class='bg-transparent border-0 border-b-2 border-indigo-900' value={user.email} />
-        <label htmlFor="date">Data de nascimento:</label>
-            <input
-             type="date"
-             name="date"
-             id="birthday"
-             className="input py-1 bg-transparent border-0 border-b-2 border-indigo-900"
-             //onChange={onChangeBirthday}
-             //placeholder={user.birthday}
-             value={user.birthday}
 
-             />
+                    <label htmlFor="email">Email</label>
+                    <input
+                        className="bg-transparent border-0 border-b-2 border-indigo-900"
+                        value={user.email}
+                    />
+                </div>
+                <div className="grid-cols-1 grid-rows-9 grid-y-4 px-72 justify-center grid ">
+                    <label htmlFor="name">Sensitivity:</label>
+                    <input
+                        name="name"
+                        id="name"
+                        className="input placeholder-black
+                        bg-transparent border-0 border-b-2 border-indigo-900"
+                        onChange={onChangeSensitivity}
+                        placeholder={user.sensitivity}
+                        value={sensitivity}
+                        type="text"
+                    />
 
-        <label htmlFor="name">Palavra-passe:</label>
-            <input
-             //type="password"
-             //id="password"
-             className="input py-1 bg-transparent border-0 border-b-2 border-indigo-900"
-             //onChange={onChangePassword}
-             placeholder= "password"
-             //value={user.password}
+                    <label htmlFor="date">Data de nascimento:</label>
+                    <input
+                        type="Date"
+                        name="date"
+                        id="birthday"
+                        className="input py-1 bg-transparent border-0 border-b-2 border-indigo-900"
+                        onChange={onChangeBirthday}
+                        placeholder={user.birthday}
+                        value={birthday}
+                    />
 
-             />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2  space-y-1 ">
+                        <label htmlFor="height">Altura:</label>
+                        <input
+                            type="number"
+                            name="height"
+                            id="height"
+                            className="input py-1 order-3 bg-transparent border-0 border-b-2 border-indigo-900"
+                            value={user.height}
+                            placeholder={height}
+                            onChange={onChangeHeight}
+                        />
 
-             <div className='grid grid-cols-1 md:grid-cols-2 gap-2  space-y-1 '>
-                <label htmlFor="height">Altura:</label>
-                 <input
-                    type="number"
-                    name="height"
-                    id="height"
-                    className="input py-1 order-3 bg-transparent border-0 border-b-2 border-indigo-900"
-                    value={user.height}
-                    placeholder={user.height}
-                    onChange={onChangeHeight}
+                        <label htmlFor="weight">Peso:</label>
+                        <input
+                            type="number"
+                            name="weight"
+                            id="weight"
+                            className="input py-1 order-4 bg-transparent border-0 border-b-2 border-indigo-900"
+                            value={user.weight}
+                            placeholder={weight}
+                            onChange={onChangeWeight}
+                        />
+                    </div>
 
-                />
-
-                <label htmlFor="weight">Peso:</label>
-                <input
-                    type="number"
-                    name="weight"
-                    id="weight"
-                    className="input py-1 order-4 bg-transparent border-0 border-b-2 border-indigo-900"
-                    value={user.weight}
-                    placeholder={user.weight}
-                    onChange={onChangeWeight}
-                /></div>
-*/}
                     <Button onClick={handleSubmit}>Salvar</Button>
                 </div>
             </FormContent>
