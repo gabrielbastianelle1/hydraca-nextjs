@@ -1,14 +1,20 @@
 import { React, useState, useContext, useEffect } from 'react'
-import { GlobalContext } from '../../context/GlobalContext'
 import Button from '../Button'
 import FormContent from '../Form.styled'
 import { updateProfile } from '../../services/service.user'
 import { User, PopUp } from '../svgs/index'
+import { getCurrentUser } from '../../services/service.auth'
 
 export default function Form() {
-    const { userGlobal, setUserGlobal } = useContext(GlobalContext)
+    const [user, setUser] = useState({})
 
-    const [name, setName] = useState(userGlobal.name)
+    useEffect(() => {
+        getCurrentUser()
+            .then((response) => setUser(response.data.user))
+            .catch((error) => console.log(error))
+    }, [])
+
+    const [name, setName] = useState(user.name)
     const [height, setHeight] = useState(null)
     const [weight, setWeight] = useState(null)
 
@@ -26,13 +32,9 @@ export default function Form() {
 
     const handleSubmit = async (event) => {
         try {
-            const data = await updateProfile({
+            await updateProfile({
                 name: name
             })
-
-            let userUpdated = data.data
-
-            setUserGlobal(userUpdated)
         } catch (error) {
             console.log(error.response.data)
         }
@@ -54,7 +56,7 @@ export default function Form() {
                         className="input placeholder-black
               py-1 bg-transparent border-0 border-b-2 border-indigo-900"
                         onChange={onChangeName}
-                        placeholder={userGlobal.name}
+                        placeholder={user.name}
                         value={name}
                         type="text"
                     />

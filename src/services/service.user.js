@@ -3,6 +3,8 @@ const Therapy = require('../models/model.Therapy')
 const Food = require('../models/model.Food')
 const Diabetes = require('../models/model.Diabetes')
 
+const jwt = require('jsonwebtoken')
+
 let userService = {
     getAllFoodUser: function () {
         return new Promise(async (resolve, reject) => {
@@ -46,8 +48,10 @@ let userService = {
                     { new: true }
                 )
 
+                let token = jwt.sign({ user: response }, process.env.SECRET_KEY)
+
                 if (!response) reject('nothing updated')
-                return resolve(response)
+                return resolve(token)
             } catch (erro) {
                 return reject(erro)
             }

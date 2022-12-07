@@ -1,14 +1,10 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { signin, getCurrentUser } from '../../services/service.auth'
 import useRouter from 'next/router'
 import Button from '../Button'
 import FormContent from '../Form.styled'
 
-import { GlobalContext } from '../../context/GlobalContext'
-
 export default function Form() {
-    const { setUserGlobal } = useContext(GlobalContext)
-
     const navigate = useRouter
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -43,8 +39,6 @@ export default function Form() {
             let response = await getCurrentUser()
 
             const userData = response.data.user
-
-            setUserGlobal(userData)
 
             if (userData.role === 'user') {
                 navigate.push('/user')

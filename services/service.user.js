@@ -12,6 +12,7 @@ export function updateProfile(valuesToUpdate) {
                     }
                 }
             )
+            localStorage.setItem('token', response.data)
             return resolve(response)
         } catch (error) {
             console.log(error)
