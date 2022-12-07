@@ -37,14 +37,30 @@ export default function Form() {
         setConfirm(e.target.value)
     }
 
+    const checkIfPasswordIsEmpty = (password) => {
+        if (password.length == 0) {
+            return true
+        }
+        return false
+    }
+
     async function handleSubmit(e) {
         e.preventDefault()
+
+        if (checkIfPasswordIsEmpty(password)) {
+            setMessage({
+                active: true,
+                error: true,
+                message: 'password cannot be empty'
+            })
+            return
+        }
 
         if (password !== confirm) {
             setMessage({
                 active: true,
                 error: true,
-                message: 'Wrong confirm password'
+                message: 'wrong confirm password'
             })
             return
         }
