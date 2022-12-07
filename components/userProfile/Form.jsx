@@ -21,6 +21,11 @@ export default function Form() {
     const [sensitivity, setSensitivity] = useState(user.sensitivity)
     const [birthday, setBirthday] = useState(user.birthday)
     const [email, setEmail] = useState(user.email)
+    const [message, setMessage] = useState({
+        active: false,
+        error: false,
+        message: ''
+    })
 
     const onChangeName = (event) => {
         setName(event.target.value)
@@ -45,7 +50,24 @@ export default function Form() {
         setBirthday(event.target.value)
     }
 
+    let dataNull = [name, height, weight]
+
+    const checkIfDataNull = (dataNull) => {
+        if (dataNull.length == 0) {
+            return true
+        }
+        return false
+    }
+
     const handleSubmit = async (event) => {
+        if (name.length === 0) {
+            setMessage({
+                active: true,
+                error: true,
+                message: 'O campo não pode estar vazio'
+            })
+            return
+        }
         try {
             await updateProfile({
                 name: name,
@@ -66,7 +88,11 @@ export default function Form() {
                 <User className="grid " />
             </div>
 
-            <FormContent>
+            <FormContent
+                active={message.active}
+                error={message.error}
+                message={message.message}
+            >
                 <div className="grid-cols-1 grid-rows-9 grid-y-4 px-72 justify-center grid ">
                     <label htmlFor="name">Nome completo:</label>
                     <input
@@ -116,9 +142,9 @@ export default function Form() {
                             type="number"
                             name="height"
                             id="height"
-                            className="input py-1 order-3 bg-transparent border-0 border-b-2 border-indigo-900"
-                            value={user.height}
-                            placeholder={height}
+                            className="input placeholder-black py-1 order-3 bg-transparent border-0 border-b-2 border-indigo-900"
+                            value={height}
+                            placeholder={user.height}
                             onChange={onChangeHeight}
                         />
 
@@ -127,9 +153,9 @@ export default function Form() {
                             type="number"
                             name="weight"
                             id="weight"
-                            className="input py-1 order-4 bg-transparent border-0 border-b-2 border-indigo-900"
-                            value={user.weight}
-                            placeholder={weight}
+                            className="input py-1 placeholder-black order-4 bg-transparent border-0 border-b-2 border-indigo-900"
+                            value={weight}
+                            placeholder={user.weight}
                             onChange={onChangeWeight}
                         />
                     </div>

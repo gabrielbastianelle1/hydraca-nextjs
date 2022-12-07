@@ -51,7 +51,7 @@ export default function Form() {
             setMessage({
                 active: true,
                 error: true,
-                message: 'password cannot be empty'
+                message: 'O campo não pode estar vazio'
             })
             return
         }
@@ -60,7 +60,7 @@ export default function Form() {
             setMessage({
                 active: true,
                 error: true,
-                message: 'wrong confirm password'
+                message: '  Confirme a palavra-passe'
             })
             return
         }
@@ -91,7 +91,7 @@ export default function Form() {
                 message={message.message}
                 className="form"
             >
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">Nome</label>
                 <input
                     id="name"
                     placeholder="Full name"
@@ -99,7 +99,7 @@ export default function Form() {
                     value={name}
                     className="input"
                 />
-                <label htmlFor="birthday">Birthday</label>
+                <label htmlFor="birthday">Data de nascimento</label>
                 <input
                     id="birthday"
                     placeholder="YYYY-MM-DD"
@@ -115,7 +115,7 @@ export default function Form() {
                     value={email}
                     className="input"
                 />
-                <label htmlFor="name">Password</label>
+                <label htmlFor="name">Palavra-passe</label>
                 <input
                     id="password"
                     placeholder="password"
@@ -124,7 +124,7 @@ export default function Form() {
                     value={password}
                     className="input"
                 />
-                <label htmlFor="name">Confirm Password</label>
+                <label htmlFor="name">Confirmar palavra-passe</label>
                 <input
                     placeholder="password"
                     type="password"
