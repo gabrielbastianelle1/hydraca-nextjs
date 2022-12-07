@@ -1,7 +1,9 @@
 import { React, useState, useContext, useEffect } from 'react'
 import Button from '../Button'
+import { GlobalContext } from '../../context/GlobalContext'
 import FormContent from '../Form.styled'
 import { updateProfile } from '../../services/service.user'
+import Dropbox from '../Dropbox'
 import { User, PopUp } from '../svgs/index'
 import { getCurrentUser } from '../../services/service.auth'
 import { format } from 'date-fns'
@@ -16,10 +18,14 @@ export default function Form() {
     }, [])
 
     const [name, setName] = useState(user.name)
+    const { diabetesGlobal } = useContext(GlobalContext)
+    const [idReturnedFromDropBox, setIdReturnedFromDropBox] = useState(null)
+    const [titleDropbox, setTitleDropbox] = useState()
     const [height, setHeight] = useState(user.height)
     const [weight, setWeight] = useState(user.weight)
     const [sensitivity, setSensitivity] = useState(user.sensitivity)
     const [birthday, setBirthday] = useState(user.birthday)
+    const [password, setPassword] = useState(user.password)
     const [email, setEmail] = useState(user.email)
     const [message, setMessage] = useState({
         active: false,
@@ -43,14 +49,18 @@ export default function Form() {
         setSensitivity(event.target.value)
     }
     const onChangeEmail = (event) => {
-        setEma(event.target.value)
+        setEmail(event.target.value)
     }
 
     const onChangeBirthday = (event) => {
         setBirthday(event.target.value)
     }
 
-    let dataNull = [name, height, weight]
+    const onChangePassword = (event) => {
+        setPassword(event.target.value)
+    }
+
+    /* let dataNull = [name, height, weight]
 
     const checkIfDataNull = (dataNull) => {
         if (dataNull.length == 0) {
@@ -60,26 +70,32 @@ export default function Form() {
     }
 
     const handleSubmit = async (event) => {
-        if (name.length === 0) {
+
+        if (name.length === 0   ) {
             setMessage({
                 active: true,
                 error: true,
                 message: 'O campo não pode estar vazio'
             })
             return
-        }
+        }*/
+
+    const handleSubmit = async (event) => {
         try {
             await updateProfile({
                 name: name,
+                idDiabetes: idReturnedFromDropBox,
                 weight: weight,
                 height: height,
                 sensitivity: sensitivity,
-                birthday: birthday
+                birthday: birthday,
+                password: password
             })
         } catch (error) {
             console.log(error.response.data)
         }
     }
+    console.log(password)
 
     return (
         <section className="flex-grow">
@@ -88,11 +104,7 @@ export default function Form() {
                 <User className="grid " />
             </div>
 
-            <FormContent
-                active={message.active}
-                error={message.error}
-                message={message.message}
-            >
+            <FormContent>
                 <div className="grid-cols-1 grid-rows-9 grid-y-4 px-72 justify-center grid ">
                     <label htmlFor="name">Nome completo:</label>
                     <input
@@ -111,7 +123,17 @@ export default function Form() {
                         className="bg-transparent border-0 border-b-2 border-indigo-900"
                         value={user.email}
                     />
+
+                    <Dropbox
+                        label="Diabetes"
+                        titleDropbox={titleDropbox}
+                        setTitleDropbox={setTitleDropbox}
+                        dataToShowInDropbox={diabetesGlobal}
+                        field="type"
+                        setIdReturnedFromDropBox={setIdReturnedFromDropBox}
+                    />
                 </div>
+
                 <div className="grid-cols-1 grid-rows-9 grid-y-4 px-72 justify-center grid ">
                     <label htmlFor="name">Sensitivity:</label>
                     <input
@@ -125,14 +147,25 @@ export default function Form() {
                         type="text"
                     />
 
-                    <label htmlFor="date">Data de nascimento:</label>
+                    <label htmlFor="password">Password:</label>
                     <input
-                        type="Date"
-                        name="date"
+                        className="input placeholder-black
+                        bg-transparent border-0 border-b-2 border-indigo-900"
+                        id="password"
+                        placeholder=""
+                        type="password"
+                        onChange={onChangePassword}
+                        value={password}
+                    />
+
+                    <label htmlFor="birthday">Data de nascimento:</label>
+                    <input
+                        name="birthday"
                         id="birthday"
                         className="input py-1 bg-transparent border-0 border-b-2 border-indigo-900"
                         onChange={onChangeBirthday}
                         placeholder={user.birthday}
+                        // type="Date"
                         value={birthday}
                     />
 

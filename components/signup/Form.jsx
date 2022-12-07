@@ -102,7 +102,7 @@ export default function Form() {
                 <label htmlFor="birthday">Data de nascimento</label>
                 <input
                     id="birthday"
-                    placeholder="YYYY-MM-DD"
+                    type="Date"
                     onChange={onChangeBirthday}
                     value={birthday}
                     className="input"

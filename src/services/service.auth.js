@@ -23,13 +23,17 @@ let authService = {
                 if (err) reject(err)
 
                 if (result.length == 0) {
-                    return reject('email do not registed')
+                    return reject('Email não registado')
                 }
 
                 let user = result[0]
 
+                if (user.state != true) {
+                    return reject('A conta não está ativa')
+                }
+
                 if (!(await new User().comparePassword(req, user))) {
-                    reject('wrong password')
+                    reject('Login incorreto')
                 }
 
                 let token = jwt.sign({ user: user }, process.env.SECRET_KEY)

@@ -44,6 +44,7 @@ let userService = {
             try {
                 let response = await User.findOneAndUpdate(
                     { email: userEmail },
+
                     valuesToUpdate,
                     { new: true }
                 )
