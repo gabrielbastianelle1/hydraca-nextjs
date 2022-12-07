@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { signup } from '../../services/service.auth'
 import Button from '../Button'
 import FormContent from '../Form.styled'
@@ -91,47 +91,57 @@ export default function Form() {
                 message={message.message}
                 className="form"
             >
-                <label htmlFor="name">Nome</label>
-                <input
-                    id="name"
-                    placeholder="Full name"
-                    onChange={onChangeName}
-                    value={name}
-                    className="input"
-                />
-                <label htmlFor="birthday">Data de nascimento</label>
-                <input
-                    id="birthday"
-                    type="Date"
-                    onChange={onChangeBirthday}
-                    value={birthday}
-                    className="input"
-                />
-                <label htmlFor="email">Email</label>
-                <input
-                    id="email"
-                    placeholder="mail@mail.com"
-                    onChange={onChangeEmail}
-                    value={email}
-                    className="input"
-                />
-                <label htmlFor="name">Palavra-passe</label>
-                <input
-                    id="password"
-                    placeholder="password"
-                    type="password"
-                    onChange={onChangePassword}
-                    value={password}
-                    className="input"
-                />
-                <label htmlFor="name">Confirmar palavra-passe</label>
-                <input
-                    placeholder="password"
-                    type="password"
-                    onChange={onChangeConfirm}
-                    value={confirm}
-                    className="input"
-                />
+                <div className="item-form">
+                    <label htmlFor="name">Nome: </label>
+                    <input
+                        id="name"
+                        placeholder="nome completo"
+                        onChange={onChangeName}
+                        value={name}
+                        className="input"
+                    />
+                </div>
+                <div className="item-form">
+                    <label htmlFor="birthday">Nascimento: </label>
+                    <input
+                        id="birthday"
+                        placeholder="YYYY-MM-DD"
+                        onChange={onChangeBirthday}
+                        value={birthday}
+                        className="input"
+                    />
+                </div>
+                <div className="item-form">
+                    <label htmlFor="email">Email: </label>
+                    <input
+                        id="email"
+                        placeholder="mail@mail.com"
+                        onChange={onChangeEmail}
+                        value={email}
+                        className="input"
+                    />
+                </div>
+                <div className="item-form">
+                    <label htmlFor="password">Senha: </label>
+                    <input
+                        id="password"
+                        placeholder="senha"
+                        type="password"
+                        onChange={onChangePassword}
+                        value={password}
+                        className="input"
+                    />
+                </div>
+                <div className="item-form">
+                    <label htmlFor="name">Confimar senha: </label>
+                    <input
+                        placeholder="senha"
+                        type="password"
+                        onChange={onChangeConfirm}
+                        value={confirm}
+                        className="input"
+                    />
+                </div>
                 <Button onClick={handleSubmit}>Criar Conta</Button>
             </FormContent>
         </div>

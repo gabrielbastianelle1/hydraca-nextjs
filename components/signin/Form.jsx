@@ -57,33 +57,31 @@ export default function Form() {
     return (
         <div>
             <FormContent
-                action="/send-data-here"
                 active={message.active}
                 error={message.error}
                 message={message.message}
                 className="form"
-                method="POST"
             >
-                <label htmlFor="email">Email</label>
-                <input
-                    id="email"
-                    autoComplete="email"
-                    placeholder="mail@mail.com"
-                    onChange={onChangeEmail}
-                    value={email}
-                    className="input"
-                    required
-                    pattern="@"
-                />
-                <label htmlFor="password">Palavra-Passe</label>
-                <input
-                    type={showPassword ? 'text' : 'password'}
-                    placeholder="password"
-                    onChange={onChangePassword}
-                    value={password}
-                    className="input "
-                    required
-                />
+                <div className="item-form">
+                    <label htmlFor="email">Email: </label>
+                    <input
+                        id="email"
+                        placeholder="mail@mail.com"
+                        onChange={onChangeEmail}
+                        value={email}
+                        className="input"
+                    />
+                </div>
+                <div className="item-form">
+                    <label htmlFor="password">Senha: </label>
+                    <input
+                        type={showPassword ? 'text' : 'password'}
+                        placeholder="senha"
+                        onChange={onChangePassword}
+                        value={password}
+                        className="input "
+                    />
+                </div>
                 <div>
                     <label
                         onClick={() => setShowPassword(!showPassword)}

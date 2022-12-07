@@ -63,34 +63,39 @@ export default function Form() {
                     field="type"
                     setIdReturnedFromDropBox={setIdReturnedFromDropBox}
                 />
-
-                <label htmlFor="sensitivity">Sensibilidade</label>
-                <input
-                    type="number"
-                    name="sensitivity"
-                    id="sensitivity"
-                    className="input"
-                    placeholder="exemplo: 20"
-                    onChange={onChangeSensitivity}
-                />
-                <label htmlFor="height">Altura</label>
-                <input
-                    type="number"
-                    name="height"
-                    id="height"
-                    className="input"
-                    placeholder="em cemtimetros"
-                    onChange={onChangeHeight}
-                />
-                <label htmlFor="weight">Peso</label>
-                <input
-                    type="number"
-                    name="weight"
-                    id="weight"
-                    className="input"
-                    placeholder="em kilos"
-                    onChange={onChangeWeight}
-                />
+                <div className="item-form">
+                    <label htmlFor="sensitivity">Sensibilidade: </label>
+                    <input
+                        type="number"
+                        name="sensitivity"
+                        id="sensitivity"
+                        className="input"
+                        placeholder="exemplo: 20"
+                        onChange={onChangeSensitivity}
+                    />
+                </div>
+                <div className="item-form">
+                    <label htmlFor="height">Altura: </label>
+                    <input
+                        type="number"
+                        name="height"
+                        id="height"
+                        className="input"
+                        placeholder="em centimetros"
+                        onChange={onChangeHeight}
+                    />
+                </div>
+                <div className="item-form">
+                    <label htmlFor="weight">Peso: </label>
+                    <input
+                        type="number"
+                        name="weight"
+                        id="weight"
+                        className="input"
+                        placeholder="em kg"
+                        onChange={onChangeWeight}
+                    />
+                </div>
                 <Button onClick={handleSubmit}>Continuar</Button>
             </FormContent>
         </div>
