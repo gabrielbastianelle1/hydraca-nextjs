@@ -1,3 +1,9 @@
+import { NotificationIcon } from '../svgs'
+
 export default function Notification() {
-    return <div className="flex-grow flex justify-end">oi</div>
+    return (
+        <buttom className="flex-grow flex justify-end">
+            <NotificationIcon className="" />
+        </buttom>
+    )
 }

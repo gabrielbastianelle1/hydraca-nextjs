@@ -2,13 +2,13 @@ import { React, useState, useContext, useEffect } from 'react'
 import { GlobalContext } from '../../context/GlobalContext'
 import Button from '../Button'
 import FormContent from '../Form.styled'
-import { getCurrentUser } from '../../services/service.auth'
 import { updateProfile } from '../../services/service.user'
 import { User, PopUp } from '../svgs/index'
-import { set } from 'mongoose'
+
 export default function Form() {
     const { userGlobal, setUserGlobal } = useContext(GlobalContext)
-    const [name, setName] = useState(null)
+
+    const [name, setName] = useState(userGlobal.name)
     const [height, setHeight] = useState(null)
     const [weight, setWeight] = useState(null)
 
@@ -26,9 +26,13 @@ export default function Form() {
 
     const handleSubmit = async (event) => {
         try {
-            const data = await updateProfile(user)
-            setUserGlobal(data.data)
-            console.log(data)
+            const data = await updateProfile({
+                name: name
+            })
+
+            let userUpdated = data.data
+
+            setUserGlobal(userUpdated)
         } catch (error) {
             console.log(error.response.data)
         }
@@ -42,7 +46,7 @@ export default function Form() {
             </div>
 
             <FormContent>
-                <div className="grid-cols-1 grid-rows-9 grid-y-4 px-72 justify-center flex grid ">
+                <div className="grid-cols-1 grid-rows-9 grid-y-4 px-72 justify-center grid ">
                     <label htmlFor="name">Nome completo:</label>
                     <input
                         name="name"
@@ -51,7 +55,7 @@ export default function Form() {
               py-1 bg-transparent border-0 border-b-2 border-indigo-900"
                         onChange={onChangeName}
                         placeholder={userGlobal.name}
-                        value={userGlobal.name}
+                        value={name}
                         type="text"
                     />
                     {/*<label htmlFor="email">Email</label>
@@ -103,12 +107,7 @@ export default function Form() {
                     onChange={onChangeWeight}
                 /></div>
 */}
-                    <Button
-                        class="w-5 hover:bg-indigo-700"
-                        onClick={handleSubmit}
-                    >
-                        Salvar
-                    </Button>
+                    <Button onClick={handleSubmit}>Salvar</Button>
                 </div>
             </FormContent>
             <div className="scale-90 sm:absolute -bottom-4   -right-2">

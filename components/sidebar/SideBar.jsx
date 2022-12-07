@@ -2,8 +2,8 @@ import Side from './Side'
 
 export default function SideBar() {
     return (
-        <sideBar className="">
+        <aside>
             <Side />
-        </sideBar>
+        </aside>
     )
 }

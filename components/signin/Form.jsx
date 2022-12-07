@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { signin, getCurrentUser } from '../../services/service.auth'
 import useRouter from 'next/router'
 import Button from '../Button'
-import { userAgent } from 'next/server'
 import FormContent from '../Form.styled'
 
+import { GlobalContext } from '../../context/GlobalContext'
+
 export default function Form() {
+    const { setUserGlobal } = useContext(GlobalContext)
+
     const navigate = useRouter
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -39,7 +42,11 @@ export default function Form() {
             await signin(email, password)
             let response = await getCurrentUser()
 
-            if (response.data.user.role === 'user') {
+            const userData = response.data.user
+
+            setUserGlobal(userData)
+
+            if (userData.role === 'user') {
                 navigate.push('/user')
                 return
             } else navigate.push('/admin')

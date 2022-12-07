@@ -1,17 +1,6 @@
-import { React, useContext, useEffect } from 'react'
-import styled from 'styled-components'
-import { signin, getCurrentUser } from '../../services/service.auth'
-import { GlobalContext } from '../../context/GlobalContext'
+import { React } from 'react'
 
 export default function User() {
-    const { setUserGlobal } = useContext(GlobalContext)
-
-    useEffect(() => {
-        getCurrentUser().then((user) => {
-            setUserGlobal(user.data.user)
-        })
-    }, [])
-
     return (
         <div className="flex-grow grid">
             <div>um</div>
