@@ -15,8 +15,6 @@ export default function GlobalProvider({ children }) {
             .catch((error) => console.log(error))
     }, [])
 
-    console.log('context')
-
     return (
         <GlobalContext.Provider
             value={{

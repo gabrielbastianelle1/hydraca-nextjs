@@ -2,8 +2,11 @@ import { NotificationIcon } from '../svgs'
 
 export default function Notification() {
     return (
-        <buttom className="flex-grow flex justify-end">
-            <NotificationIcon className="" />
-        </buttom>
+        <button className="relative flex-grow flex justify-end">
+            <span className="sr-only">Notifications</span>
+            <span className="absolute top-0 right-0 h-2 w-2 mt-1 mr-1 bg-red-500 rounded-full" />
+            <span className="absolute top-0 right-0 h-2 w-2 mt-1 mr-1 bg-red-500 rounded-full animate-ping" />
+            <NotificationIcon className="h-7" />
+        </button>
     )
 }
