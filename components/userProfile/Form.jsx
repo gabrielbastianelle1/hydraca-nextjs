@@ -26,7 +26,9 @@ export default function Form() {
     const [email, setEmail] = useState(user.email)
 
     const [titleDropbox, setTitleDropbox] = useState('Selecione')
-    const [idReturnedFromDropBox, setIdReturnedFromDropBox] = useState(null)
+    const [idReturnedFromDropBox, setIdReturnedFromDropBox] = useState(
+        user.idDiabetes
+    )
 
     const onChangeName = (event) => {
         setName(event.target.value)
@@ -59,7 +61,6 @@ export default function Form() {
         try {
             await updateProfile({
                 name: name,
-                idDiabetes: idReturnedFromDropBox,
                 weight: weight,
                 height: height,
                 sensitivity: sensitivity,
@@ -144,16 +145,14 @@ export default function Form() {
                         className="input"
                     />
                 </div>
-                <div className="item-form">
-                    <Dropbox
-                        label="Diabetes"
-                        titleDropbox={titleDropbox}
-                        setTitleDropbox={setTitleDropbox}
-                        dataToShowInDropbox={diabetesGlobal}
-                        field="type"
-                        setIdReturnedFromDropBox={setIdReturnedFromDropBox}
-                    />
-                </div>
+                <Dropbox
+                    label="Diabetes"
+                    titleDropbox={titleDropbox}
+                    setTitleDropbox={setTitleDropbox}
+                    dataToShowInDropbox={diabetesGlobal}
+                    field="type"
+                    setIdReturnedFromDropBox={setIdReturnedFromDropBox}
+                />
                 <div className="item-form">
                     <label htmlFor="sensitivity">Sensitivity: </label>
                     <input

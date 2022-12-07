@@ -49,6 +49,7 @@ let userService = {
                     { new: true }
                 )
 
+                console.log(response)
                 let token = jwt.sign({ user: response }, process.env.SECRET_KEY)
 
                 if (!response) reject('nothing updated')

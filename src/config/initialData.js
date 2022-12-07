@@ -29,6 +29,10 @@ function insertInitialData() {
                     type: 'Diabete tipo 1'
                 })
                 diabetes.save()
+                diabetes = new Diabetes({
+                    type: 'Diabete tipo 2'
+                })
+                diabetes.save()
             }
         })
         .catch((error) => console.log(error))

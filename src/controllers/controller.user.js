@@ -2,6 +2,15 @@ const userService = require('../services/service.user')
 const { calcTotalInsulin } = require('../calc/calcInsulin')
 const bcrypt = require('bcryptjs')
 
+async function hashPassword(password, valuesToUpdate) {
+    valuesToUpdate.password = await bcrypt.hashSync(
+        password,
+        bcrypt.genSaltSync(10)
+    )
+
+    return valuesToUpdate
+}
+
 let userController = {
     getCurrentUser: function (req, res) {
         res.status(200).json(req.user)
@@ -40,10 +49,9 @@ let userController = {
         let valuesToUpdate = req.body
         let { password } = valuesToUpdate
 
-        valuesToUpdate.password = await bcrypt.hashSync(
-            password,
-            bcrypt.genSaltSync(10)
-        )
+        if (password) {
+            valuesToUpdate = hashPassword(password, valuesToUpdate)
+        }
 
         try {
             return res.status(200).json(
