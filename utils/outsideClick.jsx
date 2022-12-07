@@ -4,8 +4,8 @@ export default function OutsideClick(ref) {
     const [isDown, setisDown] = useState()
 
     useEffect(() => {
-        function handleClickOutside(event) {
-            //console.log(ref.current.classList.contains('hidden'))
+        function handleClickOutside() {
+            console.log(ref.current.classList.contains('hidden'))
             if (ref.current && !ref.current.classList.contains('hidden')) {
                 setisDown(true)
             } else {

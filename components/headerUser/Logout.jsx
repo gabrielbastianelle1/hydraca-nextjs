@@ -1,3 +1,13 @@
+import { logout } from '../../services/service.auth'
+import useRouter from 'next/router'
+
 export default function Logout() {
-    return <div>Terminar Sessão</div>
+    const navigate = useRouter
+
+    const handleOnClick = () => {
+        logout()
+        navigate.push('/')
+    }
+
+    return <button onClick={handleOnClick}>Terminar Sessão</button>
 }

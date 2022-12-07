@@ -60,7 +60,7 @@ export default function Form() {
     }
 
     return (
-        <section>
+        <section className="flex-grow">
             <div className=" place-items-center justify-center content-start flex grid-col-2  left-72 pt-20  grid-cols-6">
                 <h1 className="  text-3xl pt-4  text-indigo-900">PERFIL</h1>
                 <User className="grid " />

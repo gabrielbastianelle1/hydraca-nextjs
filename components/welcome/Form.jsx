@@ -4,8 +4,10 @@ import Button from '../Button'
 import Dropbox from '../Dropbox'
 import FormContent from '../Form.styled'
 import { updateProfile } from '../../services/service.user'
+import useRouter from 'next/router'
 
 export default function Form() {
+    const navigate = useRouter
     const { diabetesGlobal } = useContext(GlobalContext)
 
     const [titleDropbox, setTitleDropbox] = useState('Selecione')
@@ -37,6 +39,7 @@ export default function Form() {
                 weight: weight,
                 sensitivity: sensitivity
             })
+            navigate.push('/user')
         } catch (error) {
             console.log(error.response.data)
         }

@@ -3,7 +3,7 @@ import { NotificationIcon } from '../svgs'
 import NotificationDrop from './NotificationDrop'
 
 export default function Notification() {
-    const [dropdown, setDropdown] = useState(false)
+    const [dropdown, setDropdown] = useState(true)
 
     const openDropdown = () => {
         setDropdown(!dropdown)
