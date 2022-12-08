@@ -20,11 +20,14 @@ export default function Side() {
                         </div>
                         <div className="flex-1 flex items-center p-2 space-x-3 rounded-md ">
                             <Profile />
-                            <SideItem hrefLink="/userProfile" text="Perfil" />
+                            <SideItem hrefLink="/user/profile" text="Perfil" />
                         </div>
                         <div className="flex-1 flex items-center p-2 space-x-3 rounded-md ">
                             <Registar />
-                            <SideItem hrefLink="/" text="Registar Bolus" />
+                            <SideItem
+                                hrefLink="/user/registerbolus"
+                                text="Registar Bolus"
+                            />
                         </div>
                         <div className="flex-1 flex items-center p-2 space-x-3 rounded-md ">
                             <Registos />

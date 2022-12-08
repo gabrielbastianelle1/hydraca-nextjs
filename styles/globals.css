@@ -64,21 +64,11 @@
         @apply flex items-center space-x-3;
     }
 
-    .squareP {
-        padding-bottom: 10%;
-        margin-left: 40%;
-        margin-top: 15%;
-        width: 20%;
-        border-radius: 10%;
-        background-color: #031954;
-    }
-
     .item-sidebar {
         @apply h-10 fill-none stroke-gray-700;
     }
 
-    .PopUp {
-        margin-left: 40%;
-        margin-top: 15%;
+    .title{
+        @apply relative text-4xl text-center font-semibold p-12 text-colorButton;
     }
 }
