@@ -5,7 +5,7 @@
 @layer base {
     :root {
         --color-button: #031954;
-        --color-background: #f0f7ff;
+        --color-background:#F9FCFF;
     }
 }
 
@@ -17,7 +17,7 @@
         position: absolute;
         z-index: -1;
         left: 40px;
-        bottom: 2px;
+        bottom: px;
 
         border-radius: 50%;
         background: linear-gradient(142.77deg, #c8e6c9 15.84%, #b3e5fc 85.86%);
@@ -70,5 +70,22 @@
 
     .title {
         @apply relative text-4xl text-center font-semibold p-12 text-colorButton;
+    }
+    .link-underline {
+        border-bottom-width: 0;
+        background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+        background-size: 0 3px;
+        background-position: 0 100%;
+        background-repeat: no-repeat;
+        transition: background-size .5s ease-in-out;
+    }
+
+    .link-underline-black {
+        background-image: linear-gradient(transparent, transparent), linear-gradient(rgb(16, 1, 82), rgb(28, 5, 202))
+    }
+
+    .link-underline:hover {
+        background-size: 100% 3px;
+        background-position: 0 100%
     }
 }

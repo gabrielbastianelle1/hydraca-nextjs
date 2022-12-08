@@ -24,16 +24,16 @@ export default function Welcome() {
         <main className="flex flex-col px-10 items-center justify-start">
             <h1
                 ref={h1}
-                className="uppercase  text-center font-bold text-4xl md:text-5xl lg:text-7xl text-colorButton overflow-hidden mb-5"
+                className="uppercase  text-center font-bold text-lg md:text-5xl lg:text-7xl text-colorButton overflow-hidden mb-8"
             >
                 bem vindo a hydraca
             </h1>
             <div className=" lg:space-y-2">
-                <p className="uppercase text-center p-gsap font-bold lg:text-2xl">
+                <p className="uppercase text-center p-gsap font-bold lg:text-lg">
                     Monitore a sua diabete diariamente e tenha mais qualidade de
                     vida.
                 </p>
-                <p className="uppercase text-center p-gsap font-bold lg:text-2xl">
+                <p className="uppercase text-center p-gsap font-bold lg:text-lg">
                     Efetue registos regularmento dos hidratos de carbono.
                 </p>
             </div>

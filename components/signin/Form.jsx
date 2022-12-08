@@ -82,15 +82,7 @@ export default function Form() {
                         className="input "
                     />
                 </div>
-                <div>
-                    <label
-                        onClick={() => setShowPassword(!showPassword)}
-                        className="bg-blue-700 hover:bg-gray-400 rounded px-2 py-1 text-sm text-white font-mono cursor-pointer "
-                        htmlFor="toggle"
-                    >
-                        {showPassword ? 'hide' : 'show'}
-                    </label>
-                </div>
+                <div></div>
                 <Button onClick={handleSubmit}>Iniciar Sessão</Button>
             </FormContent>
         </div>

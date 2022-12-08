@@ -18,7 +18,7 @@ export default function Side() {
                             <Home />
                             <SideItem hrefLink="/user" text="Início" />
                         </div>
-                        <div className="flex-1 flex items-center p-2 space-x-3 rounded-md ">
+                        <div className="flex-1 flex items-center p-2 space-x-3 rounded-md    ">
                             <Profile />
                             <SideItem hrefLink="/user/profile" text="Perfil" />
                         </div>
@@ -28,6 +28,10 @@ export default function Side() {
                                 hrefLink="/user/registerbolus"
                                 text="Registar Bolus"
                             />
+                        </div>
+                        <div className="flex-1 flex items-center p-2 space-x-3 rounded-md ">
+                            <Registar />
+                            <SideItem hrefLink="" text="Registar Basal" />
                         </div>
                         <div className="flex-1 flex items-center p-2 space-x-3 rounded-md ">
                             <Registos />

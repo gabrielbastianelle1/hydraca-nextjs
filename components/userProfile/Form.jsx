@@ -73,9 +73,9 @@ export default function Form() {
     }
 
     return (
-        <FormContent className="form lg:grid-cols-2 lg:grid-rows-6 gap-x-6">
+        <FormContent className="form lg:grid-cols-2 lg:grid-rows-2 gap-x-4">
             <div className="item-form lg:col-span-2">
-                <label htmlFor="name">Name: </label>
+                <label htmlFor="name">Nome: </label>
                 <input
                     id="name"
                     placeholder={user.name}
@@ -84,6 +84,7 @@ export default function Form() {
                     className="input"
                 />
             </div>
+
             <div className="item-form lg:col-span-2">
                 <label htmlFor="email">Email: </label>
                 <input
@@ -105,7 +106,7 @@ export default function Form() {
                 />
             </div>
             <div className="item-form">
-                <label htmlFor="name">Birthday: </label>
+                <label htmlFor="name">Data de nascimento: </label>
                 <input
                     id="birthday"
                     placeholder={user.birthday}
@@ -115,7 +116,7 @@ export default function Form() {
                 />
             </div>
             <div className="item-form">
-                <label htmlFor="height">Height: </label>
+                <label htmlFor="height">Altura: </label>
                 <input
                     id="height"
                     type="number"
@@ -126,7 +127,7 @@ export default function Form() {
                 />
             </div>
             <div className="item-form">
-                <label htmlFor="weight">Weight: </label>
+                <label htmlFor="weight">Peso: </label>
                 <input
                     id="weight"
                     type="number"
@@ -145,7 +146,7 @@ export default function Form() {
                 setIdReturnedFromDropBox={setIdReturnedFromDropBox}
             />
             <div className="item-form">
-                <label htmlFor="sensitivity">Sensitivity: </label>
+                <label htmlFor="sensitivity">Sensibilidade: </label>
                 <input
                     id="sensitivity"
                     type="number"

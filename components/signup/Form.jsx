@@ -102,7 +102,7 @@ export default function Form() {
                     />
                 </div>
                 <div className="item-form">
-                    <label htmlFor="birthday">Nascimento: </label>
+                    <label htmlFor="birthday">Data de nascimento: </label>
                     <input
                         id="birthday"
                         placeholder="YYYY-MM-DD"
