@@ -68,7 +68,7 @@
         @apply h-10 fill-none stroke-gray-700;
     }
 
-    .title{
+    .title {
         @apply relative text-4xl text-center font-semibold p-12 text-colorButton;
     }
 }

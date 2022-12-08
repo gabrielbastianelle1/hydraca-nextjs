@@ -3,7 +3,7 @@ import Title from './Title'
 
 export default function RegisterBolus() {
     return (
-        <main className="flex-grow flex flex-col items-center">
+        <main className="flex-grow">
             <Title />
             <Form />
         </main>
