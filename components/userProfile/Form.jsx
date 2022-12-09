@@ -84,6 +84,16 @@ export default function Form() {
                     className="input"
                 />
             </div>
+            <div className="item-form">
+                <label htmlFor="password">Password: </label>
+                <input
+                    id="password"
+                    type="password"
+                    onChange={onChangePassword}
+                    value={password}
+                    className="input"
+                />
+            </div>
 
             <div className="item-form lg:col-span-2">
                 <label htmlFor="email">Email: </label>
@@ -95,16 +105,7 @@ export default function Form() {
                     className="input"
                 />
             </div>
-            <div className="item-form">
-                <label htmlFor="password">Password: </label>
-                <input
-                    id="password"
-                    type="password"
-                    onChange={onChangePassword}
-                    value={password}
-                    className="input"
-                />
-            </div>
+
             <div className="item-form">
                 <label htmlFor="name">Data de nascimento: </label>
                 <input
