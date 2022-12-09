@@ -6,7 +6,7 @@ import FormContent from '../Form.styled'
 
 export default function Form() {
     return (
-        <FormContent className="form lg:grid-cols-2 lg:grid-rows-6 gap-y-3 gap-x-4">
+        <FormContent className="form lg:grid-cols-2 lg:grid-rows-6 gap-y-16 lg:gap-y-4 gap-x-4">
             <div className="item-form lg:col-span-2">
                 <label htmlFor="amountGlucose">Escala: </label>
                 <input className="input" placeholder="" type="number" />

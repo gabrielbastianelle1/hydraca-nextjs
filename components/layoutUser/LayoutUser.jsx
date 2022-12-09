@@ -9,7 +9,7 @@ export default function LayoutUser({ children, title }) {
                 <title>{title}</title>
             </Head>
 
-            <div className="flex h-screen overflow-hidden w-screen">
+            <div className="flex h-screen lg:overflow-hidden w-screen">
                 <SideBar />
                 <div className=" flex-grow flex flex-col">
                     <HeaderUser />

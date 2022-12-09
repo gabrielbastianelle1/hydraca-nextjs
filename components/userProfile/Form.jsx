@@ -73,7 +73,7 @@ export default function Form() {
     }
 
     return (
-        <FormContent className="form lg:grid-cols-2 lg:grid-rows-6 gap-x-4 gap-y-1">
+        <FormContent className="form lg:grid-cols-2 lg:grid-rows-6 gap-x-4 gap-y-16 lg:gap-y-4">
             <div className="item-form lg:col-span-2">
                 <label htmlFor="name">Nome: </label>
                 <input
@@ -81,16 +81,6 @@ export default function Form() {
                     placeholder={user.name}
                     onChange={onChangeName}
                     value={name}
-                    className="input"
-                />
-            </div>
-            <div className="item-form">
-                <label htmlFor="password">Password: </label>
-                <input
-                    id="password"
-                    type="password"
-                    onChange={onChangePassword}
-                    value={password}
                     className="input"
                 />
             </div>
@@ -102,6 +92,17 @@ export default function Form() {
                     placeholder={user.email}
                     onChange={onChangeEmail}
                     value={email}
+                    className="input"
+                />
+            </div>
+
+            <div className="item-form lg:col-span-2">
+                <label htmlFor="password">Password: </label>
+                <input
+                    id="password"
+                    type="password"
+                    onChange={onChangePassword}
+                    value={password}
                     className="input"
                 />
             </div>
@@ -158,8 +159,8 @@ export default function Form() {
                 setIdReturnedFromDropBox={setIdReturnedFromDropBox}
             />
 
-            <Button onClick={handleSubmit}>Salvar</Button>
             <button className="text-red-600 ">Excluir conta</button>
+            <Button onClick={handleSubmit}>Salvar</Button>
         </FormContent>
     )
 }

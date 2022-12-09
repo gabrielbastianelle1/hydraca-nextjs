@@ -22,7 +22,7 @@ export default function Dropbox({
     }
 
     return (
-        <div className="relative mb-5">
+        <div className="relative">
             <label htmlFor="">{label}: </label>
             <button
                 onClick={openDropdown}
