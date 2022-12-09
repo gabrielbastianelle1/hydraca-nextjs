@@ -1,5 +1,3 @@
-import { RegistoBolus } from '../svgs/index'
-
 export default function Title() {
-    return <h1 className="title">Registo de insulina bolus</h1>
+    return <h1 className=" title text-2xl">Registo de insulina bolus</h1>
 }

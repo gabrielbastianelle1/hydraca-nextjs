@@ -11,7 +11,7 @@ export default function Form() {
     const [idReturnedFromDropBox, setIdReturnedFromDropBox] = useState(null)
 
     return (
-        <FormContent className="form lg:grid-cols-2 lg:grid-rows-2 gap-x-4">
+        <FormContent className="form lg:grid-cols-2 lg:grid-rows-6 gap-y-1 gap-x-4">
             <div className="item-form lg:col-span-2">
                 <label htmlFor="amountGlucose">Nível de Glicose: </label>
                 <input

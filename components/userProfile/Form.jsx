@@ -73,7 +73,7 @@ export default function Form() {
     }
 
     return (
-        <FormContent className="form lg:grid-cols-2 lg:grid-rows-2 gap-x-4">
+        <FormContent className="form lg:grid-cols-2 lg:grid-rows-6 gap-x-4 gap-y-1">
             <div className="item-form lg:col-span-2">
                 <label htmlFor="name">Nome: </label>
                 <input
@@ -137,14 +137,6 @@ export default function Form() {
                     className="input"
                 />
             </div>
-            <Dropbox
-                label="Diabetes"
-                titleDropbox={titleDropbox}
-                setTitleDropbox={setTitleDropbox}
-                dataToShowInDropbox={diabetesGlobal}
-                field="type"
-                setIdReturnedFromDropBox={setIdReturnedFromDropBox}
-            />
             <div className="item-form">
                 <label htmlFor="sensitivity">Sensibilidade: </label>
                 <input
@@ -156,8 +148,17 @@ export default function Form() {
                     className="input"
                 />
             </div>
+            <Dropbox
+                label="Diabetes"
+                titleDropbox={titleDropbox}
+                setTitleDropbox={setTitleDropbox}
+                dataToShowInDropbox={diabetesGlobal}
+                field="type"
+                setIdReturnedFromDropBox={setIdReturnedFromDropBox}
+            />
+
             <Button onClick={handleSubmit}>Salvar</Button>
-            <button className="text-red-600">Excluir conta</button>
+            <button className="text-red-600 ">Excluir conta</button>
         </FormContent>
     )
 }
