@@ -1,9 +1,8 @@
-import { React, useState, useEffect, useContext } from 'react'
+import { React, useState, useContext } from 'react'
 import { GlobalContext } from '../../context/GlobalContext'
 import Button from '../Button'
 import Dropbox from '../Dropbox'
-import { registerBasal } from '../../services/service.user'
-import { getCurrentUser } from '../../services/service.auth'
+import { registerBasal } from '../../services/service.basal'
 import FormContent from '../Form.styled'
 
 /**

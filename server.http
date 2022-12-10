@@ -11,7 +11,7 @@ POST http://localhost:3000/api/signup
 Content-Type: application/json
 
 {
-    "email" : "user2@example.com",
+    "email" : "user@example.com",
     "password" : "user",
     "birthday": "2000-01-01",
     "name": "user"
@@ -24,19 +24,31 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzN2E
 
 
 ##########################################################################
-POST http://localhost:3000/user/registerbolus
+POST http://localhost:3000/api/user/registerbolus
 Content-Type: application/json
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzNmUyNmRiOWFiYTEyOTc3NjgyZDNjMyIsInJvbGUiOiJ1c2VyIiwibmFtZSI6Ikp1bGlhbmEgUGF6IiwiYmlydGhkYXkiOiIyMDAyLTA3LTEwVDAwOjAwOjAwLjAwMFoiLCJlbWFpbCI6Imp1bGlhbmFAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmEkMTAkeU5FMTRYY09XRC9kZ3ZsMXREQy5YdWdhaE01THJQdnQvNFVvUFJQeFc0LmptVHNuUjBaaXkiLCJzdGF0ZSI6dHJ1ZSwiZ2x1Y29zZXJhbmdlIjpbODAsMTIwXX0sImlhdCI6MTY2ODE2ODAwNH0.ul1jt0ra1G3Vc_cdRr6b96Mc8IEhDv8YY8M9tcgN0PM
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzOTRhZjM4MDJhODIzOGM2NjNiOTM1MCIsInJvbGUiOiJ1c2VyIiwibmFtZSI6InVzZXIiLCJiaXJ0aGRheSI6IjIwMDAtMTItMTIiLCJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCQ5cWFJRmpzUWpHLjE1TGpVSjF5NUYuVHpWS1M0eUxNMTdNTTlvTnJFSS9kajJiOWlJblpJTyIsInN0YXRlIjp0cnVlLCJnbHVjb3NlcmFuZ2UiOls4MCwxMjBdLCJjYXJiUmF0aW8iOjIwLCJoZWlnaHQiOjIwLCJpZERpYWJldGVzIjoiNjM5NGFhOWZiNmU5ZTZhYWQzNWY0NjgzIiwic2Vuc2l0aXZpdHkiOjIwLCJ3ZWlnaHQiOjIwfSwiaWF0IjoxNjcwNjg4NTc0fQ.CZF88sy6iHT81f5Dt5A_R7tMRluvxyEZ0H32WJHahH8
 
 {
-    "teste": "teste",
-    "amountHc" : 500,
-    "carbRatio" : 15,
-    "amountGlucose" : 200,
-    "correctionFactor" : 10
+    "amountGlucose": 150,
+    "therapy": "terapia",
+    "date": "qualquercoisa",
+    "time": "lalala",
+    "amountHc": 500
 }
 
+###
+POST http://localhost:3000/api/user/registerbasal
+Content-Type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzOTRhZjM4MDJhODIzOGM2NjNiOTM1MCIsInJvbGUiOiJ1c2VyIiwibmFtZSI6InVzZXIiLCJiaXJ0aGRheSI6IjIwMDAtMTItMTIiLCJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCQ5cWFJRmpzUWpHLjE1TGpVSjF5NUYuVHpWS1M0eUxNMTdNTTlvTnJFSS9kajJiOWlJblpJTyIsInN0YXRlIjp0cnVlLCJnbHVjb3NlcmFuZ2UiOls4MCwxMjBdLCJjYXJiUmF0aW8iOjIwLCJoZWlnaHQiOjIwLCJpZERpYWJldGVzIjoiNjM5NGFhOWZiNmU5ZTZhYWQzNWY0NjgzIiwic2Vuc2l0aXZpdHkiOjIwLCJ3ZWlnaHQiOjIwfSwiaWF0IjoxNjcwNjg4NTc0fQ.CZF88sy6iHT81f5Dt5A_R7tMRluvxyEZ0H32WJHahH8
 
+{
+    "amountGlucose": 150,
+    "therapy": "terapia",
+    "date": "qualquercoisa",
+    "time": "lalala",
+    "amountInsulinTotal": 500
+
+}
 
 ###
 GET http://localhost:3000/api/admin/getalldiabetes
@@ -49,7 +61,8 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzODE
 ###
 PUT http://localhost:3000/api/user/updateprofile
 Content-Type: application/json
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzN2E4NWIyYjNhNGYwZDg1YTE3MjFmOSIsInJvbGUiOiJ1c2VyIiwibmFtZSI6InVzZXIiLCJiaXJ0aGRheSI6IjIwMDAtMDEtMDFUMDA6MDA6MDAuMDAwWiIsImVtYWlsIjoidXNlckBleGFtcGxlLmNvbSIsInBhc3N3b3JkIjoiJDJhJDEwJE1pL1FCWHlHNHl2YW1JRTJwWDJiY3U0ZjdETDh5d2ZMY0U3V2xnOVIzTGVDTlBZU2xNMjBPIiwic3RhdGUiOnRydWUsImdsdWNvc2VyYW5nZSI6WzgwLDEyMF19LCJpYXQiOjE2Njg5NzQwODR9.6MRWCIVpQ9Gz2drS87jTuSdrmOJkDho10Pl9YZSyojU
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzOTRhZjM4MDJhODIzOGM2NjNiOTM1MCIsInJvbGUiOiJ1c2VyIiwibmFtZSI6InVzZXIiLCJiaXJ0aGRheSI6IjIwMDAtMTItMTIiLCJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCQ5cWFJRmpzUWpHLjE1TGpVSjF5NUYuVHpWS1M0eUxNMTdNTTlvTnJFSS9kajJiOWlJblpJTyIsInN0YXRlIjp0cnVlLCJnbHVjb3NlcmFuZ2UiOls4MCwxMjBdLCJjYXJiUmF0aW8iOjIwLCJoZWlnaHQiOjIwLCJpZERpYWJldGVzIjoiNjM5NGFhOWZiNmU5ZTZhYWQzNWY0NjgzIiwic2Vuc2l0aXZpdHkiOjIwLCJ3ZWlnaHQiOjIwfSwiaWF0IjoxNjcwNjg4NTc0fQ.CZF88sy6iHT81f5Dt5A_R7tMRluvxyEZ0H32WJHahH8
+
 
 {
     "height": 175,

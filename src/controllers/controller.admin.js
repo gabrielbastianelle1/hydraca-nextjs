@@ -29,14 +29,6 @@ let adminController = {
         }
     },
 
-    getAllTherapies: async function (req, res) {
-        try {
-            return res.status(200).json(await adminService.getAllTherapies())
-        } catch (error) {
-            return res.status(400).json(error)
-        }
-    },
-
     getAllFood: async function (req, res) {
         try {
             return res.status(200).json(await adminService.getAllFood())
@@ -73,16 +65,6 @@ let adminController = {
         }
     },
 
-    insertTherapy: async function (req, res) {
-        try {
-            return res
-                .status(200)
-                .json(await adminService.insertTherapy(req.body))
-        } catch (error) {
-            return res.status(400).json(error)
-        }
-    },
-
     insertFood: async function (req, res) {
         try {
             return res.status(200).json(await adminService.insertFood(req.body))
@@ -100,17 +82,6 @@ let adminController = {
             return res.status(400).json(error)
         }
     },
-
-    deleteTherapy: async function (req, res) {
-        try {
-            return res
-                .status(200)
-                .json(await adminService.deleteTherapy(req.params.name))
-        } catch (error) {
-            return res.status(400).json(error)
-        }
-    },
-
     deleteUser: async function (req, res) {
         try {
             return res
@@ -140,17 +111,6 @@ let adminController = {
             return res.status(400).json(error)
         }
     },
-
-    updateTherapy: async function (req, res) {
-        try {
-            return res
-                .status(200)
-                .json(await adminService.updateTherapy(req.body, req.params))
-        } catch (error) {
-            return res.status(400).json(error)
-        }
-    },
-
     updateFood: async function (req, res) {
         try {
             return res

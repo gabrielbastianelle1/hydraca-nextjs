@@ -51,6 +51,9 @@ const User = new mongoose.Schema(
         sensitivity: {
             type: Number
         },
+        carbRatio: {
+            type: Number
+        },
         glucoserange: {
             type: Array,
             default: [80, 120]

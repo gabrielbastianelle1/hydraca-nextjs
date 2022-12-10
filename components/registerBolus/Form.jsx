@@ -5,10 +5,18 @@ import Dropbox from '../Dropbox'
 import FormContent from '../Form.styled'
 
 export default function Form() {
-    const { diabetesGlobal } = useContext(GlobalContext)
+    const { mealGlobal, exerciseGlobal } = useContext(GlobalContext)
 
-    const [titleDropbox, setTitleDropbox] = useState('Selecione')
-    const [idReturnedFromDropBox, setIdReturnedFromDropBox] = useState(null)
+    const [titleDropboxMeal, setTitleDropboxMeal] = useState('Selecione')
+    const [titleDropboxExercise, setTitleDropboxExercise] =
+        useState('Selecione')
+
+    const [idReturnedFromDropBoxMeal, setIdReturnedFromDropBoxMeal] =
+        useState(null)
+    const [idReturnedFromDropBoxExercise, setIdReturnedFromDropBoxExercise] =
+        useState(null)
+
+    const [amountGlucose, setAmountGlucose] = useState(null)
 
     return (
         <FormContent className="form lg:grid-cols-2 lg:grid-rows-6  gap-y-16 lg:gap-y-4 gap-x-4">
@@ -38,19 +46,19 @@ export default function Form() {
             </div>
             <Dropbox
                 label="Refeição"
-                titleDropbox={titleDropbox}
-                setTitleDropbox={setTitleDropbox}
-                dataToShowInDropbox={diabetesGlobal}
+                titleDropbox={titleDropboxMeal}
+                setTitleDropbox={setTitleDropboxMeal}
+                dataToShowInDropbox={mealGlobal}
                 field="type"
-                setIdReturnedFromDropBox={setIdReturnedFromDropBox}
+                setIdReturnedFromDropBox={setIdReturnedFromDropBoxMeal}
             />
             <Dropbox
                 label="Exercicio fisico"
-                titleDropbox={titleDropbox}
-                setTitleDropbox={setTitleDropbox}
-                dataToShowInDropbox={diabetesGlobal}
+                titleDropbox={titleDropboxExercise}
+                setTitleDropbox={setTitleDropboxExercise}
+                dataToShowInDropbox={exerciseGlobal}
                 field="type"
-                setIdReturnedFromDropBox={setIdReturnedFromDropBox}
+                setIdReturnedFromDropBox={setIdReturnedFromDropBoxExercise}
             />
             <div className="item-form lg:col-span-2">
                 <label htmlFor="amountGlucose">

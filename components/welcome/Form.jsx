@@ -14,11 +14,16 @@ export default function Form() {
     const [idReturnedFromDropBox, setIdReturnedFromDropBox] = useState(null)
 
     const [sensitivity, setSensitivity] = useState(null)
+    const [carbRatio, setCarbRatio] = useState(null)
     const [height, setHeight] = useState(null)
     const [weight, setWeight] = useState(null)
 
     const onChangeSensitivity = (event) => {
         setSensitivity(event.target.value)
+    }
+
+    const onChangeCarbRatio = (event) => {
+        setCarbRatio(event.target.value)
     }
 
     const onChangeHeight = (event) => {
@@ -37,7 +42,8 @@ export default function Form() {
                 idDiabetes: idReturnedFromDropBox,
                 height: height,
                 weight: weight,
-                sensitivity: sensitivity
+                sensitivity: sensitivity,
+                carbRatio: carbRatio
             })
             navigate.push('/user')
         } catch (error) {
@@ -64,7 +70,7 @@ export default function Form() {
                     setIdReturnedFromDropBox={setIdReturnedFromDropBox}
                 />
                 <div className="item-form">
-                    <label htmlFor="sensitivity">Sensibilidade: </label>
+                    <label htmlFor="sensitivity">Fator de Correção: </label>
                     <input
                         type="number"
                         name="sensitivity"
@@ -72,6 +78,19 @@ export default function Form() {
                         className="input"
                         placeholder="exemplo: 20"
                         onChange={onChangeSensitivity}
+                    />
+                </div>
+                <div className="item-form">
+                    <label htmlFor="sensitivity">
+                        Sensibilidade a insulina:{' '}
+                    </label>
+                    <input
+                        type="number"
+                        name="carbRatio"
+                        id="carbRatio"
+                        className="input"
+                        placeholder="exemplo: 20"
+                        onChange={onChangeCarbRatio}
                     />
                 </div>
                 <div className="item-form">

@@ -1,5 +1,4 @@
 const User = require('../models/model.User')
-const Therapy = require('../models/model.Therapy')
 const Diabetes = require('../models/model.Diabetes')
 const Food = require('../models/model.Food')
 const { adminErrorHandler } = require('../errors/errors')

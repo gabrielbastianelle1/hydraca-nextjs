@@ -1,20 +1,16 @@
 function calcInsulinFood(amountHc, carbRatio) {
+    console.log(amountHc, carbRatio)
     return amountHc / carbRatio
 }
 
-function calcInsulinCorrection(amountGlucose, correctionFactor) {
-    return amountGlucose / correctionFactor
+function calcInsulinCorrection(amountGlucose, sensitivity) {
+    return amountGlucose / sensitivity
 }
 
-function calcTotalInsulin(
-    amountHc,
-    carbRatio,
-    amountGlucose,
-    correctionFactor
-) {
+function calcTotalInsulin(amountHc, carbRatio, amountGlucose, sensitivity) {
     return (
         calcInsulinCorrection(amountHc, carbRatio) +
-        calcInsulinFood(amountGlucose, correctionFactor)
+        calcInsulinFood(amountGlucose, sensitivity)
     )
 }
 

@@ -68,12 +68,12 @@ export default function Form() {
                 idDiabetes: idReturnedFromDropBox
             })
         } catch (error) {
-            console.log(error.response.data)
+            console.log(error)
         }
     }
 
     return (
-        <FormContent className="form lg:grid-cols-2 lg:grid-rows-6 gap-x-4 gap-y-16 lg:gap-y-4">
+        <FormContent className="form lg:grid-cols-2 lg:grid-rows-7 gap-x-4 gap-y-16 lg:gap-y-4">
             <div className="item-form lg:col-span-2">
                 <label htmlFor="name">Nome: </label>
                 <input
@@ -158,8 +158,9 @@ export default function Form() {
                 field="type"
                 setIdReturnedFromDropBox={setIdReturnedFromDropBox}
             />
-
-            <button className="text-red-600 ">Excluir conta</button>
+            <button className="text-red-600 row-span-2 self-end">
+                Excluir conta
+            </button>
             <Button onClick={handleSubmit}>Salvar</Button>
         </FormContent>
     )

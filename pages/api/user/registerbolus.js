@@ -1,4 +1,4 @@
 const userController = require('../../../src/controllers/controller.user')
 const verifyToken = require('../../../src/middlewares/verifyToken')
 
-export default verifyToken(userController.insertRegister)
+export default verifyToken(userController.insertBolus)

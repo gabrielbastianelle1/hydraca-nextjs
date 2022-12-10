@@ -1,4 +1,6 @@
 const userService = require('../services/service.user')
+const bolusService = require('../services/service.bolus')
+const basalService = require('../services/service.basal')
 const { calcTotalInsulin } = require('../calc/calcInsulin')
 const bcrypt = require('bcryptjs')
 
@@ -16,60 +18,47 @@ let userController = {
         res.status(200).json(req.user)
     },
 
-    getAllFoodUser: async function (req, res) {
-        try {
-            return res.status(200).json(await userService.getAllFoodUser())
-        } catch (error) {
-            return res.status(400).json(error)
-        }
-    },
-    getAllDiabetes: async function (req, res) {
-        try {
-            return res.status(200).json(await userService.getAllDiabetes())
-        } catch (error) {
-            return res.status(400).json(error)
-        }
-    },
-
-    /**
- *
- escala -->   glucoseTrend
- data --> date
- hora --> time
- dose --> amountInsulin (dose de insulina )
- typeInsulin  --> tipo de insulina
- */
     insertBasal: async function (req, res) {
-        const { glucoseTrend, date, time, amountInsulin, typeInsulin } =
-            req.body
+        let user = req.user.user
 
         let response = Object.assign(req.body, {
-            User: req.user.user._id
-        })
-
-        try {
-            return res.status(200).json(await userService.insertBasal(response))
-        } catch (error) {
-            return res.status(400).json(error)
-        }
-    },
-
-    insertRegister: async function (req, res) {
-        console.log(req.user.user)
-
-        const { amountHc, carbRatio, amountGlucose, correctionFactor } =
-            req.body
-
-        calcTotalInsulin(amountHc, carbRatio, amountGlucose, correctionFactor)
-
-        response = Object.assign(req.body, {
-            User: req.user.user._id
+            User: user._id
         })
 
         try {
             return res
                 .status(200)
-                .json(await userService.insertRegister(response))
+                .json(await basalService.insertBasal(response))
+        } catch (error) {
+            return res.status(400).json(error)
+        }
+    },
+
+    insertBolus: async function (req, res) {
+        let user = req.user.user
+        const { carbRatio, sensitivity } = user
+
+        const { amountHc, amountGlucose } = req.body
+
+        let response = Object.assign(
+            req.body,
+            {
+                User: user._id
+            },
+            {
+                amountInsulinTotal: calcTotalInsulin(
+                    amountHc,
+                    carbRatio,
+                    amountGlucose,
+                    sensitivity
+                )
+            }
+        )
+
+        try {
+            return res
+                .status(200)
+                .json(await bolusService.insertBolus(response))
         } catch (error) {
             return res.status(400).json(error)
         }
