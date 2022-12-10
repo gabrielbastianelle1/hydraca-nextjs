@@ -30,7 +30,7 @@ const Register = new mongoose.Schema(
             default: true
         },
         date: {
-            type: Date
+            type: String
         },
         time: {
             type: String

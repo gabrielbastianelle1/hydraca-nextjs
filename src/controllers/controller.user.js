@@ -31,6 +31,29 @@ let userController = {
         }
     },
 
+    /**
+ *
+ escala -->   glucoseTrend
+ data --> date
+ hora --> time
+ dose --> amountInsulin (dose de insulina )
+ typeInsulin  --> tipo de insulina
+ */
+    insertBasal: async function (req, res) {
+        const { glucoseTrend, date, time, amountInsulin, typeInsulin } =
+            req.body
+
+        let response = Object.assign(req.body, {
+            User: req.user.user._id
+        })
+
+        try {
+            return res.status(200).json(await userService.insertBasal(response))
+        } catch (error) {
+            return res.status(400).json(error)
+        }
+    },
+
     insertRegister: async function (req, res) {
         console.log(req.user.user)
 
@@ -42,6 +65,14 @@ let userController = {
         response = Object.assign(req.body, {
             User: req.user.user._id
         })
+
+        try {
+            return res
+                .status(200)
+                .json(await userService.insertRegister(response))
+        } catch (error) {
+            return res.status(400).json(error)
+        }
     },
 
     updateProfile: async function (req, res) {

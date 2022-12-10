@@ -2,8 +2,10 @@ const User = require('../models/model.User')
 const Therapy = require('../models/model.Therapy')
 const Food = require('../models/model.Food')
 const Diabetes = require('../models/model.Diabetes')
+const Register = require('../models/model.Register')
 
 const jwt = require('jsonwebtoken')
+const { adminErrorHandler } = require('../errors/errors')
 
 let userService = {
     getAllFoodUser: function () {
@@ -31,6 +33,18 @@ let userService = {
     getAllDiabetes: function () {
         return new Promise(async (resolve, reject) => {
             Diabetes.find({}, (err, result) => {
+                if (err) {
+                    return reject(err)
+                }
+                return resolve(result)
+            })
+        })
+    },
+
+    insertBasal: function (req) {
+        return new Promise(async (resolve, reject) => {
+            let register = new Register(req)
+            await register.save((err, result) => {
                 if (err) {
                     return reject(err)
                 }

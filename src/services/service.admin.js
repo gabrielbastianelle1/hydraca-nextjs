@@ -84,8 +84,8 @@ let adminService = {
 
     insertTherapy: function (req) {
         return new Promise(async (resolve, reject) => {
-            new_therapy = new Therapy(req) //nova terapia
-            new_therapy.save((err, result) => {
+            let new_therapy = new Therapy(req) //nova terapia
+            await new_therapy.save((err, result) => {
                 if (err) {
                     return reject(adminErrorHandler(err))
                 }
