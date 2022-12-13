@@ -4,8 +4,7 @@ This is a [Next.js](https://nextjs.org/) project made by Gabriel Bastianelle and
 
 ### Pre-requisits:
 
-- You need a mongodb server running localy on port 27017
-
+-   You need a mongodb server running localy on port 27017
 
 First, install the dependencies:
 
@@ -19,8 +18,6 @@ Then, run the application:
 npm run dev
 ```
 
-
 Open [http://localhost:3000](http://localhost:3000) with your browser and have fun with Hydraca.
 
-
-![Hydraca.](/readme/hydraca.gif "Hydraca")
+![Hydraca.](/readme/hydraca.gif 'Hydraca')
