@@ -15,14 +15,25 @@ import FormContent from '../Form.styled'
  */
 
 export default function Form() {
-    const [glucoseTrend, setGlucoseTrend] = useState('')
+    const { therapyGlobal } = useContext(GlobalContext)
+
+    const [amountGlucose, setamountGlucose] = useState('')
     const [date, setDate] = useState('')
     const [time, setTime] = useState('')
-    const [amountInsulin, setamountInsulin] = useState('')
+    const [amountInsulinTotal, setamountInsulinTotal] = useState('')
     const [typeInsulin, setTypeInsulin] = useState('')
+    const [titleDropBoxTherapy, setTitleDropBoxTherapy] = useState('Selecione')
+    const [setTitleDropbox, setTitleDropBoxsetTherapyGlobal] = useState('')
+    const [idReturnedFromDropBoxTherapy, setIdReturnedFromDropBoxTherapy] =
+        useState(null)
+    const [message, setMessage] = useState({
+        active: false,
+        error: false,
+        message: ''
+    })
 
-    const onChangeGlucoseTrend = (e) => {
-        setGlucoseTrend(e.target.value)
+    const onChangeAmountGlucose = (e) => {
+        setamountGlucose(e.target.value)
     }
 
     const onChangeDate = (e) => {
@@ -33,8 +44,8 @@ export default function Form() {
         setTime(e.target.value)
     }
 
-    const onChangeamountInsulin = (e) => {
-        setamountInsulin(e.target.value)
+    const onChangeamountInsulinTotal = (e) => {
+        setamountInsulinTotal(e.target.value)
     }
 
     const onChangetypeInsulin = (e) => {
@@ -43,13 +54,47 @@ export default function Form() {
     async function handleSubmit(e) {
         e.preventDefault()
 
+        if (amountGlucose == 0) {
+            setMessage({
+                active: true,
+                error: true,
+                message: 'Prencha o campo de escala'
+            })
+            return
+        }
+
+        if (amountInsulinTotal == 0) {
+            setMessage({
+                active: true,
+                error: true,
+                message: 'Prencha o campo dose'
+            })
+            return
+        }
+
+        if (date == 0) {
+            setMessage({
+                active: true,
+                error: true,
+                message: 'Prencha o campo data'
+            })
+            return
+        }
+        if (time == 0) {
+            setMessage({
+                active: true,
+                error: true,
+                message: 'Prencha o campo horas'
+            })
+            return
+        }
         try {
             await registerBasal({
-                glucoseTrend: glucoseTrend,
+                amountGlucose: amountGlucose,
                 date: date,
                 time: time,
-                amountInsulin: amountInsulin,
-                typeInsulin: typeInsulin
+                amountInsulinTotal: amountInsulinTotal,
+                therapy: idReturnedFromDropBoxTherapy
             })
         } catch (error) {
             console.log(error.response.data)
@@ -57,55 +102,59 @@ export default function Form() {
     }
 
     return (
-        <FormContent className="form lg:grid-cols-2 lg:grid-rows-6 gap-y-16 lg:gap-y-4 gap-x-4">
+        <FormContent
+            active={message.active}
+            error={message.error}
+            message={message.message}
+            className="form lg:grid-cols-2 lg:grid-rows-6 gap-y-16 lg:gap-y-4 gap-x-4"
+        >
             <div className="item-form lg:col-span-2">
                 <label htmlFor="aGlucoseTrend">Escala: </label>
                 <input
                     className="input"
-                    placeholder=""
-                    onChange={onChangeGlucoseTrend}
-                    value={glucoseTrend}
-                    type="text"
+                    placeholder="Insira os valores da glicose"
+                    onChange={onChangeAmountGlucose}
+                    value={amountGlucose}
+                    type="number"
                 />
             </div>
             <div className="item-form">
-                <label htmlFor="amountGlucose">Data: </label>
+                <label htmlFor="date">Data: </label>
                 <input
                     onChange={onChangeDate}
                     value={date}
                     className="input"
-                    type="text"
+                    type="date"
                 />
             </div>
             <div className="item-form">
-                <label htmlFor="amountGlucose">Hora: </label>
+                <label htmlFor="time">Hora: </label>
                 <input
                     onChange={onChangeTime}
                     value={time}
                     className="input"
-                    type="text"
+                    type="time"
                 />
             </div>
             <div className="item-form">
-                <label htmlFor="amountGlucose">Dose: </label>
+                <label htmlFor="amountInsulina">Dose de insulina: </label>
                 <input
-                    onChange={onChangeamountInsulin}
-                    value={amountInsulin}
+                    onChange={onChangeamountInsulinTotal}
+                    placeholder="Quantidade de insulina"
+                    value={amountInsulinTotal}
                     className="input"
                     type="number"
                 />
             </div>
-            <div className="item-form lg:col-span-2">
-                <label htmlFor="amountGlucose">Tipo de insulina: </label>
-                <input
-                    onChange={onChangetypeInsulin}
-                    value={typeInsulin}
-                    className="input"
-                    placeholder="exemplo: 300"
-                    type="text"
-                />
-            </div>
-            <div className=" ml-80 mt-2">
+            <Dropbox
+                label="Tipo de terapia"
+                titleDropbox={titleDropBoxTherapy}
+                setTitleDropbox={setTitleDropBoxTherapy}
+                dataToShowInDropbox={therapyGlobal}
+                field="type"
+                setIdReturnedFromDropBox={setIdReturnedFromDropBoxTherapy}
+            />
+            <div className="ml-80 mt-2">
                 <Button onClick={handleSubmit}>Salvar</Button>
             </div>
         </FormContent>

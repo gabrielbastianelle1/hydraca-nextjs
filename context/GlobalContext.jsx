@@ -37,6 +37,24 @@ export default function GlobalProvider({ children }) {
             type: 'Intenso'
         }
     ])
+    const [therapyGlobal, setTherapyGlobal] = useState([
+        {
+            _id: 'Ingestão de insulina prandial',
+            type: 'Ingestão de insulina prandial'
+        },
+        {
+            _id: 'Insulinoterapia convencional',
+            type: 'Insulinoterapia convencional'
+        },
+        {
+            _id: 'Terapeutica intensiva com insulina',
+            type: 'Terapeutica intensiva com insulina'
+        },
+        {
+            _id: 'Terapia com bomba de insulina',
+            type: 'Terapia com bomba de insulina'
+        }
+    ])
 
     useEffect(() => {
         diabetesService
@@ -53,7 +71,9 @@ export default function GlobalProvider({ children }) {
                 diabetesGlobal,
                 setDiabetesGlobal,
                 mealGlobal,
-                exerciseGlobal
+                exerciseGlobal,
+                therapyGlobal,
+                setTherapyGlobal
             }}
         >
             {children}

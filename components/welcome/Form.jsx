@@ -17,6 +17,11 @@ export default function Form() {
     const [carbRatio, setCarbRatio] = useState(null)
     const [height, setHeight] = useState(null)
     const [weight, setWeight] = useState(null)
+    const [message, setMessage] = useState({
+        active: false,
+        error: false,
+        message: ''
+    })
 
     const onChangeSensitivity = (event) => {
         setSensitivity(event.target.value)
@@ -36,6 +41,40 @@ export default function Form() {
 
     const handleSubmit = async (event) => {
         console.log(idReturnedFromDropBox)
+
+        if (height == 0) {
+            setMessage({
+                active: true,
+                error: true,
+                message: 'O campo de altura está vazio'
+            })
+            return
+        }
+        if (weight == 0) {
+            setMessage({
+                active: true,
+                error: true,
+                message: 'O campo de peso está vazio'
+            })
+            return
+        }
+        if (sensitivity == 0 || sensitivity < 0) {
+            setMessage({
+                active: true,
+                error: true,
+                message: 'O campo de fator de corração está incorreto'
+            })
+            return
+        }
+
+        if (carbRatio == 0 || carbRatio < 0) {
+            setMessage({
+                active: true,
+                error: true,
+                message: 'O campo de sensibilidade  insulina está incorreto'
+            })
+            return
+        }
 
         try {
             await updateProfile({
@@ -57,7 +96,12 @@ export default function Form() {
                 bem vindo
             </h1>
 
-            <FormContent className="form">
+            <FormContent
+                active={message.active}
+                error={message.error}
+                message={message.message}
+                className="form"
+            >
                 <p className="mb-5 text-xl">
                     Preencha os seguintes campos, para sabermos mais sobre você!
                 </p>
@@ -82,7 +126,7 @@ export default function Form() {
                 </div>
                 <div className="item-form">
                     <label htmlFor="sensitivity">
-                        Sensibilidade a insulina:{' '}
+                        Sensibilidade à insulina:{' '}
                     </label>
                     <input
                         type="number"
