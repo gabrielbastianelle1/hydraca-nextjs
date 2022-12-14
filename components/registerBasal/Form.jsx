@@ -54,20 +54,20 @@ export default function Form() {
     async function handleSubmit(e) {
         e.preventDefault()
 
-        if (amountGlucose == 0) {
+        if (amountGlucose < 0 || amountGlucose == 0) {
             setMessage({
                 active: true,
                 error: true,
-                message: 'Prencha o campo de escala'
+                message: 'Prencha o campo de glicose corretamente'
             })
             return
         }
 
-        if (amountInsulinTotal == 0) {
+        if (amountInsulinTotal == 0 || amountInsulinTotal < 0) {
             setMessage({
                 active: true,
                 error: true,
-                message: 'Prencha o campo dose'
+                message: 'Prencha o campo dose de insulina corretamente'
             })
             return
         }
@@ -96,6 +96,11 @@ export default function Form() {
                 amountInsulinTotal: amountInsulinTotal,
                 therapy: idReturnedFromDropBoxTherapy
             })
+            setMessage({
+                active: true,
+                error: false,
+                message: 'Os dados foram registados com sucesso!'
+            })
         } catch (error) {
             console.log(error.response.data)
         }
@@ -109,7 +114,7 @@ export default function Form() {
             className="form lg:grid-cols-2 lg:grid-rows-6 gap-y-16 lg:gap-y-4 gap-x-4"
         >
             <div className="item-form lg:col-span-2">
-                <label htmlFor="aGlucoseTrend">Escala: </label>
+                <label htmlFor="aGlucoseTrend">Glicose: </label>
                 <input
                     className="input"
                     placeholder="Insira os valores da glicose"

@@ -1,3 +1,4 @@
+import mongoose from 'mongoose'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { createSwaggerSpec } from 'next-swagger-doc'
 import dynamic from 'next/dynamic'
@@ -120,20 +121,11 @@ export const getStaticProps: GetStaticProps = async () => {
                     Therapy: {
                         type: 'object',
                         properties: {
-                            name: {
+                            type: {
                                 type: String,
                                 required: [true, 'name required'],
                                 unique: [true, 'name already used']
                             },
-                            description: {
-                                type: String,
-                                required: [true, 'description required']
-                            },
-
-                            state: {
-                                type: Boolean,
-                                default: true
-                            }
                         }
                     },
                     Food: {
@@ -153,6 +145,103 @@ export const getStaticProps: GetStaticProps = async () => {
                                 type: Boolean,
                                 default: true
                             }
+                        }
+                    },
+
+                    Basal:{
+                        type:'object',
+                        properties:{
+                            User: {
+                                type: mongoose.Types.ObjectId,
+                                ref: 'User',
+                                required: true
+                            },
+                            amountGlucose: {
+                                type: Number,
+                                required: [true, 'aG required']
+                            },
+                            amountInsulinTotal: {
+                                type: Number,
+                                required: [true, 'aI required']
+                            },
+                            state: {
+                                type: Boolean,
+                                default: true
+                            },
+                            date: {
+                                type: String,
+                                required: [true, 'date required']
+                            },
+                            time: {
+                                type: String,
+                                required: [true, 'time required']
+                            },
+                            typeInsulin: {
+                                type: String,
+                                default: 'Basal'
+                            },
+                            therapy: {
+                                type: String,
+                                required: [true, 'therapy required']
+                            }
+                        }
+
+                    },
+
+                    Bolus:{
+                        type:'object',
+                        properties:{
+                        User: {
+                            type: mongoose.Types.ObjectId,
+                            ref: 'User',
+                            required: false
+                        },
+                        degreeExercise: {
+                            type: String
+                        },
+                        timeExercise: {
+                            type: Number
+                        },
+                        amountGlucose: {
+                            type: Number,
+                            required: [true, 'aG required']
+                        },
+                        amountInsulinHc: {
+                            type: Number
+                        },
+                        amountInsulinCorrection: {
+                            type: Number
+                        },
+                        amountInsulinTotal: {
+                            type: Number
+                        },
+                        therapy: {
+                            type: String,
+                            required: [true, 'therapy required']
+                        },
+                        nameMeal: {
+                            type: String
+                        },
+                        state: {
+                            type: Boolean,
+                            default: true
+                        },
+                        date: {
+                            type: String,
+                            required: [true, 'date required']
+                        },
+                        time: {
+                            type: String,
+                            required: [true, 'time required']
+                        },
+                        amountHc: {
+                            type: Number,
+                            required: [false, 'hc required']
+                        },
+                        typeInsulin: {
+                            type: String,
+                            default: 'Bolus'
+                         }
                         }
                     }
                 }

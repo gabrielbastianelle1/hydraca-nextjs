@@ -23,6 +23,9 @@
         background: linear-gradient(142.77deg, #c8e6c9 15.84%, #b3e5fc 85.86%);
         opacity: 0.2;
     }
+    .placeholder-black{
+        color: black;
+    }
 
     .base-background::after {
         content: '';

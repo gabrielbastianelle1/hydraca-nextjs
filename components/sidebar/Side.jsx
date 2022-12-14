@@ -1,6 +1,14 @@
 import React from 'react'
 import SideItem from './sideItem'
-import { Home, Profile, Registar, Registos, Help } from '../svgs/index'
+import {
+    Home,
+    Profile,
+    Registar,
+    Registos,
+    Help,
+    RegistoBasal,
+    Foods
+} from '../svgs/index'
 
 export default function Side() {
     return (
@@ -30,7 +38,7 @@ export default function Side() {
                             />
                         </div>
                         <div className="flex-1 flex items-center p-2 space-x-3 rounded-md ">
-                            <Registar />
+                            <RegistoBasal />
                             <SideItem
                                 hrefLink="/user/registerbasal"
                                 text="Registar Basal"
@@ -39,6 +47,10 @@ export default function Side() {
                         <div className="flex-1 flex items-center p-2 space-x-3 rounded-md ">
                             <Registos />
                             <SideItem hrefLink="/" text="Visualizar Registos" />
+                        </div>
+                        <div className="flex-1 flex items-center p-2 space-x-3 rounded-md ">
+                            <Foods />
+                            <SideItem hrefLink="/" text="Lista de alimentos" />
                         </div>
                         <hr className="my-4 mx-auto w-48 h-px bg-gray-300 rounded border-0 " />
                         <div className="flex-1 flex items-center p-2 space-x-3 rounded-md ">

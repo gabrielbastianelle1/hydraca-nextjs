@@ -1,13 +1,13 @@
 import Form from './Form'
 import Title from './Title'
-import { RegistoBolus } from '../svgs/index'
+import { GirlRegistar } from '../svgs/index'
 
 export default function RegisterBolus() {
     return (
         <main className="flex-grow">
             <Title />
             <Form />
-            <RegistoBolus className="hidden scale-50 lg:block absolute -bottom-16 -right-14" />
+            <GirlRegistar className="hidden scale-50 lg:block absolute -bottom-16 -right-14" />
         </main>
     )
 }

@@ -23,11 +23,15 @@ export default function Form() {
     const [birthday, setBirthday] = useState(user.birthday)
     const [password, setPassword] = useState(user.password)
     const [email, setEmail] = useState(user.email)
-
     const [titleDropbox, setTitleDropbox] = useState('Selecione')
     const [idReturnedFromDropBox, setIdReturnedFromDropBox] = useState(
         user.idDiabetes
     )
+    const [message, setMessage] = useState({
+        active: false,
+        error: false,
+        message: ''
+    })
 
     const onChangeName = (event) => {
         setName(event.target.value)
@@ -67,43 +71,52 @@ export default function Form() {
                 password: password,
                 idDiabetes: idReturnedFromDropBox
             })
+            setMessage({
+                active: true,
+                error: false,
+                message: 'O Perfil foi atualizado com sucesso!'
+            })
         } catch (error) {
-            console.log(error)
+            console.log(error.response.data)
         }
     }
 
     return (
-        <FormContent className="form lg:grid-cols-2 lg:grid-rows-7 gap-x-4 gap-y-16 lg:gap-y-4">
-            <div className="item-form lg:col-span-2">
+        <FormContent
+            active={message.active}
+            error={message.error}
+            message={message.message}
+            className="form lg:grid-cols-2 lg:grid-rows-6 gap-x-4 gap-y-16 lg:gap-y-4 "
+        >
+            <div className="item-form lg:col-span-2 ">
                 <label htmlFor="name">Nome: </label>
                 <input
                     id="name"
                     placeholder={user.name}
                     onChange={onChangeName}
                     value={name}
-                    className="input"
+                    className="input placeholder-gray-600"
                 />
             </div>
 
-            <div className="item-form lg:col-span-2">
+            <div className="item-form lg:col-span-2 disabled">
                 <label htmlFor="email">Email: </label>
                 <input
-                    id="email"
                     placeholder={user.email}
-                    onChange={onChangeEmail}
                     value={email}
-                    className="input"
+                    className="input placeholder-gray-800"
+                    disabled
                 />
             </div>
 
-            <div className="item-form lg:col-span-2">
+            <div className="item-form lg:col-span-2 ">
                 <label htmlFor="password">Password: </label>
                 <input
                     id="password"
                     type="password"
                     onChange={onChangePassword}
                     value={password}
-                    className="input"
+                    className="input placeholder-gray-600"
                 />
             </div>
 
@@ -114,10 +127,10 @@ export default function Form() {
                     placeholder={user.birthday}
                     onChange={onChangeBirthday}
                     value={birthday}
-                    className="input"
+                    className="input placeholder-gray-600"
                 />
             </div>
-            <div className="item-form">
+            <div className="item-form ">
                 <label htmlFor="height">Altura: </label>
                 <input
                     id="height"
@@ -125,7 +138,7 @@ export default function Form() {
                     placeholder={user.height}
                     onChange={onChangeHeight}
                     value={height}
-                    className="input"
+                    className="input placeholder-gray-600"
                 />
             </div>
             <div className="item-form">
@@ -136,10 +149,10 @@ export default function Form() {
                     placeholder={user.weight}
                     onChange={onChangeWeight}
                     value={weight}
-                    className="input"
+                    className="input placeholder-gray-600"
                 />
             </div>
-            <div className="item-form">
+            <div className="item-form ">
                 <label htmlFor="sensitivity">Sensibilidade: </label>
                 <input
                     id="sensitivity"
@@ -147,7 +160,7 @@ export default function Form() {
                     placeholder={user.sensitivity}
                     onChange={onChangeSensitivity}
                     value={sensitivity}
-                    className="input"
+                    className="input placeholder-gray-600"
                 />
             </div>
             <Dropbox
@@ -158,9 +171,8 @@ export default function Form() {
                 field="type"
                 setIdReturnedFromDropBox={setIdReturnedFromDropBox}
             />
-            <button className="text-red-600 row-span-2 self-end">
-                Excluir conta
-            </button>
+
+            <button className="text-red-600 ">Excluir conta</button>
             <Button onClick={handleSubmit}>Salvar</Button>
         </FormContent>
     )
