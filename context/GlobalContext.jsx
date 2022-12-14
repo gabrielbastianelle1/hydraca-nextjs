@@ -5,7 +5,7 @@ export const GlobalContext = createContext()
 
 export default function GlobalProvider({ children }) {
     const [diabetesGlobal, setDiabetesGlobal] = useState([])
-    const [mealGlobal, setMealGlobal] = useState([
+    const [mealGlobal] = useState([
         {
             _id: 'Café da Manha',
             type: 'Café da Manha'
@@ -23,7 +23,7 @@ export default function GlobalProvider({ children }) {
             type: 'Jantar'
         }
     ])
-    const [exerciseGlobal, setExerciseGlobal] = useState([
+    const [exerciseGlobal] = useState([
         {
             _id: 'Leve',
             type: 'Leve'

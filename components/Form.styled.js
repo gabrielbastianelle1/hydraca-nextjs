@@ -1,13 +1,15 @@
 import styled from 'styled-components'
 
 const FormContent = styled.div`
+    position: relative;
+
     &::before {
         content: '${(p) => p.message}';
         box-sizing: border-box;
         background: ${(p) => (p.error ? '#F7E1E3' : '#cff2cd')};
         width: 85%;
 
-        top: 18%;
+        top: -70px;
 
         position: absolute;
         left: 50%;
@@ -29,7 +31,7 @@ const FormContent = styled.div`
 
     @media (min-width: 1024px) {
         &::before {
-            max-width: 576px;
+            max-width: 85%;
         }
     }
 `

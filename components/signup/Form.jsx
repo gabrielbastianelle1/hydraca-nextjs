@@ -51,7 +51,7 @@ export default function Form() {
             setMessage({
                 active: true,
                 error: true,
-                message: 'O campo não pode estar vazio'
+                message: 'Palavra-passe não pode estar vazia'
             })
             return
         }

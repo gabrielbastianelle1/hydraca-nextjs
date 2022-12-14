@@ -1,11 +1,11 @@
 import axios from 'axios'
 
-export function registerBasal(valuesBasal) {
+export function registerBolus(valuesBolus) {
     return new Promise(async (resolve, reject) => {
         try {
             let response = await axios.post(
-                'http://localhost:3000/api/user/registerbasal',
-                valuesBasal,
+                'http://localhost:3000/api/user/registerbolus',
+                valuesBolus,
                 {
                     headers: {
                         'x-access-token': localStorage.getItem('token')

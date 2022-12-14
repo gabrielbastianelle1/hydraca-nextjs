@@ -40,18 +40,18 @@ let userController = {
 
         const { amountHc, amountGlucose } = req.body
 
+        let { amountInsulinTotal, amountInsulinHc, amountInsulinCorrection } =
+            calcTotalInsulin(amountHc, carbRatio, amountGlucose, sensitivity)
+
         let response = Object.assign(
             req.body,
             {
                 User: user._id
             },
             {
-                amountInsulinTotal: calcTotalInsulin(
-                    amountHc,
-                    carbRatio,
-                    amountGlucose,
-                    sensitivity
-                )
+                amountInsulinTotal: amountInsulinTotal,
+                amountInsulinHc: amountInsulinHc,
+                amountInsulinCorrection: amountInsulinCorrection
             }
         )
 

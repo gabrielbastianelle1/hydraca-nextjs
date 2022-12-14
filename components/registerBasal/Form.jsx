@@ -111,7 +111,7 @@ export default function Form() {
             active={message.active}
             error={message.error}
             message={message.message}
-            className="form lg:grid-cols-2 lg:grid-rows-6 gap-y-16 lg:gap-y-4 gap-x-4"
+            className="form lg:grid-cols-2 lg:grid-rows-6 gap-y-16 lg:gap-y-6 gap-x-4"
         >
             <div className="item-form lg:col-span-2">
                 <label htmlFor="aGlucoseTrend">Glicose: </label>
@@ -159,9 +159,7 @@ export default function Form() {
                 field="type"
                 setIdReturnedFromDropBox={setIdReturnedFromDropBoxTherapy}
             />
-            <div className="ml-80 mt-2">
-                <Button onClick={handleSubmit}>Salvar</Button>
-            </div>
+            <Button onClick={handleSubmit}>Salvar</Button>
         </FormContent>
     )
 }
