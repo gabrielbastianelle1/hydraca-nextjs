@@ -50,7 +50,10 @@ export default function Side() {
                         </div>
                         <div className="flex-1 flex items-center p-2 space-x-3 rounded-md ">
                             <Foods />
-                            <SideItem hrefLink="/" text="Lista de alimentos" />
+                            <SideItem
+                                hrefLink="/user/food"
+                                text="Lista de alimentos"
+                            />
                         </div>
                         <hr className="my-4 mx-auto w-48 h-px bg-gray-300 rounded border-0 " />
                         <div className="flex-1 flex items-center p-2 space-x-3 rounded-md ">

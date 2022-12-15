@@ -3,6 +3,7 @@ const bolusService = require('../services/service.bolus')
 const basalService = require('../services/service.basal')
 const { calcTotalInsulin } = require('../calc/calcInsulin')
 const bcrypt = require('bcryptjs')
+const foodService = require('../services/service.food')
 
 async function hashPassword(password, valuesToUpdate) {
     valuesToUpdate.password = await bcrypt.hashSync(
@@ -16,6 +17,14 @@ async function hashPassword(password, valuesToUpdate) {
 let userController = {
     getCurrentUser: function (req, res) {
         res.status(200).json(req.user)
+    },
+
+    getAllFood: async function (req, res) {
+        try {
+            return res.status(200).json(await foodService.getAllFood())
+        } catch (error) {
+            return res.status(400).json(error)
+        }
     },
 
     insertBasal: async function (req, res) {

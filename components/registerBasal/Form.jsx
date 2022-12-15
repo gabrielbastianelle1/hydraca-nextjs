@@ -32,27 +32,27 @@ export default function Form() {
         message: ''
     })
 
-    const onChangeAmountGlucose = (e) => {
-        setamountGlucose(e.target.value)
+    const onChangeAmountGlucose = (event) => {
+        setamountGlucose(event.target.value)
     }
 
-    const onChangeDate = (e) => {
-        setDate(e.target.value)
+    const onChangeDate = (event) => {
+        setDate(event.target.value)
     }
 
-    const onChangeTime = (e) => {
-        setTime(e.target.value)
+    const onChangeTime = (event) => {
+        setTime(event.target.value)
     }
 
-    const onChangeamountInsulinTotal = (e) => {
-        setamountInsulinTotal(e.target.value)
+    const onChangeamountInsulinTotal = (event) => {
+        setamountInsulinTotal(event.target.value)
     }
 
-    const onChangetypeInsulin = (e) => {
-        setTypeInsulin(e.target.value)
+    const onChangetypeInsulin = (event) => {
+        setTypeInsulin(event.target.value)
     }
-    async function handleSubmit(e) {
-        e.preventDefault()
+    async function handleSubmit(event) {
+        event.preventDefault()
 
         if (amountGlucose < 0 || amountGlucose == 0) {
             setMessage({

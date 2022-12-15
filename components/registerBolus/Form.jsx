@@ -100,6 +100,7 @@ export default function Form() {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
+
         router.push('/user')
     }
 
