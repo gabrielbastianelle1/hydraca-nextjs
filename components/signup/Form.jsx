@@ -72,7 +72,7 @@ export default function Form() {
             setMessage({
                 active: true,
                 error: false,
-                message: 'Success signup'
+                message: 'Registo efetuado com sucesso'
             })
         } catch (error) {
             setMessage({
@@ -108,6 +108,7 @@ export default function Form() {
                         placeholder="YYYY-MM-DD"
                         onChange={onChangeBirthday}
                         value={birthday}
+                        type="date"
                         className="input"
                     />
                 </div>

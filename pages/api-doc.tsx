@@ -125,7 +125,7 @@ export const getStaticProps: GetStaticProps = async () => {
                                 type: String,
                                 required: [true, 'name required'],
                                 unique: [true, 'name already used']
-                            },
+                            }
                         }
                     },
                     Food: {
@@ -148,9 +148,9 @@ export const getStaticProps: GetStaticProps = async () => {
                         }
                     },
 
-                    Basal:{
-                        type:'object',
-                        properties:{
+                    Basal: {
+                        type: 'object',
+                        properties: {
                             User: {
                                 type: mongoose.Types.ObjectId,
                                 ref: 'User',
@@ -185,63 +185,62 @@ export const getStaticProps: GetStaticProps = async () => {
                                 required: [true, 'therapy required']
                             }
                         }
-
                     },
 
-                    Bolus:{
-                        type:'object',
-                        properties:{
-                        User: {
-                            type: mongoose.Types.ObjectId,
-                            ref: 'User',
-                            required: false
-                        },
-                        degreeExercise: {
-                            type: String
-                        },
-                        timeExercise: {
-                            type: Number
-                        },
-                        amountGlucose: {
-                            type: Number,
-                            required: [true, 'aG required']
-                        },
-                        amountInsulinHc: {
-                            type: Number
-                        },
-                        amountInsulinCorrection: {
-                            type: Number
-                        },
-                        amountInsulinTotal: {
-                            type: Number
-                        },
-                        therapy: {
-                            type: String,
-                            required: [true, 'therapy required']
-                        },
-                        nameMeal: {
-                            type: String
-                        },
-                        state: {
-                            type: Boolean,
-                            default: true
-                        },
-                        date: {
-                            type: String,
-                            required: [true, 'date required']
-                        },
-                        time: {
-                            type: String,
-                            required: [true, 'time required']
-                        },
-                        amountHc: {
-                            type: Number,
-                            required: [false, 'hc required']
-                        },
-                        typeInsulin: {
-                            type: String,
-                            default: 'Bolus'
-                         }
+                    Bolus: {
+                        type: 'object',
+                        properties: {
+                            User: {
+                                type: mongoose.Types.ObjectId,
+                                ref: 'User',
+                                required: false
+                            },
+                            degreeExercise: {
+                                type: String
+                            },
+                            timeExercise: {
+                                type: Number
+                            },
+                            amountGlucose: {
+                                type: Number,
+                                required: [true, 'aG required']
+                            },
+                            amountInsulinHc: {
+                                type: Number
+                            },
+                            amountInsulinCorrection: {
+                                type: Number
+                            },
+                            amountInsulinTotal: {
+                                type: Number
+                            },
+                            therapy: {
+                                type: String,
+                                required: [true, 'therapy required']
+                            },
+                            nameMeal: {
+                                type: String
+                            },
+                            state: {
+                                type: Boolean,
+                                default: true
+                            },
+                            date: {
+                                type: String,
+                                required: [true, 'date required']
+                            },
+                            time: {
+                                type: String,
+                                required: [true, 'time required']
+                            },
+                            amountHc: {
+                                type: Number,
+                                required: [false, 'hc required']
+                            },
+                            typeInsulin: {
+                                type: String,
+                                default: 'Bolus'
+                            }
                         }
                     }
                 }

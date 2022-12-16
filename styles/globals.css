@@ -23,7 +23,7 @@
         background: linear-gradient(142.77deg, #c8e6c9 15.84%, #b3e5fc 85.86%);
         opacity: 0.2;
     }
-    .placeholder-black{
+    .placeholder-black {
         color: black;
     }
 
@@ -75,7 +75,7 @@
         @apply relative text-4xl text-center font-semibold p-12 mb-10 text-colorButton;
     }
 
-    .modal{
+    .modal {
         @apply flex-col border rounded-lg shadow fixed lg:absolute p-6 top-0 bg-slate-50 w-full lg:max-w-3xl lg:left-1/2 lg:-translate-x-1/2 lg:top-1/3 lg:-translate-y-1/2;
     }
 
@@ -98,4 +98,4 @@
         background-size: 100% 3px;
         background-position: 0 100%;
     }
-}
+ }

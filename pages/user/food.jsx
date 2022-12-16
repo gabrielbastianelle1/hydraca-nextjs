@@ -1,9 +1,9 @@
-import Food from '../../components/food/Food'
-import LayoutUser from '../../components/layoutUser/LayoutUser'
+import Food from '../components/food/Form'
+import LayoutUser from '../components/layoutUser/LayoutUser'
 
 export default function Index() {
     return (
-        <LayoutUser title="Food ">
+        <LayoutUser title="food ">
             <Food />
         </LayoutUser>
     )

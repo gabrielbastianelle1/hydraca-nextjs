@@ -1,6 +1,6 @@
 function authErrorHandler(error) {
     if (error.code == 11000) {
-        return 'email already used'
+        return 'O email já está a ser usado'
     } else {
         for (let index in error.errors) {
             return error.errors[index].message

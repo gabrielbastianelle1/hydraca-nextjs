@@ -12,11 +12,10 @@ export default function Form() {
 
     const [titleDropbox, setTitleDropbox] = useState('Selecione')
     const [idReturnedFromDropBox, setIdReturnedFromDropBox] = useState(null)
-
-    const [sensitivity, setSensitivity] = useState(null)
-    const [carbRatio, setCarbRatio] = useState(null)
-    const [height, setHeight] = useState(null)
-    const [weight, setWeight] = useState(null)
+    const [sensitivity, setSensitivity] = useState('')
+    const [carbRatio, setCarbRatio] = useState('')
+    const [height, setHeight] = useState('')
+    const [weight, setWeight] = useState('')
     const [message, setMessage] = useState({
         active: false,
         error: false,
@@ -40,8 +39,24 @@ export default function Form() {
     }
 
     const handleSubmit = async (event) => {
+        event.preventDefault()
         console.log(idReturnedFromDropBox)
-
+        if (sensitivity == 0) {
+            setMessage({
+                active: true,
+                error: true,
+                message: 'O campo de fator de corração está incorreto'
+            })
+            return
+        }
+        if (carbRatio == 0 || carbRatio < 0) {
+            setMessage({
+                active: true,
+                error: true,
+                message: 'O campo de sensibilidade  insulina está incorreto'
+            })
+            return
+        }
         if (height == 0) {
             setMessage({
                 active: true,
@@ -58,23 +73,6 @@ export default function Form() {
             })
             return
         }
-        if (sensitivity == 0 || sensitivity < 0) {
-            setMessage({
-                active: true,
-                error: true,
-                message: 'O campo de fator de corração está incorreto'
-            })
-            return
-        }
-
-        if (carbRatio == 0 || carbRatio < 0) {
-            setMessage({
-                active: true,
-                error: true,
-                message: 'O campo de sensibilidade  insulina está incorreto'
-            })
-            return
-        }
 
         try {
             await updateProfile({
@@ -86,7 +84,11 @@ export default function Form() {
             })
             navigate.push('/user')
         } catch (error) {
-            console.log(error.response.data)
+            setMessage({
+                active: true,
+                error: true,
+                message: error.response.data
+            })
         }
     }
 
@@ -120,6 +122,7 @@ export default function Form() {
                         name="sensitivity"
                         id="sensitivity"
                         className="input"
+                        value={sensitivity}
                         placeholder="exemplo: 20"
                         onChange={onChangeSensitivity}
                     />

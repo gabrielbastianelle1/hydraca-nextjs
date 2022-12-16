@@ -48,9 +48,6 @@ export default function Form() {
     const onChangeSensitivity = (event) => {
         setSensitivity(event.target.value)
     }
-    const onChangeEmail = (event) => {
-        setEmail(event.target.value)
-    }
 
     const onChangePassword = (event) => {
         setPassword(event.target.value)
@@ -120,7 +117,7 @@ export default function Form() {
                 />
             </div>
 
-            <div className="item-form">
+            <div className="item-form datepicker">
                 <label htmlFor="name">Data de nascimento: </label>
                 <input
                     id="birthday"
@@ -171,9 +168,10 @@ export default function Form() {
                 field="type"
                 setIdReturnedFromDropBox={setIdReturnedFromDropBox}
             />
-
             <button className="text-red-600 ">Excluir conta</button>
-            <Button onClick={handleSubmit}>Salvar</Button>
+            <div className="px-36 sm:px-80 ">
+                <Button onClick={handleSubmit}>Salvar</Button>
+            </div>
         </FormContent>
     )
 }
