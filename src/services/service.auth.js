@@ -29,7 +29,9 @@ let authService = {
                 let user = result[0]
 
                 if (user.state != true) {
-                    return reject('A conta não está ativa')
+                    return reject(
+                        'A conta não está ativa, entre em contato com a Hydraca'
+                    )
                 }
 
                 if (!(await new User().comparePassword(req, user))) {

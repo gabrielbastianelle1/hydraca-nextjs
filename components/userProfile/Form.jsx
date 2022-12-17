@@ -2,14 +2,15 @@ import { React, useState, useEffect, useContext } from 'react'
 import { GlobalContext } from '../../context/GlobalContext'
 import Button from '../Button'
 import FormContent from '../Form.styled'
-import { updateProfile } from '../../services/service.user'
+import { updateProfile, deleteUser } from '../../services/service.user'
 import Dropbox from '../Dropbox'
 import { getCurrentUser } from '../../services/service.auth'
+import useRouter from 'next/router'
 
 export default function Form() {
     const [user, setUser] = useState({})
     const { diabetesGlobal } = useContext(GlobalContext)
-
+    const navigate = useRouter
     useEffect(() => {
         getCurrentUser()
             .then((response) => setUser(response.data.user))
@@ -23,6 +24,7 @@ export default function Form() {
     const [birthday, setBirthday] = useState(user.birthday)
     const [password, setPassword] = useState(user.password)
     const [email, setEmail] = useState(user.email)
+    const [state, setState] = useState(user.state)
     const [titleDropbox, setTitleDropbox] = useState('Selecione')
     const [idReturnedFromDropBox, setIdReturnedFromDropBox] = useState(
         user.idDiabetes
@@ -78,6 +80,19 @@ export default function Form() {
         }
     }
 
+    const handleDeleteUser = async () => {
+        try {
+            await deleteUser({ state: state })
+            navigate.push('/')
+        } catch (error) {
+            setMessage({
+                active: true,
+                error: true,
+                message: error.response.data
+            })
+        }
+    }
+
     return (
         <FormContent
             active={message.active}
@@ -117,7 +132,7 @@ export default function Form() {
                 />
             </div>
 
-            <div className="item-form datepicker">
+            <div className="item-form">
                 <label htmlFor="name">Data de nascimento: </label>
                 <input
                     id="birthday"
@@ -168,7 +183,9 @@ export default function Form() {
                 field="type"
                 setIdReturnedFromDropBox={setIdReturnedFromDropBox}
             />
-            <button className="text-red-600 ">Excluir conta</button>
+            <button onClick={handleDeleteUser} className="text-red-600 ">
+                Excluir conta
+            </button>
             <div className="px-36 sm:px-80 ">
                 <Button onClick={handleSubmit}>Salvar</Button>
             </div>

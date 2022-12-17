@@ -1,5 +1,6 @@
 const User = require('../models/model.User')
 const Diabetes = require('../models/model.Diabetes')
+const Food = require('../models/model.Food')
 
 function insertInitialData() {
     User.find({})
@@ -36,6 +37,17 @@ function insertInitialData() {
             }
         })
         .catch((error) => console.log(error))
+
+    Food.find({}).then((response) => {
+        if (response.length == 0) {
+            let food = new Food({
+                name: 'Couve-flor',
+                qtd: '1 Xícara – 100g',
+                Hc: '4,5'
+            })
+            food.save()
+        }
+    })
 }
 
 module.exports = {

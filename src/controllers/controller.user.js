@@ -73,6 +73,17 @@ let userController = {
         }
     },
 
+    deleteUser: async function (req, res) {
+        let userEmail = req.user.user.email
+        try {
+            return res
+                .status(200)
+                .json(await userService.deleteUser({ userEmail }))
+        } catch (error) {
+            return res.status(400).json(error)
+        }
+    },
+
     updateProfile: async function (req, res) {
         let userEmail = req.user.user.email
         let valuesToUpdate = req.body

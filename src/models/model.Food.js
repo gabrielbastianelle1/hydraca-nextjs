@@ -7,8 +7,13 @@ const Food = new mongoose.Schema(
             required: [true, 'name required'],
             unique: [true, 'name already used']
         },
+
+        qtd: {
+            type: String,
+            required: [true, 'name required']
+        },
         Hc: {
-            type: Number,
+            type: String,
             required: [true, 'Hc required']
         },
 
