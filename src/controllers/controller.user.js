@@ -14,6 +14,13 @@ async function hashPassword(password, valuesToUpdate) {
     return valuesToUpdate
 }
 
+function addBolusToRegisters({ registers, bolus }) {
+    bolus.forEach((element) => {
+        registers.push(element)
+    })
+    return registers
+}
+
 let userController = {
     getCurrentUser: function (req, res) {
         res.status(200).json(req.user)
@@ -100,6 +107,23 @@ let userController = {
                     valuesToUpdate
                 })
             )
+        } catch (error) {
+            return res.status(400).json(error)
+        }
+    },
+
+    getAllRegisters: async function (req, res) {
+        let user = req.user.user
+        const { _id } = user
+
+        let registers
+
+        try {
+            registers = await basalService.getAllBasal({ _id })
+            let bolus = await bolusService.getAllBolus({ _id })
+
+            registers = addBolusToRegisters({ registers, bolus })
+            return res.status(200).json(registers)
         } catch (error) {
             return res.status(400).json(error)
         }

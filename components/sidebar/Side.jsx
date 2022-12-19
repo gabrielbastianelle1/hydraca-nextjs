@@ -46,7 +46,10 @@ export default function Side() {
                         </div>
                         <div className="flex-1 flex items-center p-2 space-x-3 rounded-md ">
                             <Registos />
-                            <SideItem hrefLink="/" text="Visualizar Registos" />
+                            <SideItem
+                                hrefLink="/user/registers"
+                                text="Visualizar Registos"
+                            />
                         </div>
                         <div className="flex-1 flex items-center p-2 space-x-3 rounded-md ">
                             <Foods />

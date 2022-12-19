@@ -12,6 +12,17 @@ let basalService = {
                 return resolve(result)
             })
         })
+    },
+
+    getAllBasal: function ({ _id }) {
+        return new Promise((resolve, reject) => {
+            Basal.find({ User: _id }, (err, result) => {
+                if (err) {
+                    return reject(err)
+                }
+                return resolve(result)
+            })
+        })
     }
 }
 

@@ -39,3 +39,22 @@ export function deleteUser(state) {
         }
     })
 }
+
+export function getAllRegisters() {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let response = await axios.post(
+                'http://localhost:3000/api/user/getallregisters',
+                {},
+                {
+                    headers: {
+                        'x-access-token': localStorage.getItem('token')
+                    }
+                }
+            )
+            return resolve(response)
+        } catch (error) {
+            return reject(error)
+        }
+    })
+}

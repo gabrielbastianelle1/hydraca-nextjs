@@ -12,6 +12,17 @@ let bolusService = {
                 return resolve(result)
             })
         })
+    },
+
+    getAllBolus: function ({ _id }) {
+        return new Promise((resolve, reject) => {
+            Bolus.find({ User: _id }, (err, result) => {
+                if (err) {
+                    return reject(err)
+                }
+                return resolve(result)
+            })
+        })
     }
 }
 

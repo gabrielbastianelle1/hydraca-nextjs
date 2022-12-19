@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react'
 
 export default function OutsideClick(ref) {
-    const [isDown, setisDown] = useState()
+    const [isClicked, setIsClicked] = useState()
 
     useEffect(() => {
-        function handleClickOutside() {
-            console.log(ref.current.classList.contains('hidden'))
-            if (ref.current && !ref.current.classList.contains('hidden')) {
-                setisDown(true)
+        function handleClickOutside(event) {
+            if (ref.current && !ref.current.contains(event.target)) {
+                setIsClicked(true)
             } else {
-                setisDown(false)
+                setIsClicked(false)
             }
         }
 
@@ -19,5 +18,5 @@ export default function OutsideClick(ref) {
         }
     }, [ref])
 
-    return isDown
+    return isClicked
 }

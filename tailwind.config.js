@@ -8,7 +8,8 @@ module.exports = {
         extend: {
             colors: {
                 colorButton: 'var(--color-button)',
-                userBackground: 'var(--color-background)'
+                userBackground: 'var(--color-background)',
+                headerList: 'var(--color-headerlist)'
             }
         }
     },
