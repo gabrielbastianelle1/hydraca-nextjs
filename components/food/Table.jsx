@@ -1,9 +1,6 @@
 import { React, useState, useContext } from 'react'
 
 export default function Table() {
-    const [name, setName] = useState(name)
-    const [qtd, setQtd] = useState(qtd)
-    const [Hc, setHc] = useState(hc)
     return (
         <div className="px-20 overflow-x-auto relative pt-32 sm:rounded-lg">
             <table className="w-full text-sm text-center text-gray-500 dark:text-gray-400">
