@@ -32,6 +32,7 @@ export function deleteUser(state) {
                     }
                 }
             )
+            localStorage.removeItem('token', response.data)
             return resolve(response)
         } catch (error) {
             return reject(error)
