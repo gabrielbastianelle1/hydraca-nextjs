@@ -1,9 +1,10 @@
-export default function HeaderList({ registers }) {
-    const onClickDate = () => {
-        console.log('cliquei')
-    }
+import { orderByInsulin } from './orders'
+
+export default function HeaderList({ registers, setRegisters }) {
+    const onClickDate = () => {}
 
     const onClickInsulin = () => {
+        setRegisters(orderByInsulin({ registers }))
         console.log('cliquei')
     }
 
@@ -14,7 +15,10 @@ export default function HeaderList({ registers }) {
             </p>
             <p className="hidden lg:block">Glicose</p>
             <p>Tipo insulina</p>
-            <p className="hidden lg:block" onClick={onClickInsulin}>
+            <p
+                className="hidden lg:block cursor-pointer"
+                onClick={onClickInsulin}
+            >
                 Insulina
             </p>
             <p className="hidden lg:block">Terapia</p>
