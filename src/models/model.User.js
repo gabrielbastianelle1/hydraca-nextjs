@@ -10,22 +10,22 @@ const User = new mongoose.Schema(
         },
         name: {
             type: String,
-            required: [true, 'name required']
+            required: [true, 'Insira o campo nome']
         },
         birthday: {
             type: String,
-            required: [true, 'birthday required']
+            required: [true, 'Inisira data de nascimento corretamente']
         },
         email: {
             type: String,
-            required: [true, 'email required'],
+            required: [true, 'Insira o campo email corretamente'],
             unique: true,
             lowercase: true,
-            validate: [isEmail, 'please enter valid email']
+            validate: [isEmail, 'Insira um email válido']
         },
         password: {
             type: String,
-            required: [true, 'password required']
+            required: [true, 'Insira a password']
         },
         state: {
             type: Boolean,

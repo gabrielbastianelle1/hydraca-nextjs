@@ -123,7 +123,7 @@ export default function Form() {
                     />
                 </div>
                 <div className="item-form">
-                    <label htmlFor="amountGlucose">Hora: </label>
+                    <label htmlFor="amountGlucose">Data: </label>
                     <input
                         className="input"
                         type="date"
