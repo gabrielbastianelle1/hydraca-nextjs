@@ -1,9 +1,11 @@
-import Table from './Table'
+import List from './List'
+import Title from './Title'
 
-export default function RegisterBasal() {
+export default function Food() {
     return (
         <main className="flex-grow">
-            <Table />
+            <Title />
+            <List />
         </main>
     )
 }
