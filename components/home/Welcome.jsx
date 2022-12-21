@@ -24,7 +24,7 @@ export default function Welcome() {
         <main className="flex flex-col px-10 items-center justify-start">
             <h1
                 ref={h1}
-                className="uppercase  text-center font-bold text-lg md:text-5xl lg:text-7xl text-colorButton overflow-hidden mb-8"
+                className="uppercase  text-center font-bold text-4xl md:text-5xl lg:text-7xl text-colorButton overflow-hidden mb-8"
             >
                 bem vindo a hydraca
             </h1>

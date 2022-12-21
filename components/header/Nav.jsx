@@ -2,10 +2,17 @@ import { MenuIcon } from '@heroicons/react/solid'
 import NavItem from './NavItem'
 import Link from 'next/link'
 
-export default function Nav() {
+export default function Nav({ setMobileMenu }) {
+    const openMobileMenu = () => {
+        setMobileMenu(true)
+    }
+
     return (
         <>
-            <MenuIcon className="h-12 ml-auto mr-10 stroke-slate-600 cursor-pointer lg:hidden " />
+            <MenuIcon
+                onClick={openMobileMenu}
+                className="h-12 ml-auto mr-10 stroke-slate-600 cursor-pointer lg:hidden "
+            />
 
             <nav className="hidden lg:flex items-center w-full">
                 <div className="flex-grow flex justify-center space-x-20 text-colorButton">
