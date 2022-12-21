@@ -1,10 +1,11 @@
 import axios from 'axios'
+import { host } from './host'
 
 export function getAllFood() {
     return new Promise(async (result, reject) => {
         try {
             let response = await axios.post(
-                'http://localhost:3000/api/user/food',
+                `http://${host}:3000/api/user/food`,
                 {},
                 {
                     headers: {

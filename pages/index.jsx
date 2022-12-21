@@ -1,8 +1,9 @@
 import Layout from '../components/layout/Layout'
 import Home from '../components/home/Home'
+import { host } from '../services/host'
 
 function Index() {
-    fetch('http://localhost:3000/api')
+    fetch(`http://${host}:3000/api`)
 
     return (
         <Layout title="Hydraca">

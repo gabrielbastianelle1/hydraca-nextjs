@@ -1,10 +1,11 @@
 import axios from 'axios'
+import { host } from './host'
 
 export function updateProfile(valuesToUpdate) {
     return new Promise(async (resolve, reject) => {
         try {
             let response = await axios.post(
-                'http://localhost:3000/api/user/updateprofile',
+                `http://${host}:3000/api/user/updateprofile`,
                 valuesToUpdate,
                 {
                     headers: {
@@ -24,7 +25,7 @@ export function deleteUser(state) {
     return new Promise(async (resolve, reject) => {
         try {
             let response = await axios.post(
-                'http://localhost:3000/api/user/deleteUser',
+                `http://${host}:3000/api/user/deleteuser`,
                 state,
                 {
                     headers: {
@@ -44,7 +45,7 @@ export function getAllRegisters() {
     return new Promise(async (resolve, reject) => {
         try {
             let response = await axios.post(
-                'http://localhost:3000/api/user/getallregisters',
+                `http://${host}:3000/api/user/getallregisters`,
                 {},
                 {
                     headers: {
