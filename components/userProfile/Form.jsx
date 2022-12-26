@@ -98,7 +98,7 @@ export default function Form() {
             active={message.active}
             error={message.error}
             message={message.message}
-            className="form lg:grid-cols-2 lg:grid-rows-6 gap-x-4 gap-y-16 lg:gap-y-4 "
+            className="form lg:grid-cols-2 lg:grid-rows-6 gap-x-4 gap-y-16 lg:gap-y-4"
         >
             <div className="item-form lg:col-span-2 ">
                 <label htmlFor="name">Nome: </label>
@@ -133,13 +133,13 @@ export default function Form() {
             </div>
 
             <div className="item-form">
-                <label htmlFor="name">Data de nascimento: </label>
+                <label htmlFor="name">Nascimento: </label>
                 <input
                     id="birthday"
                     placeholder={user.birthday}
                     onChange={onChangeBirthday}
                     value={birthday}
-                    className="input placeholder-gray-600"
+                    className="input w-1/5 placeholder-gray-600"
                 />
             </div>
             <div className="item-form ">
@@ -172,7 +172,7 @@ export default function Form() {
                     placeholder={user.sensitivity}
                     onChange={onChangeSensitivity}
                     value={sensitivity}
-                    className="input placeholder-gray-600"
+                    className="input w-1/5 placeholder-gray-600"
                 />
             </div>
             <Dropbox
@@ -186,9 +186,7 @@ export default function Form() {
             <button onClick={handleDeleteUser} className="text-red-600 ">
                 Excluir conta
             </button>
-            <div className="px-36 sm:px-80 ">
-                <Button onClick={handleSubmit}>Salvar</Button>
-            </div>
+            <Button onClick={handleSubmit}>Salvar</Button>
         </FormContent>
     )
 }

@@ -141,9 +141,7 @@ export default function Form() {
                     />
                 </div>
                 <div className="item-form lg:col-span-2">
-                    <label htmlFor="amountGlucose">
-                        Total de carboidratos:{' '}
-                    </label>
+                    <label htmlFor="amountGlucose">Total de Hc:</label>
                     <input
                         className="input"
                         placeholder="exemplo: 300"
