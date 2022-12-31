@@ -1,8 +1,8 @@
-export default function Button({ children, onClick }) {
+export default function ButtonHome({ children, onClick }) {
     return (
         <button
             onClick={onClick}
-            className="py-2 px-3 text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+            class="inline-block px-36 py-2.5   bg-colorButton text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
         >
             {children}
         </button>

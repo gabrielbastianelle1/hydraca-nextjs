@@ -25,7 +25,7 @@ export function deleteUser(state) {
     return new Promise(async (resolve, reject) => {
         try {
             let response = await axios.post(
-                `http://${host}:3000/api/user/deleteuser`,
+                `http://${host}:3000/api/user/deleteUser`,
                 state,
                 {
                     headers: {
