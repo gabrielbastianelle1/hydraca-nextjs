@@ -4,6 +4,7 @@ import Button from '../Button'
 import Dropbox from '../Dropbox'
 import FormContent from '../Form.styled'
 import { updateProfile } from '../../services/service.user'
+import { calcImc } from './calcimc'
 import useRouter from 'next/router'
 
 export default function Form() {
@@ -80,7 +81,8 @@ export default function Form() {
                 height: height,
                 weight: weight,
                 sensitivity: sensitivity,
-                carbRatio: carbRatio
+                carbRatio: carbRatio,
+                imc: calcImc(weight, height)
             })
             navigate.push('/user')
         } catch (error) {
