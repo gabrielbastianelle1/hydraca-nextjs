@@ -1,5 +1,5 @@
 import Link from 'next/link'
-
+import Logout from '../headerUser/Logout'
 export default function SideItem({ text, hrefLink }) {
     return (
         <Link href={hrefLink}>
