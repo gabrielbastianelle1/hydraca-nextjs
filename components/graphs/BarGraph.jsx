@@ -18,18 +18,18 @@ export default function BarGraph() {
                     }),
                     datasets: [
                         {
-                            label: 'Media Glicose',
+                            label: 'Média Glicose',
                             data: response.lastRegisters.map((element) => {
                                 return element.avarageGlucose
                             }),
-                            backgroundColor: 'rgba(54, 162, 235, 0.2)'
+                            backgroundColor: 'rgba(152, 189, 255)'
                         },
                         {
                             label: 'Glicose Ultimo Registo',
                             data: response.lastRegisters.map((element) => {
                                 return element.amountGlucose
                             }),
-                            backgroundColor: 'rgba(255, 206, 86, 1)'
+                            backgroundColor: 'rgba(75, 73, 172)'
                         }
                     ]
                 })

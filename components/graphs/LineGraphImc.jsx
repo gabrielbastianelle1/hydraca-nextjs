@@ -4,7 +4,7 @@ import 'chart.js/auto'
 import { useState, useEffect } from 'react'
 import { getDataToBarGraph } from './GraphCalcs'
 
-export default function LineGraph() {
+export default function LineGraphImc() {
     const [data, setData] = useState({
         datasets: []
     })
@@ -16,12 +16,12 @@ export default function LineGraph() {
                     labels: ['1', '2', '3', '4', '5', '6', '7'],
                     datasets: [
                         {
-                            label: 'Média Glicose nos ultimos 7 registos:',
+                            label: 'Imc:',
                             data: response.lastRegisters.map((element) => {
-                                return element.avarageGlucose
+                                return element.imc
                             }),
-                            backgroundColor: 'rgba(243, 121, 126, 1)',
-                            borderColor: 'rgba(243, 121, 126, 1)'
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgb(53, 162, 235)'
                         }
                     ]
                 })

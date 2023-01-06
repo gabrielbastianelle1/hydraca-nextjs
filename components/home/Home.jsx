@@ -3,7 +3,7 @@ import Welcome from './Welcome'
 
 export default function Home() {
     return (
-        <main className="relative h-full grid items-start mt-40">
+        <main className="relative h-full grid items-start mt-40  ">
             <Welcome />
 
             <Girl className="hidden scale-75 lg:block absolute -bottom-16 -right-20" />

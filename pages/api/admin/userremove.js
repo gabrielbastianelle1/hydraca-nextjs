@@ -2,7 +2,7 @@ const adminController = require('../../../src/controllers/controller.admin')
 /**
  * @swagger
  * paths:
- *      /api/admin/getalldiabetes:
+ *      /api/admin/userremove:
  *     get:
  *      tags:
  *          - admin
@@ -12,4 +12,4 @@ const adminController = require('../../../src/controllers/controller.admin')
  *                      description: json with user data
  */
 
-export default adminController.getAllDiabetes
+export default adminController.getAllUsersRemove

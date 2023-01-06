@@ -18,14 +18,14 @@ export default function DoughnutGraph() {
                         {
                             data: [response.totalBolus, response.totalBasal],
                             backgroundColor: [
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)'
+                                'rgba(152, 189, 255)',
+                                'rgba(75, 73, 172)'
                             ],
                             borderColor: [
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)'
+                                'rgba(152, 189, 255)',
+                                'rgba(75, 73, 172)'
                             ],
-                            hoverBackgroundColor: ['#36A2EB', '#FFCE56']
+                            hoverBackgroundColor: ['#8FAEFF', '#0143F3']
                         }
                     ]
                 })

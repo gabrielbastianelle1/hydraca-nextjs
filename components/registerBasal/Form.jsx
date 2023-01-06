@@ -1,6 +1,6 @@
 import { React, useState, useContext } from 'react'
 import { GlobalContext } from '../../context/GlobalContext'
-import Button from '../Button'
+import Button from '../ButtonHome'
 import Dropbox from '../Dropbox'
 import { registerBasal } from '../../services/service.basal'
 import FormContent from '../Form.styled'
@@ -159,7 +159,9 @@ export default function Form() {
                 field="type"
                 setIdReturnedFromDropBox={setIdReturnedFromDropBoxTherapy}
             />
-            <Button onClick={handleSubmit}>Salvar</Button>
+            <div className=" lg:ml-60">
+                <Button onClick={handleSubmit}>Salvar</Button>
+            </div>
         </FormContent>
     )
 }
