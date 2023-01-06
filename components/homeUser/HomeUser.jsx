@@ -18,7 +18,7 @@ export default function User() {
                             onInit={(typewriter) => {
                                 typewriter
                                     .typeString(
-                                        '       Não se esqueaça de registar os dados da glicose de hoje!'
+                                        '       Não se esqueça de registar os dados da glicose de hoje!'
                                     )
                                     .callFunction(() => {
                                         console.log('String typed out!')

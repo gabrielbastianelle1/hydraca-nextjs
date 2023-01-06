@@ -14,7 +14,7 @@ export function ListRow({ children }) {
     const row = useRef(null)
     return (
         <span ref={row}>
-            <ul className="grid items-center shadow-inner grid-cols-3 lg:grid-cols-3 gap-x-14 p-4 hover:bg-slate-100 hover:cursor-pointer">
+            <ul className="grid items-center shadow-inner grid-cols-3 lg:grid-cols-3 gap-x-14 p-4 ">
                 {children}
             </ul>
         </span>

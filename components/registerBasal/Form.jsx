@@ -4,7 +4,7 @@ import Button from '../ButtonHome'
 import Dropbox from '../Dropbox'
 import { registerBasal } from '../../services/service.basal'
 import FormContent from '../Form.styled'
-
+import { useRouter } from 'next/router'
 /**
  *
  escala -->   glucoseTrend
@@ -16,7 +16,7 @@ import FormContent from '../Form.styled'
 
 export default function Form() {
     const { therapyGlobal } = useContext(GlobalContext)
-
+    const router = useRouter()
     const [amountGlucose, setamountGlucose] = useState('')
     const [date, setDate] = useState('')
     const [time, setTime] = useState('')
@@ -96,14 +96,10 @@ export default function Form() {
                 amountInsulinTotal: amountInsulinTotal,
                 therapy: idReturnedFromDropBoxTherapy
             })
-            setMessage({
-                active: true,
-                error: false,
-                message: 'Os dados foram registados com sucesso!'
-            })
         } catch (error) {
             console.log(error.response.data)
         }
+        router.push('/user')
     }
 
     return (
