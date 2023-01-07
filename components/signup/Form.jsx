@@ -51,7 +51,7 @@ export default function Form() {
             setMessage({
                 active: true,
                 error: true,
-                message: 'Palavra-passe não pode estar vazia'
+                message: 'A senha não pode estar vazia'
             })
             return
         }
@@ -60,7 +60,7 @@ export default function Form() {
             setMessage({
                 active: true,
                 error: true,
-                message: '  Confirme a palavra-passe'
+                message: '  Confirme a senha'
             })
             return
         }

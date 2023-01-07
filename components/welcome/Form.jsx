@@ -46,7 +46,7 @@ export default function Form() {
             setMessage({
                 active: true,
                 error: true,
-                message: 'O campo de fator de corração está incorreto'
+                message: 'O campo de fator de correção está incorreto'
             })
             return
         }
@@ -58,19 +58,19 @@ export default function Form() {
             })
             return
         }
-        if (height == 0) {
+        if (height == 0 || height < 0) {
             setMessage({
                 active: true,
                 error: true,
-                message: 'O campo de altura está vazio'
+                message: 'O campo de altura está incorreto'
             })
             return
         }
-        if (weight == 0) {
+        if (weight == 0 || weight < 0) {
             setMessage({
                 active: true,
                 error: true,
-                message: 'O campo de peso está vazio'
+                message: 'O campo de peso está incorreto'
             })
             return
         }

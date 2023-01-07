@@ -29,11 +29,19 @@ export default function Form() {
             setMessage({
                 active: true,
                 error: true,
-                message: 'Palavra-passe incorreta'
+                message: 'Campo senha vazio'
             })
             return
         }
 
+        if (email.length === 0) {
+            setMessage({
+                active: true,
+                error: true,
+                message: 'Campo email vazio'
+            })
+            return
+        }
         try {
             await signin(email, password)
             let response = await getCurrentUser()

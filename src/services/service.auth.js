@@ -35,7 +35,7 @@ let authService = {
                 }
 
                 if (!(await new User().comparePassword(req, user))) {
-                    reject('Login incorreto')
+                    reject('Senha incorreta')
                 }
 
                 let token = jwt.sign({ user: user }, process.env.SECRET_KEY)

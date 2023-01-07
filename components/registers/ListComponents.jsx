@@ -54,29 +54,30 @@ export function ItemDrop({ register }) {
         <div className="grid lg:grid-cols-4 gap-y-3 p-4">
             <li>
                 <span className="font-bold">Exercicio fisico</span>:{' '}
-                {register.degreeExercise}
+                {register.degreeExercise || 'N/A'}
             </li>
             <li>
                 <span className="font-bold">Tempo</span>:{' '}
-                {register.timeExercise}
+                {register.timeExercise || 'N/A'}
             </li>
             <li>
-                <span className="font-bold">Refeição</span>: {register.nameMeal}
+                <span className="font-bold">Refeição</span>:{' '}
+                {register.nameMeal || 'N/A'}
             </li>
             <li>
                 <span className="font-bold">Hora</span>: {register.time}
             </li>
             <li>
                 <span className="font-bold">Total de carboidratos</span>:{' '}
-                {register.amountHc}
+                {register.amountHc || 'N/A'}
             </li>
             <li>
                 <span className="font-bold">Insulina correção</span>:{' '}
-                {register.amountInsulinCorrection}
+                {register.amountInsulinCorrection || 'N/A'}
             </li>
             <li>
                 <span className="font-bold">Insulina alimentação</span>:{' '}
-                {register.amountInsulinHc}
+                {register.amountInsulinHc || 'N/A'}
             </li>
         </div>
     )

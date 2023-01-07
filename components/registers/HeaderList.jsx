@@ -1,10 +1,10 @@
-import { orderByInsulin } from './orders'
+import { orderByInsulin, orderByDate } from './orders'
 
 export default function HeaderList({ registers, setRegisters }) {
     const onClickDate = () => {}
 
     const onClickInsulin = () => {
-        setRegisters(orderByInsulin({ registers }))
+        setRegisters(orderByDate({ registers }))
         console.log('cliquei')
     }
 
