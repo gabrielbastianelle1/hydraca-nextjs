@@ -1,8 +1,8 @@
 import React from 'react'
-import { Line } from 'react-chartjs-2'
+import { Doughnut } from 'react-chartjs-2'
 import 'chart.js/auto'
 import { useState, useEffect } from 'react'
-import { getDataToBarGraph } from './GraphCalcs'
+import { getDataToDoughnutGraph } from './GraphCalcs'
 
 export default function LineGraphImc() {
     const [data, setData] = useState({
@@ -10,18 +10,16 @@ export default function LineGraphImc() {
     })
 
     useEffect(() => {
-        getDataToBarGraph(7)
+        getDataToDoughnutGraph()
             .then((response) => {
                 setData({
-                    labels: ['1', '2', '3', '4', '5', '6', '7'],
+                    labels: ['imc'],
                     datasets: [
                         {
-                            label: 'Imc:',
-                            data: response.lastRegisters.map((element) => {
-                                return element.imc
-                            }),
-                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                            borderColor: 'rgb(53, 162, 235)'
+                            data: [response.imc],
+                            backgroundColor: ['rgba(255, 115, 93, 1)'],
+                            borderColor: ['rgba(255, 115, 93, 1)'],
+                            hoverBackgroundColor: ['#FF9C8C']
                         }
                     ]
                 })
@@ -29,5 +27,5 @@ export default function LineGraphImc() {
             .catch((error) => console.log(error))
     }, [])
 
-    return <Line data={data} height={250} options={{ responsive: true }} />
+    return <Doughnut data={data} height={250} options={{ responsive: true }} />
 }

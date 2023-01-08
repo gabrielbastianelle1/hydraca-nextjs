@@ -2,6 +2,7 @@ import { React } from 'react'
 import BarGraph from '../graphs/BarGraph'
 import LineGraph from '../graphs/LineGraph'
 import LineGraphImc from '../graphs/LineGraphImc'
+import HorizontalGraph from '../graphs/HorizontalGraph'
 import DoughnutGraph from '../graphs/DoughnutGraph'
 import Typewriter from 'typewriter-effect'
 import { GirlHome } from '../svgs'
@@ -41,7 +42,7 @@ export default function User() {
                     <LineGraph />
                 </div>
                 <div className=" mr-32 justify-self-center self-start w-full lg:w-[350px]">
-                    <LineGraphImc />
+                    <HorizontalGraph />
                 </div>
 
                 <GirlHome className=" transform hidden scale-75 md:block absolute -bottom-12 -right-10" />

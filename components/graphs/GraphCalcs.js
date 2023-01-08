@@ -6,6 +6,7 @@ export function getDataToDoughnutGraph() {
             let registers = await getAllRegisters()
             let totalBolus = 0
             let totalBasal = 0
+            let imc = 0
 
             registers.data.forEach((element) => {
                 if (element.typeInsulin === 'Basal') {
@@ -13,9 +14,10 @@ export function getDataToDoughnutGraph() {
                 } else {
                     totalBolus = totalBolus + 1
                 }
+                imc = imc + 1
             })
 
-            resolve({ totalBasal, totalBolus })
+            resolve({ totalBasal, totalBolus, imc })
         } catch (error) {
             reject(error)
         }
@@ -45,6 +47,23 @@ export function getDataToBarGraph(totalToShow) {
             })
 
             resolve({ lastRegisters })
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
+export function getDataToHorizontalGraph() {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let registers = await getAllRegisters()
+            let imc = 0
+
+            registers.data.forEach((element) => {
+                imc = imc + 1
+            })
+
+            resolve({ imc })
         } catch (error) {
             reject(error)
         }
