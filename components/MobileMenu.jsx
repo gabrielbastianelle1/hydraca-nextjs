@@ -1,10 +1,13 @@
 import Link from 'next/link'
-import Button from './Button'
+import { logout } from '../services/service.auth'
 import { CloseButton } from './svgs'
 
 export default function MobileMenu({ mobileMenu, setMobileMenu, options }) {
-    const closeMenu = () => {
+    const closeMenu = ({ href }) => {
         setMobileMenu(false)
+        if (href == '/') {
+            logout()
+        }
     }
 
     return (
@@ -24,7 +27,9 @@ export default function MobileMenu({ mobileMenu, setMobileMenu, options }) {
                     return (
                         <MenuItem
                             href={option.href}
-                            closeMenu={closeMenu}
+                            closeMenu={() => {
+                                closeMenu(option.href)
+                            }}
                             className={option.className}
                         >
                             {option.text}

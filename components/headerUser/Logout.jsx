@@ -9,5 +9,9 @@ export default function Logout() {
         navigate.push('/')
     }
 
-    return <button onClick={handleOnClick}>Terminar Sessão</button>
+    return (
+        <button className="hidden lg:flex ml-auto" onClick={handleOnClick}>
+            Terminar Sessão
+        </button>
+    )
 }

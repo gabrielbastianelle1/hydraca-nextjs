@@ -10,7 +10,8 @@ import Title from './Title'
 
 export default function User() {
     return (
-        <main className="flex-grow">
+        <></>
+        /*         <main className="flex-grow">
             <Title />
             <div className="space-y-24 lg:space-y-0 flex flex-col lg:grid lg:grid-cols-3 lg:grid-rows-2 gap-10 items-center">
                 <div className="box-content hidden mt-10 lg:block sm:h-32   sm:w-64 bg-blue-900 rounded-lg justify-self-center self-start">
@@ -47,6 +48,6 @@ export default function User() {
 
                 <GirlHome className=" transform hidden scale-75 md:block absolute -bottom-12 -right-10" />
             </div>
-        </main>
+        </main> */
     )
 }

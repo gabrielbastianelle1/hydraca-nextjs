@@ -2,7 +2,6 @@ import { MenuIcon } from '@heroicons/react/solid'
 import NavItem from './NavItem'
 import Logo from '../Logo'
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function Nav({ setMobileMenu }) {
     const openMobileMenu = () => {

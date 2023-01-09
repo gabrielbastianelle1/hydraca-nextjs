@@ -28,5 +28,10 @@ export const mobileOptions = [
         text: 'Lista de Alimentos',
         href: '/user/food',
         className: ''
+    },
+    {
+        text: 'Terminar Sessão',
+        href: '/',
+        className: 'button'
     }
 ]
