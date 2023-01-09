@@ -1,6 +1,6 @@
 import { React, useState, useEffect, useContext } from 'react'
 import { GlobalContext } from '../../context/GlobalContext'
-import Button from '../ButtonHome'
+import Button from '../Button'
 import FormContent from '../Form.styled'
 import { updateProfile, deleteUser } from '../../services/service.user'
 import Dropbox from '../Dropbox'
@@ -132,18 +132,6 @@ export default function Form() {
                         disabled
                     />
                 </div>
-
-                <div className="item-form lg:col-span-2 ">
-                    <label htmlFor="password">Password: </label>
-                    <input
-                        id="password"
-                        type="password"
-                        onChange={onChangePassword}
-                        value={password}
-                        className="input placeholder-gray-600"
-                    />
-                </div>
-
                 <div className="item-form">
                     <label htmlFor="name">Nascimento: </label>
                     <input
@@ -198,8 +186,10 @@ export default function Form() {
                 <button onClick={handleDelete} className="text-red-600 ">
                     Excluir conta
                 </button>
-                <div className="lg:pl-52  ">
-                    <Button onClick={handleSubmit}>Salvar</Button>
+                <div className="lg:col-span-2 justify-self-center w-full lg:w-1/2">
+                    <Button className="w-full" onClick={handleSubmit}>
+                        Salvar
+                    </Button>
                 </div>
             </FormContent>
             <Modal
