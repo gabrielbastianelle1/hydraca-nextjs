@@ -28,6 +28,7 @@ export default function Form() {
     const [birthday, setBirthday] = useState(user.birthday)
     const [password, setPassword] = useState(user.password)
     const [email, setEmail] = useState(user.email)
+    const [imc, setImc] = useState(user.imc)
     const [state, setState] = useState(user.state)
     const [titleDropbox, setTitleDropbox] = useState('Selecione')
     const [modal, setModal] = useState(false)
@@ -80,8 +81,8 @@ export default function Form() {
                 height: height,
                 sensitivity: sensitivity,
                 birthday: birthday,
-                idDiabetes: idReturnedFromDropBox,
-                imc: calcImc(weight, height)
+                imc: calcImc(user.weight, user.height),
+                idDiabetes: idReturnedFromDropBox
             })
 
             setMessage({
@@ -107,6 +108,7 @@ export default function Form() {
     const handleSubmitPassword = async () => {
         try {
             await updateProfile({ password: password })
+            console.log(user.password)
             console.log('entrou')
         } catch (error) {
             setMessage({
@@ -180,9 +182,7 @@ export default function Form() {
                         disabled
                     />
                 </div>
-                <div className="item-form lg:col-span-2 ">
-                    <label htmlFor="password">Senha: </label>
-                </div>
+
                 <div className="item-form">
                     <label htmlFor="name">Nascimento: </label>
                     <input

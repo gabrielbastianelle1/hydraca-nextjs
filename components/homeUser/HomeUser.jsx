@@ -7,8 +7,18 @@ import DoughnutGraph from '../graphs/DoughnutGraph'
 import Typewriter from 'typewriter-effect'
 import { GirlHome } from '../svgs'
 import Title from './Title'
+import { useState, useEffect } from 'react'
+import { getCurrentUser } from '../../services/service.auth'
 
 export default function User() {
+    const [user, setUser] = useState({})
+
+    useEffect(() => {
+        getCurrentUser()
+            .then((response) => setUser(response.data.user))
+            .catch((error) => console.log(error))
+    }, [])
+
     return (
         <main className="flex-grow">
             <Title />
@@ -31,6 +41,15 @@ export default function User() {
                         />
                     </h1>
                 </div>
+
+                <div className="relative py-3 sm:max-w-xl sm:mx-auto">
+                    <div className="lg:grid items-center justify-center h-28  w-64 bg-blue-900  rounded-lg justify-self-center">
+                        <h1 className="   px-14 py-10 lg:p-5 font-semibold text-slate-50">
+                            O seu IMC: {user.imc}
+                        </h1>
+                    </div>
+                </div>
+
                 <div className="justify-self-center lg:w-3/4 lg:max-w-[350px]">
                     <DoughnutGraph />
                 </div>
@@ -41,9 +60,7 @@ export default function User() {
                 <div className=" justify-self-center lg:w-3/4 lg:max-w-[350px]">
                     <LineGraph />
                 </div>
-                <div className=" mr-32 justify-self-center lg:w-3/4 lg:max-w-[350px]">
-                    <HorizontalGraph />
-                </div>
+
                 <GirlHome className=" transform hidden scale-75 lg:block absolute -bottom-12 -right-10" />
             </div>
         </main>
