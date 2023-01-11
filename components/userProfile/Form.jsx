@@ -31,6 +31,7 @@ export default function Form() {
     const [state, setState] = useState(user.state)
     const [titleDropbox, setTitleDropbox] = useState('Selecione')
     const [modal, setModal] = useState(false)
+    const [modalPassword, setModalPassword] = useState(false)
     const [idReturnedFromDropBox, setIdReturnedFromDropBox] = useState(
         user.idDiabetes
     )
@@ -48,6 +49,10 @@ export default function Form() {
         setHeight(event.target.value)
     }
 
+    const onChangePassword = (event) => {
+        setPassword(event.target.value)
+    }
+
     const onChangeWeight = (event) => {
         setWeight(event.target.value)
     }
@@ -56,12 +61,15 @@ export default function Form() {
         setSensitivity(event.target.value)
     }
 
-    const onChangePassword = (event) => {
-        setPassword(event.target.value)
-    }
-
     const onChangeBirthday = (event) => {
         setBirthday(event.target.value)
+    }
+
+    const toggleModal = () => {
+        setModal(false)
+    }
+    const toggleModalPassword = () => {
+        setModalPassword(false)
     }
 
     const handleSubmit = async () => {
@@ -72,10 +80,10 @@ export default function Form() {
                 height: height,
                 sensitivity: sensitivity,
                 birthday: birthday,
-                password: password,
                 idDiabetes: idReturnedFromDropBox,
                 imc: calcImc(weight, height)
             })
+
             setMessage({
                 active: true,
                 error: false,
@@ -85,15 +93,29 @@ export default function Form() {
             console.log(error.response.data)
         }
     }
-    const toggleModal = () => {
-        setModal(false)
-    }
 
     const handleDelete = async (event) => {
         event.preventDefault()
         setModal(true)
     }
 
+    const handleSubmits = async (event) => {
+        event.preventDefault()
+        setModalPassword(true)
+    }
+
+    const handleSubmitPassword = async () => {
+        try {
+            await updateProfile({ password: password })
+            console.log('entrou')
+        } catch (error) {
+            setMessage({
+                active: true,
+                error: true,
+                message: error.response.data
+            })
+        }
+    }
     const handleDeleteUser = async () => {
         try {
             await deleteUser({ state: state })
@@ -125,21 +147,12 @@ export default function Form() {
                         className="input placeholder-gray-600"
                     />
                 </div>
-
-                <div className="item-form lg:col-span-2 disabled">
-                    <label htmlFor="email">Email: </label>
-                    <input
-                        placeholder={user.email}
-                        value={email}
-                        className="input placeholder-gray-800"
-                        disabled
-                    />
-                </div>
-                <div className="item-form lg:col-span-2 ">
-                    <label htmlFor="password">Senha: </label>
+                <div className="item-form">
+                    <label htmlFor="password">Password: </label>
                     <button
-                        className="bg-gray-100
+                        className=" bg-gray-100
 00 hover:bg-gray-400 text-gray-800 font-bold py-1 px-20 rounded inline-flex items-center"
+                        onClick={handleSubmits}
                     >
                         <span>Alterar senha</span>
                         <svg
@@ -157,6 +170,18 @@ export default function Form() {
                             />
                         </svg>
                     </button>
+                </div>
+                <div className="item-form lg:col-span-2 disabled">
+                    <label htmlFor="email">Email: </label>
+                    <input
+                        placeholder={user.email}
+                        value={email}
+                        className="input placeholder-gray-800"
+                        disabled
+                    />
+                </div>
+                <div className="item-form lg:col-span-2 ">
+                    <label htmlFor="password">Senha: </label>
                 </div>
                 <div className="item-form">
                     <label htmlFor="name">Nascimento: </label>
@@ -222,6 +247,12 @@ export default function Form() {
                 modal={modal}
                 toggleModal={toggleModal}
                 handleDeleteUser={handleDeleteUser}
+            />
+            <ModalPassword
+                modalPassword={modalPassword}
+                toggleModalPassword={toggleModalPassword}
+                handleSubmitPassword={handleSubmitPassword}
+                password={user.password}
             />
         </>
     )

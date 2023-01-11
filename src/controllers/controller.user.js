@@ -2,17 +2,8 @@ const userService = require('../services/service.user')
 const bolusService = require('../services/service.bolus')
 const basalService = require('../services/service.basal')
 const { calcTotalInsulin } = require('../calc/calcInsulin')
-const bcrypt = require('bcryptjs')
 const foodService = require('../services/service.food')
-
-async function hashPassword(password, valuesToUpdate) {
-    valuesToUpdate.password = await bcrypt.hashSync(
-        password,
-        bcrypt.genSaltSync(10)
-    )
-
-    return valuesToUpdate
-}
+const bcrypt = require('bcryptjs')
 
 function addBolusToRegisters({ registers, bolus }) {
     bolus.forEach((element) => {
@@ -97,9 +88,11 @@ let userController = {
         let { password } = valuesToUpdate
 
         if (password) {
-            valuesToUpdate = hashPassword(password, valuesToUpdate)
+            valuesToUpdate.password = bcrypt.hashSync(
+                password,
+                bcrypt.genSaltSync(10)
+            )
         }
-
         try {
             return res.status(200).json(
                 await userService.updateProfile({

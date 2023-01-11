@@ -3,8 +3,9 @@ import Button from '../Button'
 
 export default function ModalPassword({
     modalPassword,
+    password,
     toggleModalPassword,
-    handleSubmit
+    handleSubmitPassword
 }) {
     return (
         <div className={`${modalPassword ? 'flex' : 'hidden'} modal`}>
@@ -19,23 +20,15 @@ export default function ModalPassword({
             </span>
             <form className="flex-grow form my-16">
                 <div className="item-form">
-                    <label htmlFor="">Digite a nova senha: </label>
+                    <label>Digite a nova senha: </label>
                     <input
-                        type="password"
+                        type="text"
                         className="input"
-                        placeholder="Digite a nova  senha"
-                    />
-                </div>
-                <div className="item-form">
-                    <label htmlFor="">Digite a nova senha: </label>
-                    <input
-                        type="password"
-                        className="input"
-                        placeholder="Digite a nova  senha"
+                        placeholder={password}
                     />
                 </div>
             </form>
-            <Button onClick={handleSubmit}>Salvar</Button>
+            <Button onClick={handleSubmitPassword}>Salvar</Button>
         </div>
     )
 }
