@@ -123,6 +123,7 @@ export default function Form() {
                 <label htmlFor="date">Data: </label>
                 <input
                     onChange={onChangeDate}
+                    max={new Date().toISOString().split('T')[0]}
                     value={date}
                     className="input"
                     type="date"

@@ -5,7 +5,8 @@ export default function ModalPassword({
     modalPassword,
     password,
     toggleModalPassword,
-    handleSubmitPassword
+    handleSubmitPassword,
+    onChangePassword
 }) {
     return (
         <div className={`${modalPassword ? 'flex' : 'hidden'} modal`}>
@@ -25,6 +26,7 @@ export default function ModalPassword({
                         type="text"
                         className="input"
                         placeholder={password}
+                        onChange={onChangePassword}
                     />
                 </div>
             </form>

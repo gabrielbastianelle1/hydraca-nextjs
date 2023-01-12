@@ -108,6 +108,7 @@ export default function Form() {
                         placeholder="YYYY-MM-DD"
                         onChange={onChangeBirthday}
                         value={birthday}
+                        max={new Date().toISOString().split('T')[0]}
                         type="date"
                         className="input"
                     />

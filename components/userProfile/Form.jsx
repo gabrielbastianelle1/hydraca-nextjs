@@ -187,6 +187,7 @@ export default function Form() {
                     <label htmlFor="name">Nascimento: </label>
                     <input
                         id="birthday"
+                        max={new Date().toISOString().split('T')[0]}
                         placeholder={user.birthday}
                         onChange={onChangeBirthday}
                         value={birthday}
@@ -252,7 +253,8 @@ export default function Form() {
                 modalPassword={modalPassword}
                 toggleModalPassword={toggleModalPassword}
                 handleSubmitPassword={handleSubmitPassword}
-                password={user.password}
+                password={password}
+                onChange={user.onChangePassword}
             />
         </>
     )

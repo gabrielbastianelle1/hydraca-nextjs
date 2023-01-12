@@ -126,6 +126,7 @@ export default function Form() {
                     <label htmlFor="amountGlucose">Data: </label>
                     <input
                         className="input"
+                        max={new Date().toISOString().split('T')[0]}
                         type="date"
                         value={date}
                         onChange={onChangeDate}

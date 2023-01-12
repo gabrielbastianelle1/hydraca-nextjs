@@ -10,6 +10,17 @@ let foodService = {
                 return resolve(result)
             })
         })
+    },
+
+    getFoodName: function (req, res, params) {
+        return new Promise(async (resolve, reject) => {
+            let response = await Food.findByName({ name: req }).exec()
+            if (response == null) {
+                return reject('insucess')
+            }
+            console.log(response)
+            return resolve(response)
+        })
     }
 }
 
