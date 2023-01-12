@@ -1,5 +1,3 @@
-import { useState, useRef, useEffect } from 'react'
-
 export function ListItem({ name, qtd, Hc }) {
     return (
         <>
@@ -11,9 +9,8 @@ export function ListItem({ name, qtd, Hc }) {
 }
 
 export function ListRow({ children }) {
-    const row = useRef(null)
     return (
-        <span ref={row}>
+        <span>
             <ul className="grid items-center shadow-inner grid-cols-3 lg:grid-cols-3 gap-x-14 p-4 ">
                 {children}
             </ul>

@@ -17,20 +17,26 @@ export default function Form() {
     const navigate = useRouter
     useEffect(() => {
         getCurrentUser()
-            .then((response) => setUser(response.data.user))
+            .then((response) => {
+                setUser(response.data.user)
+                return response.data.user
+            })
+            .then((response) => {
+                setTitleDropbox(getDiabatesName(response))
+            })
             .catch((error) => console.log(error))
-    }, [])
+    }, [diabetesGlobal])
 
     const [name, setName] = useState(user.name)
     const [height, setHeight] = useState(user.height)
     const [weight, setWeight] = useState(user.weight)
     const [sensitivity, setSensitivity] = useState(user.sensitivity)
     const [birthday, setBirthday] = useState(user.birthday)
-    const [password, setPassword] = useState(user.password)
+    const [password, setPassword] = useState('testani')
     const [email, setEmail] = useState(user.email)
     const [imc, setImc] = useState(user.imc)
     const [state, setState] = useState(user.state)
-    const [titleDropbox, setTitleDropbox] = useState('Selecione')
+    const [titleDropbox, setTitleDropbox] = useState(undefined)
     const [modal, setModal] = useState(false)
     const [modalPassword, setModalPassword] = useState(false)
     const [idReturnedFromDropBox, setIdReturnedFromDropBox] = useState(
@@ -41,6 +47,18 @@ export default function Form() {
         error: false,
         message: ''
     })
+
+    function getDiabatesName(user) {
+        let diabetesName
+
+        diabetesGlobal.forEach((element) => {
+            if (element._id == user.idDiabetes) {
+                diabetesName = element.type
+            }
+        })
+
+        return diabetesName
+    }
 
     const onChangeName = (event) => {
         setName(event.target.value)
@@ -100,16 +118,10 @@ export default function Form() {
         setModal(true)
     }
 
-    const handleSubmits = async (event) => {
-        event.preventDefault()
-        setModalPassword(true)
-    }
-
-    const handleSubmitPassword = async () => {
+    const handleDeleteUser = async () => {
         try {
-            await updateProfile({ password: password })
-            console.log(user.password)
-            console.log('entrou')
+            await deleteUser({ state: state })
+            navigate.push('/')
         } catch (error) {
             setMessage({
                 active: true,
@@ -118,10 +130,16 @@ export default function Form() {
             })
         }
     }
-    const handleDeleteUser = async () => {
+
+    const handleSubmits = async (event) => {
+        event.preventDefault()
+        setModalPassword(true)
+    }
+
+    const handleSubmitPassword = async () => {
         try {
-            await deleteUser({ state: state })
-            navigate.push('/')
+            await updateProfile({ password: password })
+            navigate.push('/user')
         } catch (error) {
             setMessage({
                 active: true,
@@ -253,8 +271,7 @@ export default function Form() {
                 modalPassword={modalPassword}
                 toggleModalPassword={toggleModalPassword}
                 handleSubmitPassword={handleSubmitPassword}
-                password={password}
-                onChange={user.onChangePassword}
+                onChangePassword={onChangePassword}
             />
         </>
     )

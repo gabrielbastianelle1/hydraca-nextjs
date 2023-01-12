@@ -24,6 +24,7 @@ let userController = {
             return res.status(400).json(error)
         }
     },
+
     getFoodName: async function (req, res) {
         try {
             return res.status(200).json(await foodService(req.params.name))
@@ -100,6 +101,7 @@ let userController = {
                 bcrypt.genSaltSync(10)
             )
         }
+
         try {
             return res.status(200).json(
                 await userService.updateProfile({

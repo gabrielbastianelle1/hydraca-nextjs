@@ -5,6 +5,8 @@ import { ListItem, ListRow } from './ListComponents'
 
 export default function List() {
     const [registers, setRegisters] = useState([])
+    const [registersSorted, setRegistersSorted] = useState(undefined)
+    const [order, setOrder] = useState('asc')
 
     useEffect(() => {
         getAllRegisters()
@@ -14,22 +16,52 @@ export default function List() {
 
     return (
         <div className="w-11/12 m-auto lg:h-3/6 lg:overflow-y-scroll">
-            <HeaderList registers={registers} setRegisters={setRegisters} />
+            <HeaderList
+                registers={registers}
+                order={order}
+                setOrder={setOrder}
+                setRegistersSorted={setRegistersSorted}
+            />
             <div>
-                {registers.map((register, index) => {
-                    return (
-                        <ListRow register={register}>
-                            <ListItem
-                                date={register.date}
-                                amountGlucose={register.amountGlucose}
-                                typeInsulin={register.typeInsulin}
-                                sensitivity={register.sensitivity}
-                                amountInsulinTotal={register.amountInsulinTotal}
-                                therapy={register.therapy}
-                            />
-                        </ListRow>
-                    )
-                })}
+                {registersSorted == undefined ? (
+                    <>
+                        {registers.map((register, index) => {
+                            return (
+                                <ListRow register={register}>
+                                    <ListItem
+                                        date={register.date}
+                                        amountGlucose={register.amountGlucose}
+                                        typeInsulin={register.typeInsulin}
+                                        sensitivity={register.sensitivity}
+                                        amountInsulinTotal={
+                                            register.amountInsulinTotal
+                                        }
+                                        therapy={register.therapy}
+                                    />
+                                </ListRow>
+                            )
+                        })}
+                    </>
+                ) : (
+                    <>
+                        {registersSorted.map((register, index) => {
+                            return (
+                                <ListRow register={register}>
+                                    <ListItem
+                                        date={register.date}
+                                        amountGlucose={register.amountGlucose}
+                                        typeInsulin={register.typeInsulin}
+                                        sensitivity={register.sensitivity}
+                                        amountInsulinTotal={
+                                            register.amountInsulinTotal
+                                        }
+                                        therapy={register.therapy}
+                                    />
+                                </ListRow>
+                            )
+                        })}
+                    </>
+                )}
             </div>
         </div>
     )

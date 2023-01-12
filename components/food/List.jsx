@@ -5,31 +5,27 @@ import { ListItem, ListRow } from './ListComponents'
 
 export default function List() {
     const [foods, setFoods] = useState([])
+    const [foodsFiltered, setFoodsFiltered] = useState([])
+    const [search, setSearch] = useState([])
 
     useEffect(() => {
         getAllFood()
             .then((response) => setFoods(response.data))
             .catch((error) => console.log(error))
     })
-    /*
-        const searchFilter = (getAllFood) => {
-        return array.filter(
-          () => el.name.common.toLowerCase().includes(query)
-        )
 
+    useEffect(() => {
+        setFoodsFiltered(foods.filter((food) => food.name.includes(search)))
+    }, [search])
 
-    }
-*/
-
-    // const filtered = searchFilter(foods.name)
-    const handleChange = (e) => {
-        setQuery(e.target.value)
+    const handleChange = (event) => {
+        setSearch(event.target.value)
     }
 
     return (
         <div>
             <input
-                onchange={handleChange}
+                onChange={handleChange}
                 type="text"
                 placeholder="Search..."
             />
@@ -37,17 +33,35 @@ export default function List() {
             <div className="w-11/12 m-auto">
                 <HeaderList foods={foods} />
                 <div>
-                    {foods.map((food, index) => {
-                        return (
-                            <ListRow food={food}>
-                                <ListItem
-                                    name={food.name}
-                                    qtd={food.qtd}
-                                    Hc={food.Hc}
-                                />
-                            </ListRow>
-                        )
-                    })}
+                    {search.length == 0 ? (
+                        <>
+                            {foods.map((food) => {
+                                return (
+                                    <ListRow>
+                                        <ListItem
+                                            name={food.name}
+                                            qtd={food.qtd}
+                                            Hc={food.Hc}
+                                        />
+                                    </ListRow>
+                                )
+                            })}
+                        </>
+                    ) : (
+                        <>
+                            {foodsFiltered.map((food) => {
+                                return (
+                                    <ListRow>
+                                        <ListItem
+                                            name={food.name}
+                                            qtd={food.qtd}
+                                            Hc={food.Hc}
+                                        />
+                                    </ListRow>
+                                )
+                            })}
+                        </>
+                    )}
                 </div>
             </div>
         </div>

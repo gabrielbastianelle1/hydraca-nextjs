@@ -1,13 +1,21 @@
-export function orderByDate({ registers }) {
+export function orderByGlucose({ registers, order }) {
     let sorted = registers.sort((a, b) => {
-        return new Date(b.date) - new Date(a.date)
+        if (order == 'asc') {
+            return a.amountGlucose - b.amountGlucose
+        }
+        return b.amountGlucose - a.amountGlucose
     })
+
     return sorted
 }
 
-export function orderByInsulin({ registers }) {
+export function orderByInsulin({ registers, order }) {
     let sorted = registers.sort((a, b) => {
-        return a.amountInsulinTotal - b.amountInsulinTotal
+        if (order == 'asc') {
+            return a.amountInsulinTotal - b.amountInsulinTotal
+        }
+        return b.amountInsulinTotal - a.amountInsulinTotal
     })
+
     return sorted
 }

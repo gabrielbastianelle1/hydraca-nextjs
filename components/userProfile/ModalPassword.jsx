@@ -3,7 +3,6 @@ import Button from '../Button'
 
 export default function ModalPassword({
     modalPassword,
-    password,
     toggleModalPassword,
     handleSubmitPassword,
     onChangePassword
@@ -25,7 +24,6 @@ export default function ModalPassword({
                     <input
                         type="text"
                         className="input"
-                        placeholder={password}
                         onChange={onChangePassword}
                     />
                 </div>
