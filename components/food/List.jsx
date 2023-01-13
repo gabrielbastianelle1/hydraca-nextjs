@@ -23,9 +23,9 @@ export default function List() {
     }
 
     return (
-        <div>
-            <div className="grid grid-cols-1  mb-16">
-                <div className="flex absolute right-14 lg:right-28 lg:gap-y-2 lg:mb-8">
+        <div className="w-12/13 m-auto lg:h-3/6  overflow-x-auto lg:scrollbar-hide">
+            <div className=" grid grid-cols-1  mb-16">
+                <div className="block flex absolute right-14 lg:right-28 lg:gap-y-2 lg:mb-8">
                     <span class="absolute inset-y-0 left-0 flex items-center pl-2">
                         <button type="submit" class="p-1 focus:outline-none ">
                             <svg
@@ -50,7 +50,7 @@ export default function List() {
                 </div>
             </div>
 
-            <div className="w-11/12 m-auto">
+            <div className="w-11/12 m-auto ">
                 <HeaderList foods={foods} />
                 <div>
                     {search.length == 0 ? (

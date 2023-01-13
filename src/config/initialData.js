@@ -52,6 +52,50 @@ function insertInitialData() {
                 Hc: '28'
             })
             food.save()
+            food = new Food({
+                name: 'Aveia',
+                qtd: '1 Xícara – 100g',
+                Hc: '57'
+            })
+            food.save()
+
+            food = new Food({
+                name: 'Açucar',
+                qtd: '1 Xícara – 100g',
+                Hc: '100'
+            })
+            food.save()
+            food = new Food({
+                name: 'Batata doce',
+                qtd: '1 Xícara – 100g',
+                Hc: '24'
+            })
+            food.save()
+            food = new Food({
+                name: 'Amendoim',
+                qtd: '1 Xícara – 100g',
+                Hc: '13'
+            })
+            food.save()
+            food = new Food({
+                name: 'Cereais integrais',
+                qtd: '1 Xícara – 100g',
+                Hc: '82'
+            })
+
+            food.save()
+            food = new Food({
+                name: 'Esparguete',
+                qtd: '100g',
+                Hc: '40'
+            })
+            food.save()
+            food = new Food({
+                name: 'Leite',
+                qtd: '100g',
+                Hc: '11'
+            })
+            food.save()
         }
     })
 }
