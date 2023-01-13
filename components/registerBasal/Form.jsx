@@ -58,7 +58,7 @@ export default function Form() {
             setMessage({
                 active: true,
                 error: true,
-                message: 'Prencha o campo de glicose corretamente'
+                message: 'Preencha o campo de glicose corretamente'
             })
             return
         }
@@ -67,7 +67,7 @@ export default function Form() {
             setMessage({
                 active: true,
                 error: true,
-                message: 'Prencha o campo dose de insulina corretamente'
+                message: 'Preencha o campo dose de insulina corretamente'
             })
             return
         }
@@ -76,7 +76,7 @@ export default function Form() {
             setMessage({
                 active: true,
                 error: true,
-                message: 'Prencha o campo data'
+                message: 'Preencha o campo data'
             })
             return
         }
@@ -84,7 +84,7 @@ export default function Form() {
             setMessage({
                 active: true,
                 error: true,
-                message: 'Prencha o campo horas'
+                message: 'Preencha o campo horas'
             })
             return
         }

@@ -1,49 +1,49 @@
-{"food":[{
-    "name": "Couve-flor",
-    "qtd": "1 Xícara – 100g",
-    "Hc": "4,5"
-},
 {
-   " name": "Arroz branco",
-   " qtd": "1 Xícara – 100g",
-   " Hc": "28"
-},
-{
-" name": "Aveia",
-" qtd": "1 Xícara – 100g",
-" Hc": "57"
-},
-{
-" name": "Açucar",
-" qtd": "1 Xícara – 100g",
-" Hc": "100"
-},
-{
-    " name": "Batata doce",
-    " qtd": "1 Xícara – 100g",
-    " Hc": "24"
-},
-{
-    " name": "Amendoim",
-    " qtd": "1 Xícara – 100g",
-    " Hc": "13"
-},
-{
-    " name": "Cereais integrais",
-    " qtd": "1 Xícara – 100g",
-    " Hc": "82"
-},
-{
-    " name": "Esparguete",
-    " qtd": "100g",
-    " Hc": "40"
-},
-{
-    " name": "Leite",
-    " qtd": "100g",
-    " Hc": "11"
-}
-
-
-]
+    "food": [
+        {
+            "name": "Couve-flor",
+            "qtd": "1 Xícara – 100g",
+            "Hc": "4,5"
+        },
+        {
+            " name": "Arroz branco",
+            " qtd": "1 Xícara – 100g",
+            " Hc": "28"
+        },
+        {
+            " name": "Aveia",
+            " qtd": "1 Xícara – 100g",
+            " Hc": "57"
+        },
+        {
+            " name": "Açucar",
+            " qtd": "1 Xícara – 100g",
+            " Hc": "100"
+        },
+        {
+            " name": "Batata doce",
+            " qtd": "1 Xícara – 100g",
+            " Hc": "24"
+        },
+        {
+            " name": "Amendoim",
+            " qtd": "1 Xícara – 100g",
+            " Hc": "13"
+        },
+        {
+            " name": "Cereais integrais",
+            " qtd": "1 Xícara – 100g",
+            " Hc": "82"
+        },
+        {
+            " name": "Esparguete",
+            " qtd": "100g",
+            " Hc": "40"
+        },
+        {
+            " name": "Leite",
+            " qtd": "100g",
+            " Hc": "11"
+        }
+    ]
 }
