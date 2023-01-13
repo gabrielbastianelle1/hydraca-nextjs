@@ -24,11 +24,31 @@ export default function List() {
 
     return (
         <div>
-            <input
-                onChange={handleChange}
-                type="text"
-                placeholder="Search..."
-            />
+            <div className="grid grid-cols-1  mb-16">
+                <div className="flex absolute right-14 lg:right-28 lg:gap-y-2 lg:mb-8">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                        <button type="submit" class="p-1 focus:outline-none ">
+                            <svg
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                viewBox="0 0 24 24"
+                                class="w-6 h-6"
+                            >
+                                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                        </button>
+                    </span>
+                    <input
+                        className="w-64 bg-gray-50 border placeholder-grey-800 focus:ring-blue-500 border-blue-400 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        onChange={handleChange}
+                        type="text"
+                        placeholder="Pesquisar por nome"
+                    />
+                </div>
+            </div>
 
             <div className="w-11/12 m-auto">
                 <HeaderList foods={foods} />

@@ -33,6 +33,7 @@ export default function Form() {
     const [sensitivity, setSensitivity] = useState(user.sensitivity)
     const [birthday, setBirthday] = useState(user.birthday)
     const [password, setPassword] = useState('testani')
+    const [confirm, setConfirm] = useState('')
     const [email, setEmail] = useState(user.email)
     const [imc, setImc] = useState(user.imc)
     const [state, setState] = useState(user.state)
@@ -84,11 +85,22 @@ export default function Form() {
         setBirthday(event.target.value)
     }
 
+    const onChangeConfirm = (event) => {
+        setConfirm(event.target.value)
+    }
+
     const toggleModal = () => {
         setModal(false)
     }
     const toggleModalPassword = () => {
         setModalPassword(false)
+    }
+
+    const checkIfPasswordIsEmpty = (password) => {
+        if (password.length == 0) {
+            return true
+        }
+        return false
     }
 
     const handleSubmit = async () => {
@@ -137,6 +149,23 @@ export default function Form() {
     }
 
     const handleSubmitPassword = async () => {
+        if (checkIfPasswordIsEmpty(password)) {
+            setMessage({
+                active: true,
+                error: true,
+                message: 'A senha não pode estar vazia'
+            })
+            return
+        }
+
+        if (password !== confirm) {
+            setMessage({
+                active: true,
+                error: true,
+                message: '  Confirme a senha'
+            })
+            return
+        }
         try {
             await updateProfile({ password: password })
             navigate.push('/user')
@@ -272,6 +301,7 @@ export default function Form() {
                 toggleModalPassword={toggleModalPassword}
                 handleSubmitPassword={handleSubmitPassword}
                 onChangePassword={onChangePassword}
+                onChangeConfirm={onChangeConfirm}
             />
         </>
     )

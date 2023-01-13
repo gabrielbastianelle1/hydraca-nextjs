@@ -46,6 +46,12 @@ function insertInitialData() {
                 Hc: '4,5'
             })
             food.save()
+            food = new Food({
+                name: 'Arroz branco',
+                qtd: '1 Xícara – 100g',
+                Hc: '28'
+            })
+            food.save()
         }
     })
 }

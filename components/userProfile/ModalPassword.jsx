@@ -22,8 +22,9 @@ export default function ModalPassword({
                 <div className="item-form">
                     <label>Digite a nova senha: </label>
                     <input
-                        type="text"
+                        type="password"
                         className="input"
+                        placeholder="Digite a nova senha"
                         onChange={onChangePassword}
                     />
                 </div>
