@@ -47,44 +47,17 @@ export default function Form() {
     async function handleSubmit(e) {
         e.preventDefault()
 
-        if (name == 0) {
-            setMessage({
-                active: true,
-                error: true,
-                message: 'Campo nome não pode estar vazio'
-            })
-            return
-        }
-
-        if (email == 0) {
-            setMessage({
-                active: true,
-                error: true,
-                message: 'Campo email não pode estar vazio'
-            })
-            return
-        }
-
-        if (checkIfPasswordIsEmpty(password)) {
-            setMessage({
-                active: true,
-                error: true,
-                message: 'A senha não pode estar vazia'
-            })
-            return
-        }
-
-        if (password !== confirm) {
-            setMessage({
-                active: true,
-                error: true,
-                message: '  Confirme a senha'
-            })
-            return
-        }
-
         try {
             await signup(name, password, email, birthday)
+
+            if (checkIfPasswordIsEmpty(password)) {
+                setMessage({
+                    active: true,
+                    error: true,
+                    message: 'A senha não pode estar vazia'
+                })
+                return
+            }
 
             router.push('/welcome')
             setMessage({

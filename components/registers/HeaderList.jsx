@@ -17,7 +17,12 @@ export default function HeaderList({
     }
 
     return (
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-x-14 bg-headerList text-white font-bold p-2 rounded-lg px-10">
+        <div
+            style={{
+                width: 'inherit'
+            }}
+            className="grid grid-cols-2 lg:grid-cols-4 gap-x-14 bg-headerList text-white font-bold p-2 rounded-lg px-10 lg:fixed"
+        >
             <p>Data</p>
             <p
                 className="relative hidden lg:block cursor-pointer"
@@ -38,7 +43,6 @@ export default function HeaderList({
                 </span>
                 Insulina
             </p>
-            <p className="hidden lg:block">Terapia</p>
         </div>
     )
 }

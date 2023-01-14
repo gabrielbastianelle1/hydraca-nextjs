@@ -46,6 +46,7 @@ export default function Form() {
     const onChangetypeInsulin = (event) => {
         setTypeInsulin(event.target.value)
     }
+
     async function handleSubmit(event) {
         event.preventDefault()
 
@@ -93,7 +94,7 @@ export default function Form() {
         } catch (error) {
             console.log(error.response.data)
         }
-        router.push('/user')
+        //router.push('/user')
     }
 
     return (

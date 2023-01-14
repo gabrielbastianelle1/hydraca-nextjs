@@ -24,8 +24,8 @@ export default function Form() {
             })
             .then((response) => {
                 setTitleDropbox(getDiabatesName(response))
+                return response
             })
-
             .then((response) => {
                 setTitleDropBoxTherapy(getTherapyName(response))
             })
@@ -295,7 +295,7 @@ export default function Form() {
                     setIdReturnedFromDropBox={setIdReturnedFromDropBox}
                 />
                 <Dropbox
-                    label="Tipo de terapia"
+                    label="Terapia"
                     titleDropbox={titleDropBoxTherapy}
                     setTitleDropBox={setTitleDropBoxTherapy}
                     dataToShowInDropbox={therapyGlobal}

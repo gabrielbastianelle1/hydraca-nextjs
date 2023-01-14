@@ -99,7 +99,7 @@ export default function Form() {
     return (
         <>
             <FormContent
-                className="form lg:grid-cols-2 lg:grid-rows-7  gap-y-16 lg:gap-y-6 gap-x-4"
+                className="form lg:grid-cols-2 lg:grid-rows-6  gap-y-16 lg:gap-y-6 gap-x-4"
                 active={message.active}
                 error={message.error}
                 message={message.message}
@@ -160,7 +160,6 @@ export default function Form() {
                     field="type"
                     setIdReturnedFromDropBox={setIdReturnedFromDropBoxExercise}
                 />
-
                 <div className="item-form">
                     <label htmlFor="amountGlucose">
                         Tempo de exercicio fisico:
@@ -174,8 +173,15 @@ export default function Form() {
                     />
                 </div>
 
-                <Button onClick={handleCalcular}>Calcular</Button>
-                <Button onClick={handleSubmit}>Salvar</Button>
+                <button
+                    className="button col-span-2 w-1/2 justify-self-center"
+                    onClick={handleCalcular}
+                    style={{
+                        gridRow: 6
+                    }}
+                >
+                    Calcular
+                </button>
             </FormContent>
 
             <Modal

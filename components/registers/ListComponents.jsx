@@ -39,7 +39,7 @@ export function ListRow({ children, register }) {
 
     return (
         <span ref={row} onClick={toggleDropBox}>
-            <ul className="grid items-center shadow-inner grid-cols-2 lg:grid-cols-5 gap-x-14 p-4 hover:bg-slate-100 hover:cursor-pointer">
+            <ul className="grid items-center shadow-inner grid-cols-2 lg:grid-cols-4 gap-x-14 p-4 hover:bg-slate-100 hover:cursor-pointer">
                 {children}
             </ul>
             <span className={`${dropBox ? 'block' : 'hidden'}`}>
