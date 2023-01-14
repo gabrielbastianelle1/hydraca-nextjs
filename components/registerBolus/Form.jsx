@@ -9,27 +9,20 @@ import Modal from './Modal'
 
 export default function Form() {
     const router = useRouter()
-    const { mealGlobal, exerciseGlobal, therapyGlobal } =
-        useContext(GlobalContext)
+    const { mealGlobal, exerciseGlobal } = useContext(GlobalContext)
 
     const [titleDropboxMeal, setTitleDropboxMeal] = useState('Selecione')
     const [titleDropboxExercise, setTitleDropboxExercise] =
         useState('Selecione')
-    const [titleDropboxTherapy, setTitleDropboxTherapy] = useState('Selecione')
-
     const [idReturnedFromDropBoxMeal, setIdReturnedFromDropBoxMeal] =
         useState(undefined)
     const [idReturnedFromDropBoxExercise, setIdReturnedFromDropBoxExercise] =
         useState(undefined)
-    const [idReturnedFromDropBoxTherapy, setIdReturnedFromDropBoxTherapy] =
-        useState(undefined)
-
     const [amountGlucose, setAmountGlucose] = useState(undefined)
     const [date, setDate] = useState(undefined)
     const [time, setTime] = useState(undefined)
     const [amountHc, setAmountHc] = useState(undefined)
     const [timeExercise, setTimeExercise] = useState(undefined)
-
     const [amountInsulinTotal, setAmountInsulinTotal] = useState(undefined)
     const [amountInsulinHc, setAmountInsulinHc] = useState(undefined)
     const [amountInsulinCorrection, setAmountInsulinCorrection] =
@@ -71,7 +64,6 @@ export default function Form() {
         try {
             let response = await registerBolus({
                 amountGlucose: amountGlucose,
-                therapy: idReturnedFromDropBoxTherapy,
                 date: date,
                 time: time,
                 amountHc: amountHc,
@@ -168,14 +160,7 @@ export default function Form() {
                     field="type"
                     setIdReturnedFromDropBox={setIdReturnedFromDropBoxExercise}
                 />
-                <Dropbox
-                    label="Terapia"
-                    titleDropbox={titleDropboxTherapy}
-                    setTitleDropbox={setTitleDropboxTherapy}
-                    dataToShowInDropbox={therapyGlobal}
-                    field="type"
-                    setIdReturnedFromDropBox={setIdReturnedFromDropBoxTherapy}
-                />
+
                 <div className="item-form">
                     <label htmlFor="amountGlucose">
                         Tempo de exercicio fisico:
@@ -188,6 +173,7 @@ export default function Form() {
                         value={timeExercise}
                     />
                 </div>
+
                 <Button onClick={handleCalcular}>Calcular</Button>
                 <Button onClick={handleSubmit}>Salvar</Button>
             </FormContent>

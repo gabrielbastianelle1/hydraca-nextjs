@@ -15,17 +15,12 @@ import { useRouter } from 'next/router'
  */
 
 export default function Form() {
-    const { therapyGlobal } = useContext(GlobalContext)
     const router = useRouter()
     const [amountGlucose, setamountGlucose] = useState('')
     const [date, setDate] = useState('')
     const [time, setTime] = useState('')
     const [amountInsulinTotal, setamountInsulinTotal] = useState('')
-    const [typeInsulin, setTypeInsulin] = useState('')
-    const [titleDropBoxTherapy, setTitleDropBoxTherapy] = useState('Selecione')
-    const [setTitleDropbox, setTitleDropBoxsetTherapyGlobal] = useState('')
-    const [idReturnedFromDropBoxTherapy, setIdReturnedFromDropBoxTherapy] =
-        useState(null)
+
     const [message, setMessage] = useState({
         active: false,
         error: false,
@@ -93,8 +88,7 @@ export default function Form() {
                 amountGlucose: amountGlucose,
                 date: date,
                 time: time,
-                amountInsulinTotal: amountInsulinTotal,
-                therapy: idReturnedFromDropBoxTherapy
+                amountInsulinTotal: amountInsulinTotal
             })
         } catch (error) {
             console.log(error.response.data)
@@ -148,14 +142,7 @@ export default function Form() {
                     type="number"
                 />
             </div>
-            <Dropbox
-                label="Tipo de terapia"
-                titleDropbox={titleDropBoxTherapy}
-                setTitleDropbox={setTitleDropBoxTherapy}
-                dataToShowInDropbox={therapyGlobal}
-                field="type"
-                setIdReturnedFromDropBox={setIdReturnedFromDropBoxTherapy}
-            />
+
             <div className="lg:col-span-2 justify-self-center w-full lg:w-1/2">
                 <Button className="w-full" onClick={handleSubmit}>
                     Salvar

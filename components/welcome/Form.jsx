@@ -9,14 +9,18 @@ import useRouter from 'next/router'
 
 export default function Form() {
     const navigate = useRouter
-    const { diabetesGlobal } = useContext(GlobalContext)
+    const { diabetesGlobal, therapyGlobal } = useContext(GlobalContext)
 
     const [titleDropbox, setTitleDropbox] = useState('Selecione')
+    const [idReturnedFromDropBoxTherapy, setIdReturnedFromDropBoxTherapy] =
+        useState(null)
     const [idReturnedFromDropBox, setIdReturnedFromDropBox] = useState(null)
     const [sensitivity, setSensitivity] = useState('')
     const [carbRatio, setCarbRatio] = useState('')
     const [height, setHeight] = useState('')
     const [weight, setWeight] = useState('')
+    const [titleDropBoxTherapy, setTitleDropBoxTherapy] = useState('Selecione')
+
     const [message, setMessage] = useState({
         active: false,
         error: false,
@@ -78,6 +82,7 @@ export default function Form() {
         try {
             await updateProfile({
                 idDiabetes: idReturnedFromDropBox,
+                therapy: idReturnedFromDropBoxTherapy,
                 height: height,
                 weight: weight,
                 sensitivity: sensitivity,
@@ -142,6 +147,15 @@ export default function Form() {
                         onChange={onChangeCarbRatio}
                     />
                 </div>
+                <Dropbox
+                    label="Tipo de terapia"
+                    titleDropbox={titleDropBoxTherapy}
+                    setTitleDropbox={setTitleDropBoxTherapy}
+                    dataToShowInDropbox={therapyGlobal}
+                    field="type"
+                    setIdReturnedFromDropBox={setIdReturnedFromDropBoxTherapy}
+                />
+
                 <div className="item-form">
                     <label htmlFor="height">Altura: </label>
                     <input
@@ -153,6 +167,7 @@ export default function Form() {
                         onChange={onChangeHeight}
                     />
                 </div>
+
                 <div className="item-form">
                     <label htmlFor="weight">Peso: </label>
                     <input

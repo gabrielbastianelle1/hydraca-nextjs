@@ -13,7 +13,8 @@ import { calcImc } from '../welcome/calcimc'
 export default function Form() {
     const [user, setUser] = useState({})
 
-    const { diabetesGlobal } = useContext(GlobalContext)
+    const { diabetesGlobal, therapyGlobal } = useContext(GlobalContext)
+
     const navigate = useRouter
     useEffect(() => {
         getCurrentUser()
@@ -24,8 +25,11 @@ export default function Form() {
             .then((response) => {
                 setTitleDropbox(getDiabatesName(response))
             })
-            .catch((error) => console.log(error))
-    }, [diabetesGlobal])
+
+            .then((response) => {
+                setTitleDropBoxTherapy(getTherapyName(response))
+            })
+    }, [diabetesGlobal, therapyGlobal])
 
     const [name, setName] = useState(user.name)
     const [height, setHeight] = useState(user.height)
@@ -40,6 +44,10 @@ export default function Form() {
     const [titleDropbox, setTitleDropbox] = useState(undefined)
     const [modal, setModal] = useState(false)
     const [modalPassword, setModalPassword] = useState(false)
+    const [typeInsulin, setTypeInsulin] = useState('')
+    const [titleDropBoxTherapy, setTitleDropBoxTherapy] = useState(undefined)
+    const [idReturnedFromDropBoxTherapy, setIdReturnedFromDropBoxTherapy] =
+        useState(user.therapy)
     const [idReturnedFromDropBox, setIdReturnedFromDropBox] = useState(
         user.idDiabetes
     )
@@ -59,6 +67,18 @@ export default function Form() {
         })
 
         return diabetesName
+    }
+
+    function getTherapyName(user) {
+        let therapyName
+
+        therapyGlobal.forEach((element) => {
+            if (element.type == user.therapy) {
+                therapyName = element.type
+            }
+        })
+
+        return therapyName
     }
 
     const onChangeName = (event) => {
@@ -112,7 +132,8 @@ export default function Form() {
                 sensitivity: sensitivity,
                 birthday: birthday,
                 imc: calcImc(user.weight, user.height),
-                idDiabetes: idReturnedFromDropBox
+                idDiabetes: idReturnedFromDropBox,
+                therapy: idReturnedFromDropBoxTherapy
             })
 
             setMessage({
@@ -158,14 +179,6 @@ export default function Form() {
             return
         }
 
-        if (password !== confirm) {
-            setMessage({
-                active: true,
-                error: true,
-                message: '  Confirme a senha'
-            })
-            return
-        }
         try {
             await updateProfile({ password: password })
             navigate.push('/user')
@@ -199,8 +212,7 @@ export default function Form() {
                 <div className="item-form">
                     <label htmlFor="password">Password: </label>
                     <button
-                        className=" bg-gray-100
-00 hover:bg-gray-400 text-gray-800 font-bold py-1 px-20 rounded inline-flex items-center"
+                        className=" bg-gray-10000 hover:bg-gray-400 text-gray-800 font-bold py-1 px-20 rounded inline-flex items-center"
                         onClick={handleSubmits}
                     >
                         <span>Alterar senha</span>
@@ -282,6 +294,14 @@ export default function Form() {
                     field="type"
                     setIdReturnedFromDropBox={setIdReturnedFromDropBox}
                 />
+                <Dropbox
+                    label="Tipo de terapia"
+                    titleDropbox={titleDropBoxTherapy}
+                    setTitleDropBox={setTitleDropBoxTherapy}
+                    dataToShowInDropbox={therapyGlobal}
+                    field="type"
+                    setIdReturnedFromDropBox={setIdReturnedFromDropBoxTherapy}
+                />
                 <button onClick={handleDelete} className="text-red-600 ">
                     Excluir conta
                 </button>
@@ -301,7 +321,6 @@ export default function Form() {
                 toggleModalPassword={toggleModalPassword}
                 handleSubmitPassword={handleSubmitPassword}
                 onChangePassword={onChangePassword}
-                onChangeConfirm={onChangeConfirm}
             />
         </>
     )

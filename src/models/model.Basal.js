@@ -30,10 +30,6 @@ const Basal = new mongoose.Schema(
         typeInsulin: {
             type: String,
             default: 'Basal'
-        },
-        therapy: {
-            type: String,
-            required: [true, 'therapy required']
         }
     },
     {

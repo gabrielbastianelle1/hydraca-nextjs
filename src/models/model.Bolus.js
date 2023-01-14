@@ -26,10 +26,6 @@ const Bolus = new mongoose.Schema(
         amountInsulinTotal: {
             type: Number
         },
-        therapy: {
-            type: String,
-            required: [true, 'therapy required']
-        },
         nameMeal: {
             type: String
         },

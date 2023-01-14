@@ -47,6 +47,24 @@ export default function Form() {
     async function handleSubmit(e) {
         e.preventDefault()
 
+        if (name == 0) {
+            setMessage({
+                active: true,
+                error: true,
+                message: 'Campo nome não pode estar vazio'
+            })
+            return
+        }
+
+        if (email == 0) {
+            setMessage({
+                active: true,
+                error: true,
+                message: 'Campo email não pode estar vazio'
+            })
+            return
+        }
+
         if (checkIfPasswordIsEmpty(password)) {
             setMessage({
                 active: true,
