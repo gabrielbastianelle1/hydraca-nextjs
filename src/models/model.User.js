@@ -10,11 +10,11 @@ const User = new mongoose.Schema(
         },
         name: {
             type: String,
-            required: [true, 'Insira o campo nome']
+            required: [true, '  O campo nome não pode estar vazio']
         },
         birthday: {
             type: String,
-            required: [true, 'Inisira data de nascimento corretamente']
+            required: [true, 'Inisira a data de nascimento']
         },
         email: {
             type: String,
@@ -25,7 +25,7 @@ const User = new mongoose.Schema(
         },
         password: {
             type: String,
-            required: [true, 'Insira a password']
+            required: [true, 'Insira a senha']
         },
         state: {
             type: Boolean,

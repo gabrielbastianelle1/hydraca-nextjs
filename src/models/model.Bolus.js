@@ -15,7 +15,7 @@ const Bolus = new mongoose.Schema(
         },
         amountGlucose: {
             type: Number,
-            required: [true, 'aG required']
+            required: [true, 'Glicose incorreto']
         },
         amountInsulinHc: {
             type: Number
@@ -35,11 +35,11 @@ const Bolus = new mongoose.Schema(
         },
         date: {
             type: String,
-            required: [true, 'date required']
+            required: [true, 'Necessario colocar data']
         },
         time: {
             type: String,
-            required: [true, 'time required']
+            required: [true, 'Necessário colocar hora']
         },
         amountHc: {
             type: Number,

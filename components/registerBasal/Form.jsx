@@ -94,7 +94,7 @@ export default function Form() {
         } catch (error) {
             console.log(error.response.data)
         }
-        //router.push('/user')
+        router.push('/user')
     }
 
     return (

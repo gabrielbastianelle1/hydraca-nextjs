@@ -24,11 +24,11 @@ export default function List() {
     }
 
     return (
-        <div className="w-12/13 m-auto lg:h-3/6  overflow-x-auto">
+        <div className="flex flex-col w-11/12 m-auto lg:h-4/6">
             <Search handleChange={handleChange} />
 
-            <div className="w-11/12 m-auto">
-                <HeaderList foods={foods} />
+            <div className="   overflow-x-auto lg:scrollbar-hide">
+                <HeaderList foods={foods} className="fixed" />
                 <div>
                     {search.length == 0 ? (
                         <>

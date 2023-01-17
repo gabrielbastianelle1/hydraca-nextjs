@@ -21,7 +21,7 @@ export default function HeaderList({
             style={{
                 width: 'inherit'
             }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-x-14 bg-headerList text-white font-bold p-2 rounded-lg px-10 lg:fixed"
+            className="sticky top-0 px-6 py-3  grid grid-cols-2 lg:grid-cols-4  bg-headerList text-white font-bold p-2 rounded-lg px-10 "
         >
             <p>Data</p>
             <p

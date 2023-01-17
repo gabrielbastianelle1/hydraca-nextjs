@@ -9,11 +9,11 @@ const Basal = new mongoose.Schema(
         },
         amountGlucose: {
             type: Number,
-            required: [true, 'aG required']
+            required: [true, 'Necessário colocar glicose']
         },
         amountInsulinTotal: {
             type: Number,
-            required: [true, 'aI required']
+            required: [true, 'Insulina total incorreto']
         },
         state: {
             type: Boolean,
@@ -21,11 +21,11 @@ const Basal = new mongoose.Schema(
         },
         date: {
             type: String,
-            required: [true, 'date required']
+            required: [true, 'Necessário colocar data']
         },
         time: {
             type: String,
-            required: [true, 'time required']
+            required: [true, 'Necessário colocar tempo']
         },
         typeInsulin: {
             type: String,

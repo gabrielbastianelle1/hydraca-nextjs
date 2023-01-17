@@ -4,7 +4,7 @@ const Diabetes = new mongoose.Schema(
     {
         type: {
             type: String,
-            required: [true, 'type required']
+            required: [true, 'Tipo de diabete obrigatório']
         },
         state: {
             type: Boolean,
