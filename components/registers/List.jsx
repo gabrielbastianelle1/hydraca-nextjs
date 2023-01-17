@@ -30,9 +30,9 @@ export default function List() {
     }
 
     return (
-        <div className=" flex flex-col w-11/12 m-auto lg:h-3/6">
+        <div className=" flex flex-col w-11/12 m-auto lg:h-4/6">
             <Search handleChange={handleChange} />
-            <div className="relative lg:overflow-y-scroll">
+            <div className="relative  overflow-x-auto lg:scrollbar-smooth">
                 <HeaderList
                     registers={registers}
                     order={order}

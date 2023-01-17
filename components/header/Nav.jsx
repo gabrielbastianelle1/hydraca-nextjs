@@ -20,7 +20,7 @@ export default function Nav({ setMobileMenu }) {
                 <div className="flex-grow flex justify-center space-x-20 text-colorButton">
                     <NavItem hrefLink="/" text="Início" />
                     <NavItem hrefLink="/about" text="Sobre" />
-                    <NavItem hrefLink="" text="Contatos" />
+                    <NavItem hrefLink="/contact" text="Contatos" />
                     <NavItem hrefLink="/signin" text="Iniciar sessão" />
                 </div>
                 <Link href="/signup">

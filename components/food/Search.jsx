@@ -1,7 +1,7 @@
 export default function Search({ handleChange }) {
     return (
         <div className=" lg:grid lg:grid-cols-1  lg:mb-16 ">
-            <div className="  block lg:absolute   right-14 lg:right-28 lg:gap-y-2 lg:mb-8">
+            <div className="  block lg:absolute ml-10 lg:right-28 lg:gap-y-2 lg:mb-8">
                 <span className=" hidden absolute lg:aboslute lg:inset-y-0 lg:left-0 lg:flex lg:items-center lg:pl-2">
                     <button type="submit" class="p-1 focus:outline-none ">
                         <svg
