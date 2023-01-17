@@ -197,7 +197,7 @@ export default function Form() {
                 active={message.active}
                 error={message.error}
                 message={message.message}
-                className="form lg:grid-cols-2 lg:grid-rows-6 gap-x-4 gap-y-16 lg:gap-y-4"
+                className="form lg:grid-cols-2 lg:grid-rows-6  gap-y-16 lg:gap-y-6 gap-x-4"
             >
                 <div className="item-form lg:col-span-2 ">
                     <label htmlFor="name">Nome: </label>
@@ -302,9 +302,12 @@ export default function Form() {
                     field="type"
                     setIdReturnedFromDropBox={setIdReturnedFromDropBoxTherapy}
                 />
-                <button onClick={handleDelete} className="text-red-600 ">
-                    Excluir conta
-                </button>
+                <div>
+                    <button onClick={handleDelete} className="text-red-600 ">
+                        Excluir conta
+                    </button>
+                </div>
+
                 <div className="lg:col-span-2 justify-self-center w-full lg:w-1/2">
                     <Button className="w-full" onClick={handleSubmit}>
                         Salvar

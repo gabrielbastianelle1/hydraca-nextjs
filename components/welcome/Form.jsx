@@ -46,6 +46,7 @@ export default function Form() {
     const handleSubmit = async (event) => {
         event.preventDefault()
         console.log(idReturnedFromDropBox)
+
         if (sensitivity == 0) {
             setMessage({
                 active: true,
