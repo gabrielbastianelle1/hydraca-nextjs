@@ -10,5 +10,5 @@ export default function Title() {
             .catch((error) => console.log(error))
     }, [])
 
-    return <h1 className="title m-0 text-3xl ">Bem vindo {user.name}</h1>
+    return <h1 className="title m-0 text-3xl ">Bem vindo, {user.name}!</h1>
 }

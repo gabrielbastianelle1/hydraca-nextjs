@@ -7,6 +7,7 @@ import DoughnutGraph from '../graphs/DoughnutGraph'
 import Typewriter from 'typewriter-effect'
 import { GirlHome } from '../svgs'
 import Title from './Title'
+import 'animate.css'
 import { useState, useEffect } from 'react'
 import { getCurrentUser } from '../../services/service.auth'
 
@@ -23,7 +24,7 @@ export default function User() {
         <main className="flex-grow">
             <Title />
             <div className="flex flex-col gap-y-16 lg:gap-y-0 lg:grid items-center justify-center lg:grid-cols-3 lg:grid-rows-2">
-                <div className="lg:grid items-center justify-center  hidden h-32  w-64 bg-blue-900 rounded-lg justify-self-center">
+                <div className="lg:grid items-center justify-center  hidden h-32  w-64 bg-blue-900 rounded-lg justify-self-center animate__animated animate__flipInX animate__delay-1s">
                     <h1 className="p-4 font-semibold text-slate-50">
                         <Typewriter
                             onInit={(typewriter) => {
@@ -43,8 +44,8 @@ export default function User() {
                 </div>
 
                 <div className="relative py-3 sm:max-w-xl sm:mx-auto">
-                    <div className="lg:grid items-center justify-center h-28  w-64 bg-blue-900  rounded-lg justify-self-center">
-                        <h1 className="   px-14 py-10 lg:p-5 font-semibold text-slate-50">
+                    <div className="lg:grid items-center justify-center h-28  w-64 bg-blue-900  rounded-lg justify-self-center animate__animated animate__flipInY animate__delay-1s">
+                        <h1 className="   px-14 py-10 lg:p-5 font-semibold text-slate-50 ">
                             O seu IMC: {user.imc}
                         </h1>
                     </div>
@@ -61,7 +62,7 @@ export default function User() {
                     <LineGraph />
                 </div>
 
-                <GirlHome className=" transform hidden scale-75 lg:block absolute -bottom-12 -right-10" />
+                <GirlHome className=" transform hidden scale-75 lg:block absolute -bottom-12 -right-10 animate__animated animate__bounceIn " />
             </div>
         </main>
     )

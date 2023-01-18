@@ -212,7 +212,7 @@ export default function Form() {
                 <div className="item-form">
                     <label htmlFor="password">Password: </label>
                     <button
-                        className=" bg-gray-10000 hover:bg-gray-400 text-gray-800 font-bold py-1 px-20 rounded inline-flex items-center"
+                        className=" bg-gray-200 hover:bg-gray-400 text-gray-800 font-bold py-1 px-20 rounded inline-flex items-center"
                         onClick={handleSubmits}
                     >
                         <span>Alterar senha</span>
