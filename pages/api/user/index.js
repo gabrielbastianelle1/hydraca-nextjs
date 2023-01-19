@@ -7,9 +7,9 @@ const verifyToken = require('../../../src/middlewares/verifyToken')
  *     get:
  *      tags:
  *              - user
- *          sumarry: profile  users
- *          description:  profile  users
- *          operationId:  index
+ *          sumarry: profile users
+ *          description: profile users
+ *          operationId: index
  *          responses:
  *              '200':
  *                  description: succesful operation
@@ -24,7 +24,6 @@ const verifyToken = require('../../../src/middlewares/verifyToken')
  *                                     birthday: '2002-07-10'
  *                                     email: 'barbara@gmail.com'
  *                                     password: '$2a$10$gGpkJtPRkN01t1gQK5XXKeet7WMe9KzIf2/RYAgErbPXrJ89wdyF2'
- *                                     state: true
  *                                     iat: '1671204748'
  *              '500':
  *                  description: server error
