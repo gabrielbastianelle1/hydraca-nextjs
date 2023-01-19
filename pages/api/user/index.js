@@ -5,7 +5,7 @@ const verifyToken = require('../../../src/middlewares/verifyToken')
  * paths:
  *  /api/index:
  *     get:
- *      tags:
+ *          tags:
  *              - user
  *          sumarry: profile users
  *          description: profile users
@@ -16,7 +16,7 @@ const verifyToken = require('../../../src/middlewares/verifyToken')
  *                  content:
  *                      application/json:
  *                          examples:
- *                              registers:
+ *                              Profile:
  *                                  value:
  *                                     _id: '639c8f85b78834dfde9f4831'
  *                                     role: 'user'
