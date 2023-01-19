@@ -2,7 +2,8 @@ const userController = require('../../../src/controllers/controller.user')
 const verifyToken = require('../../../src/middlewares/verifyToken')
 /**
  * @swagger
- * /api/user:
+ * /api/index:
+ *  -user
  *   get:
  *     description: verify token and return all data from user recurrent that token,
  *     responses:

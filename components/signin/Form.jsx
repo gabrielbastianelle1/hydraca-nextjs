@@ -3,6 +3,7 @@ import { signin, getCurrentUser } from '../../services/service.auth'
 import useRouter from 'next/router'
 import Button from '../Button'
 import FormContent from '../Form.styled'
+import 'animate.css'
 
 export default function Form() {
     const navigate = useRouter
@@ -68,7 +69,7 @@ export default function Form() {
                 active={message.active}
                 error={message.error}
                 message={message.message}
-                className="form"
+                className="form  animate__animated animate__backInDown"
             >
                 <div className="item-form">
                     <label htmlFor="email">Email: </label>

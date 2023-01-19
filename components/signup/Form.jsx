@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { signup } from '../../services/service.auth'
 import Button from '../Button'
+import 'animate.css'
 import FormContent from '../Form.styled'
 
 export default function Form() {
@@ -80,7 +81,7 @@ export default function Form() {
                 active={message.active}
                 error={message.error}
                 message={message.message}
-                className="form"
+                className="form  animate__animated animate__backInDown"
             >
                 <div className="item-form">
                     <label htmlFor="name">Nome: </label>

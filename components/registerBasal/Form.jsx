@@ -2,6 +2,7 @@ import { React, useState, useContext } from 'react'
 import { GlobalContext } from '../../context/GlobalContext'
 import Button from '../Button'
 import Dropbox from '../Dropbox'
+import 'animate.css'
 import { registerBasal } from '../../services/service.basal'
 import FormContent from '../Form.styled'
 import { useRouter } from 'next/router'
@@ -102,7 +103,7 @@ export default function Form() {
             active={message.active}
             error={message.error}
             message={message.message}
-            className="form lg:grid-cols-2 lg:grid-rows-6 gap-y-16 lg:gap-y-6 gap-x-4"
+            className="form lg:grid-cols-2 lg:grid-rows-6 gap-y-16 lg:gap-y-6 gap-x- 4    "
         >
             <div className="item-form lg:col-span-2">
                 <label htmlFor="aGlucoseTrend">Glicose: </label>

@@ -4,13 +4,13 @@ import Button from '../Button'
 import Dropbox from '../Dropbox'
 import FormContent from '../Form.styled'
 import { updateProfile } from '../../services/service.user'
+import 'animate.css'
 import { calcImc } from './calcimc'
 import useRouter from 'next/router'
 
 export default function Form() {
     const navigate = useRouter
     const { diabetesGlobal, therapyGlobal } = useContext(GlobalContext)
-
     const [titleDropbox, setTitleDropbox] = useState('Selecione')
     const [idReturnedFromDropBoxTherapy, setIdReturnedFromDropBoxTherapy] =
         useState(null)
@@ -102,7 +102,7 @@ export default function Form() {
 
     return (
         <div>
-            <h1 className="uppercase text-center font-bold text-7xl text-colorButton mb-5">
+            <h1 className="uppercase text-center font-bold text-7xl text-colorButton mb-5 animate__animated animate__fadeInDown ">
                 bem vindo
             </h1>
 

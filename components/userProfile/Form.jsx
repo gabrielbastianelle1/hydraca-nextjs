@@ -4,6 +4,7 @@ import Button from '../Button'
 import FormContent from '../Form.styled'
 import { updateProfile, deleteUser } from '../../services/service.user'
 import Dropbox from '../Dropbox'
+import 'animate.css'
 import { getCurrentUser } from '../../services/service.auth'
 import useRouter from 'next/router'
 import Modal from './Modal'
@@ -254,7 +255,7 @@ export default function Form() {
                 active={message.active}
                 error={message.error}
                 message={message.message}
-                className="form lg:grid-cols-2 lg:grid-rows-6  gap-y-16 lg:gap-y-6 gap-x-4"
+                className="form lg:grid-cols-2 lg:grid-rows-6  gap-y-16 lg:gap-y-6 gap-x-4 "
             >
                 <div className="item-form">
                     <label htmlFor="name">Nome: </label>
