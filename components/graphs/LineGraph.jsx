@@ -3,6 +3,7 @@ import { Line } from 'react-chartjs-2'
 import 'chart.js/auto'
 import { useState, useEffect } from 'react'
 import { getDataToBarGraph } from './GraphCalcs'
+import { Chart } from 'chart.js'
 
 export default function LineGraph() {
     const [data, setData] = useState({

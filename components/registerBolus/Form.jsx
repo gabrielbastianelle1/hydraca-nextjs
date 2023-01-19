@@ -99,7 +99,7 @@ export default function Form() {
     return (
         <>
             <FormContent
-                className="form lg:grid-cols-2 lg:grid-rows-6  gap-y-16 lg:gap-y-6 gap-x-4"
+                className="form lg:grid-cols-2 lg:grid-rows-6 gap-y-16 lg:gap-y-6 gap-x-4"
                 active={message.active}
                 error={message.error}
                 message={message.message}
@@ -172,16 +172,11 @@ export default function Form() {
                         value={timeExercise}
                     />
                 </div>
-
-                <button
-                    className="button col-span-2 w-1/2 justify-self-center"
-                    onClick={handleCalcular}
-                    style={{
-                        gridRow: 6
-                    }}
-                >
-                    Calcular
-                </button>
+                <div className=" lg:col-span-2 w-full lg:w-1/2 justify-self-center">
+                    <Button className="w-full" onClick={handleCalcular}>
+                        Calcular
+                    </Button>
+                </div>
             </FormContent>
 
             <Modal

@@ -11,7 +11,7 @@ import ModalPassword from './ModalPassword'
 import { calcImc } from '../welcome/calcimc'
 
 export default function Form() {
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState(undefined)
 
     const { diabetesGlobal, therapyGlobal } = useContext(GlobalContext)
 
@@ -24,6 +24,8 @@ export default function Form() {
             })
             .then((response) => {
                 setTitleDropbox(getDiabatesName(response))
+                setGlucoseMin(response.glucoserange[0])
+                setGlucoseMax(response.glucoserange[1])
                 return response
             })
             .then((response) => {
@@ -31,26 +33,26 @@ export default function Form() {
             })
     }, [diabetesGlobal, therapyGlobal])
 
-    const [name, setName] = useState(user.name)
-    const [height, setHeight] = useState(user.height)
-    const [weight, setWeight] = useState(user.weight)
-    const [sensitivity, setSensitivity] = useState(user.sensitivity)
-    const [birthday, setBirthday] = useState(user.birthday)
-    const [password, setPassword] = useState('')
+    const [name, setName] = useState(undefined)
+    const [height, setHeight] = useState(undefined)
+    const [weight, setWeight] = useState(undefined)
+    const [sensitivity, setSensitivity] = useState(undefined)
+    const [birthday, setBirthday] = useState(undefined)
+    const [glucoseMin, setGlucoseMin] = useState(undefined)
+    const [glucoseMax, setGlucoseMax] = useState(undefined)
+    const [password, setPassword] = useState('testani')
     const [confirm, setConfirm] = useState('')
-    const [email, setEmail] = useState(user.email)
-    const [imc, setImc] = useState(user.imc)
-    const [state, setState] = useState(user.state)
+    const [email, setEmail] = useState(undefined)
+    const [imc, setImc] = useState(undefined)
+    const [state, setState] = useState(undefined)
     const [titleDropbox, setTitleDropbox] = useState(undefined)
     const [modal, setModal] = useState(false)
     const [modalPassword, setModalPassword] = useState(false)
-    const [typeInsulin, setTypeInsulin] = useState('')
     const [titleDropBoxTherapy, setTitleDropBoxTherapy] = useState(undefined)
     const [idReturnedFromDropBoxTherapy, setIdReturnedFromDropBoxTherapy] =
-        useState(user.therapy)
-    const [idReturnedFromDropBox, setIdReturnedFromDropBox] = useState(
-        user.idDiabetes
-    )
+        useState(undefined)
+    const [idReturnedFromDropBox, setIdReturnedFromDropBox] =
+        useState(undefined)
     const [message, setMessage] = useState({
         active: false,
         error: false,
@@ -105,6 +107,14 @@ export default function Form() {
         setBirthday(event.target.value)
     }
 
+    const onChangeMin = (event) => {
+        setGlucoseMin(event.target.value)
+    }
+
+    const onChangeMax = (event) => {
+        setGlucoseMax(event.target.value)
+    }
+
     const onChangeConfirm = (event) => {
         setConfirm(event.target.value)
     }
@@ -123,7 +133,39 @@ export default function Form() {
         return false
     }
 
+    const getImc = () => {
+        let imc
+        if (height && weight) {
+            imc = calcImc(weight, height)
+            return imc
+        }
+
+        if (!height && !weight) {
+            imc = calcImc(user.weight, user.height)
+            return imc
+        }
+
+        if (!weight) {
+            imc = calcImc(user.weight, height)
+            return imc
+        }
+
+        if (!height) {
+            imc = calcImc(weight, user.height)
+            return imc
+        }
+    }
+
     const handleSubmit = async () => {
+        if (checkRangeGlucose()) {
+            setMessage({
+                active: true,
+                error: true,
+                message: 'Gligose minima nao pode ser maior que a maxima'
+            })
+            return
+        }
+
         try {
             await updateProfile({
                 name: name,
@@ -131,7 +173,8 @@ export default function Form() {
                 height: height,
                 sensitivity: sensitivity,
                 birthday: birthday,
-                imc: calcImc(user.weight, user.height),
+                glucoserange: [parseFloat(glucoseMin), parseFloat(glucoseMax)],
+                imc: getImc(),
                 idDiabetes: idReturnedFromDropBox,
                 therapy: idReturnedFromDropBoxTherapy
             })
@@ -141,6 +184,8 @@ export default function Form() {
                 error: false,
                 message: 'O Perfil foi atualizado com sucesso!'
             })
+
+            navigate.push('/user')
         } catch (error) {
             console.log(error.response.data)
         }
@@ -169,6 +214,12 @@ export default function Form() {
         setModalPassword(true)
     }
 
+    const checkRangeGlucose = () => {
+        if (glucoseMin >= glucoseMax) {
+            return true
+        }
+    }
+
     const handleSubmitPassword = async (event) => {
         event.preventDefault()
         if (password == '') {
@@ -179,6 +230,7 @@ export default function Form() {
             })
             return
         }
+
         try {
             await updateProfile({ password: password })
             console.log(password)
@@ -192,6 +244,10 @@ export default function Form() {
         }
     }
 
+    if (user === undefined) {
+        return <div>loading</div>
+    }
+
     return (
         <>
             <FormContent
@@ -200,7 +256,7 @@ export default function Form() {
                 message={message.message}
                 className="form lg:grid-cols-2 lg:grid-rows-6  gap-y-16 lg:gap-y-6 gap-x-4"
             >
-                <div className="item-form lg:col-span-2 ">
+                <div className="item-form">
                     <label htmlFor="name">Nome: </label>
                     <input
                         id="name"
@@ -208,6 +264,15 @@ export default function Form() {
                         onChange={onChangeName}
                         value={name}
                         className="input placeholder-gray-600"
+                    />
+                </div>
+                <div className="item-form disabled">
+                    <label htmlFor="email">Email: </label>
+                    <input
+                        placeholder={user.email}
+                        value={email}
+                        className="input placeholder-gray-800"
+                        disabled
                     />
                 </div>
                 <div className="item-form">
@@ -233,16 +298,6 @@ export default function Form() {
                         </svg>
                     </button>
                 </div>
-                <div className="item-form lg:col-span-2 disabled">
-                    <label htmlFor="email">Email: </label>
-                    <input
-                        placeholder={user.email}
-                        value={email}
-                        className="input placeholder-gray-800"
-                        disabled
-                    />
-                </div>
-
                 <div className="item-form">
                     <label htmlFor="name">Nascimento: </label>
                     <input
@@ -255,13 +310,34 @@ export default function Form() {
                     />
                 </div>
                 <div className="item-form ">
+                    <label htmlFor="minglucose">Glicose minima: </label>
+                    <input
+                        id="minglucose"
+                        type="number"
+                        min={user.glucoserange[1]}
+                        placeholder={user.glucoserange[0]}
+                        onChange={onChangeMin}
+                        className="input w-1/5 placeholder-gray-600"
+                    />
+                </div>
+                <div className="item-form ">
+                    <label htmlFor="maxglucose">Glicose maxima: </label>
+                    <input
+                        id="maxglucose"
+                        type="number"
+                        min={user.glucoserange[0]}
+                        placeholder={user.glucoserange[1]}
+                        onChange={onChangeMax}
+                        className="input w-1/5 placeholder-gray-600"
+                    />
+                </div>
+                <div className="item-form ">
                     <label htmlFor="height">Altura: </label>
                     <input
                         id="height"
                         type="number"
                         placeholder={user.height}
                         onChange={onChangeHeight}
-                        value={height}
                         className="input placeholder-gray-600"
                     />
                 </div>
@@ -272,7 +348,6 @@ export default function Form() {
                         type="number"
                         placeholder={user.weight}
                         onChange={onChangeWeight}
-                        value={weight}
                         className="input placeholder-gray-600"
                     />
                 </div>
@@ -304,7 +379,7 @@ export default function Form() {
                     setIdReturnedFromDropBox={setIdReturnedFromDropBoxTherapy}
                 />
                 <div>
-                    <button onClick={handleDelete} className="text-red-600 ">
+                    <button onClick={handleDelete} className="text-red-600">
                         Excluir conta
                     </button>
                 </div>

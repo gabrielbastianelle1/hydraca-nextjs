@@ -2,8 +2,8 @@ POST http://localhost:3000/api/signin
 Content-Type: application/json
 
 {
-    "email" : "user@example.com",
-    "password" : "user"
+    "email" : "gabrielb@ipvc.pt",
+    "password" : "123"
 }
 
 ##########################################################################
@@ -26,11 +26,10 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzN2E
 ##########################################################################
 POST http://localhost:3000/api/user/registerbolus
 Content-Type: application/json
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzOTRhZjM4MDJhODIzOGM2NjNiOTM1MCIsInJvbGUiOiJ1c2VyIiwibmFtZSI6InVzZXIiLCJiaXJ0aGRheSI6IjIwMDAtMTItMTIiLCJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCQ5cWFJRmpzUWpHLjE1TGpVSjF5NUYuVHpWS1M0eUxNMTdNTTlvTnJFSS9kajJiOWlJblpJTyIsInN0YXRlIjp0cnVlLCJnbHVjb3NlcmFuZ2UiOls4MCwxMjBdLCJjYXJiUmF0aW8iOjIwLCJoZWlnaHQiOjIwLCJpZERpYWJldGVzIjoiNjM5NGFhOWZiNmU5ZTZhYWQzNWY0NjgzIiwic2Vuc2l0aXZpdHkiOjIwLCJ3ZWlnaHQiOjIwfSwiaWF0IjoxNjcwNjg4NTc0fQ.CZF88sy6iHT81f5Dt5A_R7tMRluvxyEZ0H32WJHahH8
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzYzkzZDM1N2Q5ZjNjOWUxMGRhOTFmNiIsInJvbGUiOiJ1c2VyIiwibmFtZSI6ImdhYnJpZWwiLCJiaXJ0aGRheSI6IjIwMjMtMDEtMTkiLCJlbWFpbCI6ImdhYnJpZWxiQGlwdmMucHQiLCJwYXNzd29yZCI6IiQyYSQxMCRlSGR1RnF1dEtGdTRGMmNTdW41Yk9POFVtdWh0YjlIcVFMM0hqR3A2L0Q4QXRpU0NsOTFpQyIsInN0YXRlIjp0cnVlLCJnbHVjb3NlcmFuZ2UiOls4MCwxMjBdLCJjYXJiUmF0aW8iOjIwLCJoZWlnaHQiOjE3NSwiaWREaWFiZXRlcyI6IjYzYzkyZjQ1N2Q5ZjNjOWUxMGRhNzk0ZCIsImltYyI6MjEuMjIsInNlbnNpdGl2aXR5IjoyMCwidGhlcmFweSI6IkluZ2VzdMOjbyBkZSBpbnN1bGluYSBwcmFuZGlhbCIsIndlaWdodCI6NjV9LCJpYXQiOjE2NzQxNDU3Njl9.N8GVXPqnabNm6GCSPLj6HSLyBALV4-Hy4v2tt6JAQcQ
 
 {
     "amountGlucose": 150,
-    "therapy": "terapia",
     "date": "qualquercoisa",
     "time": "lalala",
     "amountHc": 500
@@ -74,4 +73,4 @@ x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzOTR
 ###
 GET http://localhost:3000/api/user/getallregisters
 Content-Type: application/json
-x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzYTA0OTNkOWI3MTMzNzQxZTliYTFhMyIsInJvbGUiOiJ1c2VyIiwibmFtZSI6InVzZXIiLCJiaXJ0aGRheSI6IjIwMDAtMTItMTIiLCJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCRMWGp0MkpLYmhrdElZSThpTUJ6VjNPOHUvUUUxak03S2phS3hrSUxqbFhDdnZCdFFSOTdLbSIsInN0YXRlIjp0cnVlLCJnbHVjb3NlcmFuZ2UiOls4MCwxMjBdLCJjYXJiUmF0aW8iOjIwLCJoZWlnaHQiOjIwLCJpZERpYWJldGVzIjoiNjNhMDQ5MjM5YjcxMzM3NDFlOWJhMTk2Iiwic2Vuc2l0aXZpdHkiOjIwLCJ3ZWlnaHQiOjIwfSwiaWF0IjoxNjcxNDQ5MTU0fQ.v4eiv5ln2r1q1YlCEQIzV_7QGlpqt9ox38VnHqE8vSY
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzYzkzZDM1N2Q5ZjNjOWUxMGRhOTFmNiIsInJvbGUiOiJ1c2VyIiwibmFtZSI6ImdhYnJpZWwiLCJiaXJ0aGRheSI6IjIwMjMtMDEtMTkiLCJlbWFpbCI6ImdhYnJpZWxiQGlwdmMucHQiLCJwYXNzd29yZCI6IiQyYSQxMCRlSGR1RnF1dEtGdTRGMmNTdW41Yk9POFVtdWh0YjlIcVFMM0hqR3A2L0Q4QXRpU0NsOTFpQyIsInN0YXRlIjp0cnVlLCJnbHVjb3NlcmFuZ2UiOls4MCwxMjBdLCJjYXJiUmF0aW8iOjIwLCJoZWlnaHQiOjE3NSwiaWREaWFiZXRlcyI6IjYzYzkyZjQ1N2Q5ZjNjOWUxMGRhNzk0ZCIsImltYyI6MjEuMjIsInNlbnNpdGl2aXR5IjoyMCwidGhlcmFweSI6IkluZ2VzdMOjbyBkZSBpbnN1bGluYSBwcmFuZGlhbCIsIndlaWdodCI6NjV9LCJpYXQiOjE2NzQxNDU3Njl9.N8GVXPqnabNm6GCSPLj6HSLyBALV4-Hy4v2tt6JAQcQ

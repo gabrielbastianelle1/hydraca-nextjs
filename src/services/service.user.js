@@ -13,7 +13,7 @@ let userService = {
                 )
                 let token = jwt.sign({ user: response }, process.env.SECRET_KEY)
 
-                if (!response) reject('nothing updated')
+                if (!response) reject('nada atualizado')
                 return resolve(token)
             } catch (erro) {
                 return reject(erro)
@@ -29,7 +29,7 @@ let userService = {
                     { state: false }
                 ).exec()
                 let token = jwt.sign({ user: response }, process.env.SECRET_KEY)
-                if (!response) reject('nothing updated')
+                if (!response) reject('nada atualizado')
                 return resolve(token)
             } catch (erro) {
                 return reject(erro)
