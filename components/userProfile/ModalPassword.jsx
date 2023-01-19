@@ -8,7 +8,11 @@ export default function ModalPassword({
     onChangePassword
 }) {
     return (
-        <div className={`${modalPassword ? 'flex' : 'hidden'} modal`}>
+        <div
+            className={`${
+                modalPassword ? 'flex' : 'hidden'
+            } modal md:right-36 mt-36 lg:mt-10`}
+        >
             <h1 className="font-bold self-center p-6 text-3xl uppercase">
                 Alterar senha
             </h1>

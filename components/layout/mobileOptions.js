@@ -11,7 +11,7 @@ export const mobileOptions = [
     },
     {
         text: 'Contatos',
-        href: '/',
+        href: '/contact',
         className: ''
     },
     {

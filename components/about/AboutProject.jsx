@@ -22,11 +22,11 @@ export default function AboutProject() {
                 </div>
                 <div className="flex justify-center">
                     <div
-                        className=" lg:w-2/5 lg:h-80 lg:grid w-max justify-center items-center rounded-xl border-gray-200  mb-4 bg-blue-100 animate__animated animate__fadeIn"
+                        className=" lg:w-2/5 lg:h-80 lg:grid w-max justify-center items-center rounded-xl border-gray-200  mb-4 bg-blue-100/50  animate__animated animate__backInDown"
                         data-wow-duration="1s"
                         data-wow-delay=".1s"
                     >
-                        <div className=" lg:p-10 p-5 lg:text-lg font-light text leading-relaxed text-justif align-middle  text-gray-800">
+                        <div className=" lg:p-10 p-5 lg:text-lg font-semibold text leading-relaxed text-justif align-middle  text-gray-800">
                             <p>
                                 <a className="ml-4">O presente trabalho</a> é
                                 fruto de uma de investigação tanto conteúdos

@@ -169,8 +169,9 @@ export default function Form() {
         setModalPassword(true)
     }
 
-    const handleSubmitPassword = async () => {
-        if (checkIfPasswordIsEmpty(password)) {
+    const handleSubmitPassword = async (event) => {
+        event.preventDefault()
+        if (password == 0) {
             setMessage({
                 active: true,
                 error: true,
@@ -178,7 +179,6 @@ export default function Form() {
             })
             return
         }
-
         try {
             await updateProfile({ password: password })
             navigate.push('/user')
@@ -319,6 +319,7 @@ export default function Form() {
                 toggleModal={toggleModal}
                 handleDeleteUser={handleDeleteUser}
             />
+
             <ModalPassword
                 modalPassword={modalPassword}
                 toggleModalPassword={toggleModalPassword}

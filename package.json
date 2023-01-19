@@ -39,6 +39,7 @@
         "react-datepicker": "^4.8.0",
         "react-dom": "18.2.0",
         "react-leaflet": "^4.2.0",
+        "react-map-gl": "^7.0.21",
         "split-type": "^0.3.3",
         "styled-components": "^5.3.6",
         "swagger-ui-react": "^4.15.5",
