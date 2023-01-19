@@ -5,7 +5,8 @@ export default function ModalPassword({
     modalPassword,
     toggleModalPassword,
     handleSubmitPassword,
-    onChangePassword
+    onChangePassword,
+    password
 }) {
     return (
         <div

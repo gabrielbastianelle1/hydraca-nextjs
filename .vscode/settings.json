@@ -1,0 +1,15 @@
+{
+    "vscord.status.buttons.button1.enabled": false,
+    "vscord.status.buttons.button1.git.active.enabled": false,
+    "vscord.status.idle.enabled": false,
+    "vscord.status.idle.check": false,
+    "vscord.status.problems.enabled": true,
+    "vscord.status.showElapsedTime": true,
+    "vscord.status.state.idle.enabled": true,
+    "vscord.status.state.enabled": true,
+    "vscord.status.idle.disconnectOnIdle": false,
+    "vscord.status.idle.resetElapsedTime": false,
+    "vscord.app.whitelistIsBlacklist": true,
+    "vscord.status.resetElapsedTimePerFile": true,
+    "vscord.app.whitelistEnabled": true
+}

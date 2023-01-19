@@ -36,7 +36,7 @@ export default function Form() {
     const [weight, setWeight] = useState(user.weight)
     const [sensitivity, setSensitivity] = useState(user.sensitivity)
     const [birthday, setBirthday] = useState(user.birthday)
-    const [password, setPassword] = useState('testani')
+    const [password, setPassword] = useState('')
     const [confirm, setConfirm] = useState('')
     const [email, setEmail] = useState(user.email)
     const [imc, setImc] = useState(user.imc)
@@ -171,7 +171,7 @@ export default function Form() {
 
     const handleSubmitPassword = async (event) => {
         event.preventDefault()
-        if (password == 0) {
+        if (password == '') {
             setMessage({
                 active: true,
                 error: true,
@@ -181,6 +181,7 @@ export default function Form() {
         }
         try {
             await updateProfile({ password: password })
+            console.log(password)
             navigate.push('/user')
         } catch (error) {
             setMessage({
@@ -325,6 +326,7 @@ export default function Form() {
                 toggleModalPassword={toggleModalPassword}
                 handleSubmitPassword={handleSubmitPassword}
                 onChangePassword={onChangePassword}
+                value={password}
             />
         </>
     )
