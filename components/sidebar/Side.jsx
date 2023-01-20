@@ -62,7 +62,7 @@ export default function Side() {
                         <hr className="my-4 mx-auto w-48 h-px bg-gray-300 rounded border-0 " />
                         <div className="flex-1 flex items-center p-2 space-x-3 rounded-md ">
                             <Help />
-                            <SideItem hrefLink="/" text="Ajuda " />
+                            <SideItem hrefLink="/user/help" text="Ajuda " />
                         </div>
                     </div>
                 </aside>

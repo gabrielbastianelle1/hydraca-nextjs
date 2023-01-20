@@ -30,8 +30,8 @@ export default function Welcome() {
             </h1>
             <div className=" lg:space-y-2">
                 <p className="uppercase text-center p-gsap font-bold lg:text-lg">
-                    Monitore a sua diabete diariamente e tenha mais qualidade de
-                    vida.
+                    Monitore a sua diabetes diariamente e tenha mais qualidade
+                    de vida.
                 </p>
                 <p className="uppercase text-center p-gsap font-bold lg:text-lg">
                     Efetue registos regularmento dos hidratos de carbono.
